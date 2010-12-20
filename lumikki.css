@@ -90,8 +90,10 @@ ul.css-tabs a.current {
     border:1px solid #666;
     border-width:1px 1px 1px 1px;
     min-height:250px;
+    height:250px;
     padding:10px 10px;
     background-color:#ddf;	
+    overflow:auto;
 }
 
 .css-log p {
