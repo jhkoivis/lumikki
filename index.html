@@ -14,13 +14,25 @@
 	<ul class="css-tabs">
 		<li><a href="#">Main</a></li>
 		<li><a href="#">Tensile</a></li>
-		<li><a href="#">Ae</a></li>
+		<li><a href="#">Acoustic Emission</a></li>
 		<li><a href="#">Camera</a></li>
 		<li><a href="#">IR Camera</a></li>
 	</ul>
 
 	<div class="css-panes">
-		<div>pane 1 content</div>
+		<div>
+		  <div style="float:right;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
+		    <table id="stable"> 
+		      <tr>
+			<th>Machine</th><th>Status</th><th>Description</th>
+		      </tr>
+		    </table>
+
+		    <form  id="logstatus" action="">
+		      <input style="float:bottom;" type="submit" value="Force status" />
+		    </form>
+		  </div>
+		</div>
 		<div>pane 2 content</div>
 		<div>pane 3 content</div>
 		<div>pane 4 content</div>
@@ -28,41 +40,9 @@
 	</div>
 
 <div class="css-log-header">Log events</div>
-<div class="css-log">
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-<p>lorem ipsum</p>
-
-
-
+<div class="css-log" id="css-log">
+<p/>
 </div>
-<form action="">
-<input type="submit" value="Get status" />
-</form>
 
 
 </body>
