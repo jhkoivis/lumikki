@@ -16,7 +16,7 @@ cgi.assign                 = ( ".pl"  => "/usr/bin/perl",
                                ".cgi" => "/usr/bin/perl",
                                ".rb"  => "/usr/bin/ruby",
                                ".erb" => "/usr/bin/eruby",
-                               ".py"  => "/usr/bin/python" )
+                               ".py"  => "/Library/Frameworks/Python.framework/Versions/Current/bin/python" )
 
 ##
 ## to get the old cgi-bin behavior of apache
@@ -24,10 +24,10 @@ cgi.assign                 = ( ".pl"  => "/usr/bin/perl",
 ## Note: make sure that mod_alias is loaded if you uncomment the
 ##       next line. (see modules.conf)
 ##
-#alias.url += ( "/cgi-bin" => server_root + "/cgi-bin" )
-#$HTTP["url"] =~ "^/cgi-bin" {
-#   cgi.assign = ( "" => "" )
-#}
+alias.url += ( "/cmd" => server_root + "/cmd" )
+$HTTP["url"] =~ "^/cmd" {
+   cgi.assign = ( "" => "/usr/bin/python" )
+}
 
 ##
 #######################################################################
