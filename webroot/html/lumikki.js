@@ -72,7 +72,7 @@ function getStatus() {
 function request(reqfun, request, target) {
     var rdata = null; 
     var id = reqId();
-    var req = request + "?" + "i=" + id + "&t=" + target;
+    var req = "i=" + id + "&t=" + target;
     logC(req);
     reqfun(request, req, function(data) { logR(req + " " +  data); rdata = data; }, "json");
     return rdata;
