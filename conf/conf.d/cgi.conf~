@@ -26,7 +26,7 @@ cgi.assign                 = ( ".pl"  => "/usr/bin/perl",
 ##
 alias.url += ( "/cmd" => server_root + "/cmd" )
 $HTTP["url"] =~ "^/cmd" {
-   cgi.assign = ( "" => "/usr/bin/python" )
+   cgi.assign = ( ".py" => "/usr/bin/python" )
 }
 
 ##
