@@ -16,6 +16,7 @@ $(function() {
 
 R_ECHO = "/cmd/echo.cgi"
 R_STATUS = "/cmd/status.cgi";
+R_RUN = "/cmd/run.cgi";
 
 TTM=0;
 AE=1;
@@ -34,6 +35,11 @@ errmap = { "000":"Cannot connect to anything"
 	 };
 
 
+function run(json) {
+    run.json = json; 
+}
+
+
 function echo(json) {
     echo.json = json;
     logC("echo model says: " + echo.json.echo);
@@ -41,7 +47,7 @@ function echo(json) {
 
 function doEcho() {
     var s = JSON.stringify({ echo:"success"});
-    logC("Request: " + R_ECHO + " with " + s);
+    logC(R_ECHO + "::" + s);
     $.post(R_ECHO, s, function(data) { logR("Echo response: " + JSON.stringify(data)); echo(data); }, 'json');
 }
 
@@ -61,16 +67,8 @@ function showStatus() {
     }
 }
 
-function status(target, value) {
-    if (value == null) {
-	status.st[target] = "000";
-    } else if (typeof value.status == 'undefined') {
-	status.st[target] =  "010";
-    } else if (typeof errmap[value.status] == 'undefined') {
-	status.st[target] = "020";
-    } else {
-	status.st[target] = value.status;
-    }
+function status(value) {
+    status.st[value.target] = value.status;
     if (status.st.length == NMAP.length) {
 	showStatus();
     }
@@ -87,11 +85,11 @@ function doStatus() {
 function request(request, target) {
     var rdata = null; 
     var id = reqId();
-    var params =   "i=" + id + "&t=" + target;
-    logC(request + "?" + params);
-    $.get(request, params, function(data) { 
-	logR(req + " " +  data); 
-	status(target, data); }, "json");
+    var params =   JSON.stringify({'id':id, 'target':target});
+    logC(request + "::" + params);
+    $.post(request, params, function(data) { 
+	logR("status: " + JSON.stringify(data)); 
+	status(data); }, "json");
 }
 
 
@@ -105,13 +103,14 @@ function reqId() {
 function getTime() {
     var d = new Date();
     var f = function(t) { return t<10 ? "0" + t : "" + t; }; 
+    var f2 = function(t) { var s = f(t); return t<100 ? "0"+s : s};
     return  f(d.getHours()) 
 	+ ":" 
 	+ f(d.getMinutes()) 
 	+ ":" 
 	+ f(d.getSeconds())
 	+ "." 
-	+ f(parseInt((d.getMilliseconds()/1000*100))
+	+ f2(parseInt((d.getMilliseconds()/1000*1000))
 	   );
 }
 
