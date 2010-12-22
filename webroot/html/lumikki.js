@@ -1,10 +1,11 @@
 $(document).ready(function() {
     $('#logstatus').submit(function() {
-	getStatus();
-	showStatus();
+	doStatus();
 	return false;
     });
     logC("UI created");
+    doEcho();
+    doStatus();
 });
 
 
@@ -13,8 +14,8 @@ $(function() {
 });
 
 
-
-R_STATUS = "/status";
+R_ECHO = "/cmd/echo.cgi"
+R_STATUS = "/cmd/status.cgi";
 
 TTM=0;
 AE=1;
@@ -33,49 +34,64 @@ errmap = { "000":"Cannot connect to anything"
 	 };
 
 
+function echo(json) {
+    echo.json = json;
+    logC("echo model says: " + echo.json.echo);
+}
+
+function doEcho() {
+    var s = JSON.stringify({ echo:"success"});
+    logC("Request: " + R_ECHO + " with " + s);
+    $.post(R_ECHO, s, function(data) { logR("Echo response: " + JSON.stringify(data)); echo(data); }, 'json');
+}
+
 function showStatus() {
     var rowCount = $('#stable tr').length;
     for (i = 0; i < rowCount -1; i++) {
 	$('#stable tr:last').remove()
     }	
-    for(i=0; i<IR+1; i++) {
+    for(i=0; i < NMAP.length; i++) {
 	$('#stable tr:last').after("<tr><td>" 
 				   + NMAP[i]
 				   + "</td><td>" 
-				   + state.st[i]	
+				   + status.st[i]	
 				   + "</td><td>" 
-				   + errmap[state.st[i]]
+				   + errmap[status.st[i]]
 				   + "</td></tr>");
     }
 }
 
-function state(id, value) {
+function status(target, value) {
     if (value == null) {
-	state.st[id] = "000";
+	status.st[target] = "000";
     } else if (typeof value.status == 'undefined') {
-	state.st[id] =  "010";
+	status.st[target] =  "010";
     } else if (typeof errmap[value.status] == 'undefined') {
-	state.st[id] = "020";
+	status.st[target] = "020";
     } else {
-	state.st[id] = value.status;
+	status.st[target] = value.status;
+    }
+    if (status.st.length == NMAP.length) {
+	showStatus();
     }
 }
 
-function getStatus() {
-    state.st = [];
+function doStatus() {
+    status.st = [];
     var i = 0;
-    for(i=0; i<IR+1; i++) {
-	state(i, request($.get, R_STATUS, i)); 
+    for(i=0; i < NMAP.length; i++) {
+	status(i, request(R_STATUS, i)); 
     }
 }
 
-function request(reqfun, request, target) {
+function request(request, target) {
     var rdata = null; 
     var id = reqId();
-    var req = "i=" + id + "&t=" + target;
-    logC(req);
-    reqfun(request, req, function(data) { logR(req + " " +  data); rdata = data; }, "json");
-    return rdata;
+    var params =   "i=" + id + "&t=" + target;
+    logC(request + "?" + params);
+    $.get(request, params, function(data) { 
+	logR(req + " " +  data); 
+	status(target, data); }, "json");
 }
 
 
