@@ -16,4 +16,7 @@ def getjson():
     return json.loads(input)
 
 def gettarget(targetId):
-    return '127.0.0.1'
+    if targetId == 2: 
+        return '127.0.0.1'
+    else: 
+        return None
