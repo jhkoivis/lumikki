@@ -4,7 +4,6 @@ $(document).ready(function() {
 	return false;
     });
     logC("UI created");
-    doEcho();
     doStatus();
 });
 
@@ -32,25 +31,9 @@ errmap = { "000":"Cannot connect to anything"
 	   , "200":"Target available, values not set"
 	   , "210":"Ready to measure"
 	   , "220":"Measuring"
-	   , "230":"State not available, please try again" 
+	   , "230":"System is busy, please try again" 
 	 };
 
-
-function run(json) {
-    run.json = json; 
-}
-
-
-function echo(json) {
-    echo.json = json;
-    logC("echo model says: " + echo.json.echo);
-}
-
-function doEcho() {
-    var s = JSON.stringify({ echo:"success"});
-    logC(R_ECHO + "::" + s);
-    $.post(R_ECHO, s, function(data) { logR("Echo response: " + JSON.stringify(data)); echo(data); }, 'json');
-}
 
 function showStatus() {
     var rowCount = $('#stable tr').length;
