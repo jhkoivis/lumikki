@@ -26,12 +26,14 @@ NMAP = ["Tensile", "AE", "Camera", "IR Camera"];
 errmap = { "000":"Cannot connect to anything"
 	   , "010":"Server sent unknown status"
 	   , "020":"Server response did not contain status"
-	   , "110":"Target machine did not respond"
 	   , "100":"Machine is not used in this measurement."
+	   , "110":"Target machine did not respond"
+	   , "120":"Server received malformed command."
+	   , "122":"Server has not implemented the command (TODO)"
 	   , "200":"Target available, values not set"
 	   , "210":"Ready to measure"
 	   , "220":"Measuring"
-	   , "230":"System is busy, please try again" 
+	   , "230":"System is busy, please try again in a while." 
 	 };
 
 
