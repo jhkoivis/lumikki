@@ -99,9 +99,18 @@ ul.css-tabs a.current {
 .css-log p {
     font-family:"Bitstream Vera Sans Mono", verdana;
     font-size:70%;
+    border-width:1px 1px 1px 1px;
     margin:0 !important; 
-    color:#f00;	
+    color:#5f1111;	
 }
+
+.buttonlabel {
+    font-family:"Bitstream Vera Sans Mono", verdana;
+    font-size:70%;
+    margin:0 !important; 
+    color:#5f1111;	
+}
+
 
 .status {
 	float:right;

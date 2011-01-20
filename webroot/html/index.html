@@ -19,8 +19,31 @@
 		<li><a href="#">IR Camera</a></li>
 	</ul>
 
-	<div class="css-panes">
+	<div class="css-panes" style="opacity:0.9;filter:alpha(opacity=99);">
 		<div>
+		  <div style="float:left;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
+		    <form  id="run" action="">
+		      <p>
+			<label for="measurement_id">Measurement ID</label> 
+			<input type="text"  size="15" maxlength="15" id="measurement_id">
+		      </p>
+		      <p>
+			<input style="float:bottom;" type="submit" value="Run" />
+		      </p>
+		    </form>
+		    <p>
+		      <form  id="stop" action="">
+			<input style="float:bottom;" type="submit" value="Stop" />
+		      </form>
+		    </p>
+		    <hr />
+		    <p>
+		      <form  id="restore" action="">
+			<input id="rbutton" style="float:bottom;" type="submit" value="Restore" /><br /><label for="rbutton" class="buttonlabel">Restores defaults in ALL panes.</label>
+			
+		      </form>
+		    </p>
+		  </div>
 		  <div style="float:right;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
 		    <table id="stable"> 
 		      <tr>
@@ -40,7 +63,7 @@
 	</div>
 
 <div class="css-log-header">Log events</div>
-<div class="css-log" id="css-log">
+<div class="css-log" id="css-log" style="background-image:url(kaapiot2.png);background-repeat:repeat-x;  background-position: left bottom;opacity:0.95;filter:alpha(opacity=99);" >
 <p/>
 </div>
 

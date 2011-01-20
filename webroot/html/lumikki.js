@@ -1,10 +1,25 @@
 $(document).ready(function() {
+    /* Hook forms buttons to functions */
     $('#logstatus').submit(function() {
-	doStatus();
+	statusAction();
 	return false;
     });
+    $('#run').submit(function() {
+	runAction();
+	return false;
+    });
+    $('#stop').submit(function() {
+	stopAction();
+	return false;
+    });
+    $('#restore').submit(function() {
+	restoreAction();
+	return false;
+    });
+
+
     logC("UI created");
-    doStatus();
+    statusAction();
 });
 
 
@@ -37,6 +52,34 @@ errmap = { "000":"Cannot connect to anything"
 	 };
 
 
+/* postfix Action refers to UI event, which was received by the UI, 
+e.g. button press */
+function statusAction() {
+    status.st = [];
+    var i = 0;
+    for(i=0; i < NMAP.length; i++) {
+	status(i, request(R_STATUS, i)); 
+    }
+}
+
+function restoreAction() {
+    logC("Form values restored to defaults.");
+}
+
+function runAction() {
+    logC("Run");
+
+}
+
+function stopAction() {
+    logC("Stop");
+}
+
+
+
+
+
+
 function showStatus() {
     var rowCount = $('#stable tr').length;
     for (i = 0; i < rowCount -1; i++) {
@@ -60,13 +103,6 @@ function status(value) {
     }
 }
 
-function doStatus() {
-    status.st = [];
-    var i = 0;
-    for(i=0; i < NMAP.length; i++) {
-	status(i, request(R_STATUS, i)); 
-    }
-}
 
 function request(request, target) {
     var rdata = null; 
