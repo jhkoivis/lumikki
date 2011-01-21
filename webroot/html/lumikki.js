@@ -16,10 +16,9 @@ $(document).ready(function() {
 	restoreAction();
 	return false;
     });
-
-
     logC("UI created");
     statusAction();
+    stateAction();
 });
 
 
@@ -31,6 +30,7 @@ $(function() {
 R_ECHO = "/cmd/echo.cgi"
 R_STATUS = "/cmd/status.cgi";
 R_RUN = "/cmd/run.cgi";
+R_STATE = "/cmd/state.cgi"
 
 TTM=0;
 AE=1;
@@ -52,31 +52,58 @@ errmap = { "000":"Cannot connect to anything"
 	 };
 
 
-/* postfix Action refers to UI event, which was received by the UI, 
+/* *Action refers to UI event, which was received by the UI, 
 e.g. button press */
 function statusAction() {
     status.st = [];
     var i = 0;
     for(i=0; i < NMAP.length; i++) {
-	status(i, request(R_STATUS, i)); 
+	status(i, statusRequest(R_STATUS, i)); 
     }
 }
 
 function restoreAction() {
     logC("Form values restored to defaults.");
+    stateAction();
 }
 
 function runAction() {
-    logC("Run");
-
+    runRequest();
 }
 
 function stopAction() {
     logC("Stop");
 }
 
+function stateAction() {
+    var id = reqId();
+    $.post(R_STATE, JSON.stringify({'id':id}), function(response) {
+	logR(R_STATE + "::" + JSON.stringify(response));
+	showError(response);
+	$('#measurement_id').val(response['g:measurement_id']);
+     }, "json");
+}
 
 
+function showError(response) {
+    if (typeof response.st != 'undefined' && response.st != 0) {
+	alert(typeof response.msg == 'undefined' ? "No message!" : 
+	     response.msg);
+    }
+}
+
+function runRequest() {
+    var id = reqId();
+    var valueMap = {   "id"     : id
+                   , "measurement_id" : $('#measurement_id').val() 
+                   }; 
+    var params = JSON.stringify(valueMap);  
+    logC(R_RUN + "::" + params);
+    $.post(R_RUN, params, function(response) { 
+	logR(R_RUN + "::" + JSON.stringify(response)); 
+	showError(response);
+    }, "json");
+}
 
 
 
@@ -104,13 +131,14 @@ function status(value) {
 }
 
 
-function request(request, target) {
+function statusRequest(request, target) {
     var rdata = null; 
     var id = reqId();
     var params =   JSON.stringify({'id':id, 'target':target});
     logC(request + "::" + params);
     $.post(request, params, function(data) { 
 	logR("status: " + JSON.stringify(data)); 
+	showError(data);
 	status(data); }, "json");
 }
 

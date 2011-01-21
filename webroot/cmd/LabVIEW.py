@@ -40,16 +40,16 @@ _sockobj = None
 def connect(_serverHost, _serverPort):
     'opens a connection to LabVIEW Server'
     global _sockobj, isConnected
-    _sockobj = _socket.socket(_socket.AF_INET, _socket.SOCK_STREAM)      # create socket
+    _sockobj = _socket.socket(_socket.AF_INET, _socket.SOCK_STREAM)
     try:
+        _sockobj.settimeout(5)
         _sockobj.connect((_serverHost, _serverPort))   # connect to LV
         isConnected = 1
         return 0
     except _socket.error:
-        print "Error connecting. Check if you have the right ip and port. " \
-                + "Also check if Labview is running and waiting for the " \
-                + "message."
-        return 1
+        raise ValueError(
+"""Error connecting to camera server. Check if you have the right 
+ip and port. Also check if Labview is running and waiting for the message.""")
         
 
 
@@ -97,7 +97,7 @@ class _Function:
             
                 return _passCommand(self._name + '(' + `a` + ')')
 
-        else: print 'Not Connected: Run "%s.connect()" method to connect.'% __name__
+        else: raise ValueError('Not Connected: Run "%s.connect()" method to connect.'% __name__)
 
 
 #connect()
