@@ -22,7 +22,6 @@ try:
     if active[mg.cam]:
         log("Camera connect and send")
         ret = camera.connectAndSendStart()
-        log("returned")
         msg = msg + "Cam: " + ret
     put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:

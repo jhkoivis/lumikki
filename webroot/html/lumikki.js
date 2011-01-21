@@ -16,9 +16,14 @@ $(document).ready(function() {
 	restoreAction();
 	return false;
     });
+    $('#cam').submit(function() {
+	camTransferAction();
+	return false;
+    });
     logC("UI created");
     statusAction();
-    stateAction();
+    var id = reqId();
+    stateAction({"id":id});
 });
 
 
@@ -64,7 +69,13 @@ function statusAction() {
 
 function restoreAction() {
     logC("Form values restored to defaults.");
-    stateAction();
+    var id = reqId();
+    stateAction({"id":id});
+}
+
+function camTransferAction() {
+    var id = reqId();
+    stateAction({"id":id, 'cam_rawfps':$('#cam_rawfps').val()}); 
 }
 
 function runAction() {
@@ -75,10 +86,9 @@ function stopAction() {
     logC("Stop");
 }
 
-function stateAction() {
-    var id = reqId();
-    $.post(R_STATE, JSON.stringify({'id':id}), function(response) {
-	logR(R_STATE + "::" + JSON.stringify(response));
+function stateAction(inputMap) {
+    $.post(R_STATE, JSON.stringify(inputMap), function(response) {
+	logR(R_STATE + ":: values updated from memcached.");
 	if (showError(response)==true) { return; }
 	for (var key in response) {
 	    var jqueryId = "#" + key;

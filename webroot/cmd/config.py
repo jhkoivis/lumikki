@@ -1,16 +1,17 @@
-## configuration file for controlling the machine
 import memcache
 
 class conf:
     def __init__(self):
         self.mc = memcache.Client(['127.0.0.1:11211'], debug=0)
 
-    def getCurrent(self):
+    def getAndSetCurrent(self, inputMap):
         retDict = dict()
         for key in configurationMap: 
+            inKeys = inputMap.keys()
+            if key in inKeys:
+                self.set(key, inputMap[key])
             retDict[key] = self.get(key)
         return retDict
-            
 
     def get(self, key):
         value = self.mc.get(key)
@@ -25,9 +26,7 @@ class conf:
     def set(self, key, value):
         self.mc.set(key,value)
 
-## static global configuration, which should not change ever
 class staticglobals: 
-    # target values
     ttm = 0
     ae = 1
     cam = 2
