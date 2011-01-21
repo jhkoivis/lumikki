@@ -79,8 +79,11 @@ function stateAction() {
     var id = reqId();
     $.post(R_STATE, JSON.stringify({'id':id}), function(response) {
 	logR(R_STATE + "::" + JSON.stringify(response));
-	showError(response);
-	$('#measurement_id').val(response['g:measurement_id']);
+	if (showError(response)==true) { return; }
+	for (var key in response) {
+	    var jqueryId = "#" + key;
+	    $(jqueryId).val(response[key]);
+	}
      }, "json");
 }
 
@@ -89,13 +92,15 @@ function showError(response) {
     if (typeof response.st != 'undefined' && response.st != 0) {
 	alert(typeof response.msg == 'undefined' ? "No message!" : 
 	     response.msg);
+	return true;
     }
+    return false;
 }
 
 function runRequest() {
     var id = reqId();
     var valueMap = {   "id"     : id
-                   , "measurement_id" : $('#measurement_id').val() 
+                   , "g_measurementid" : $('#g_measurementid').val() 
                    }; 
     var params = JSON.stringify(valueMap);  
     logC(R_RUN + "::" + params);

@@ -34,15 +34,15 @@ class staticglobals:
     ir = 3
 
 configurationMap = {
-    'g:active':[False, False, True, False]
-    , 'g:measurement_id'     : 'default'
-    , 'cam:packetsize' : '9144'
-    , 'cam:xoffset' : '0'
-    , 'cam:yoffset' : '0'
-    , 'cam:width' : '1024'
-    , 'cam:height' : '768'
-    , 'cam:ip': '130.233.203.154'
-    , 'cam:port' : 6423
-    , 'cam:exposure' : '300'
-    , 'cam:rawfps' : '117000'
+    'g_active':[False, False, True, False]
+    , 'g_measurementid'     : 'default'
+    , 'cam_packetsize' : '9144'
+    , 'cam_xoffset' : '0'
+    , 'cam_yoffset' : '0'
+    , 'cam_width' : '1024'
+    , 'cam_height' : '768'
+    , 'cam_ip': '130.233.203.154'
+    , 'cam_port' : 6423
+    , 'cam_exposure' : '300'
+    , 'cam_rawfps' : '117000'
 }

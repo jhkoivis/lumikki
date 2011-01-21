@@ -1,26 +1,31 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 from lumilib import *
 import camera
 from config import conf
 from config import staticglobals as mg
 
-command_id = 1
+commandId = 1
 try: 
     ## send to all active devices
     c = conf()
     msg = ''
-    json_message = get_json()
-    command_id = json_message['id']
-    active = c.get('g:active')
-    log("activity" + str(active))
+    jsonMessage = get_json()
+    commandId = jsonMessage['id']
+    measurementid = jsonMessage['g_measurementid']
+    if measurementid: 
+        c.set('g_measurementid', measurementid)
+    else: 
+        raise ValueError("No measurement ID set.")
+    active = c.get('g_active')
+    log("active array: " + str(active))
     if active[mg.cam]:
         log("Camera connect and send")
-        ret = camera.connectAndSendStart(json_message)
+        ret = camera.connectAndSendStart()
         log("returned")
         msg = msg + "Cam: " + ret
-    put_json({'st':0, 'id':command_id, 'msg':'Success: ' + msg})
+    put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
-    put_json({'id':command_id, 'st':1, 
+    put_json({'id':commandId, 'st':1, 
               'msg':'Run failed [' + str(e) + ']'})
     

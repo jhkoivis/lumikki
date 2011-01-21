@@ -24,8 +24,8 @@
 		  <div style="float:left;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
 		    <form  id="run" action="">
 		      <p>
-			<label for="measurement_id">Measurement ID</label> 
-			<input type="text"  size="20" maxlength="20" id="measurement_id">
+			<label for="g_measurementid">Measurement ID</label> 
+			<input type="text"  size="20" maxlength="20" id="g_measurementid">
 		      </p>
 		      <p>
 			<input style="float:bottom;" type="submit" value="Run" />
@@ -39,8 +39,7 @@
 		    <hr />
 		    <p>
 		      <form  id="restore" action="">
-			<input id="rbutton" style="float:bottom;" type="submit" value="Restore" /><br /><label for="rbutton" class="buttonlabel">Restores defaults in ALL panes.</label>
-			
+			<input id="rbutton" style="float:bottom;" type="submit" value="Restore" /><br /><label for="rbutton" class="buttonlabel">Restores defaults in all panes.</label>
 		      </form>
 		    </p>
 		  </div>
@@ -58,7 +57,33 @@
 		</div>
 		<div>pane 2 content</div>
 		<div>pane 3 content</div>
-		<div>pane 4 content</div>
+		<div>
+		    <form  id="cam" action="">
+		      <label for="cam_enable">Enable</label> 
+			<input type="checkbox"  id="cam_enable"><br />
+			<label for="cam_rawfps">Raw FPS</label> 
+			<input type="text"  size="20" maxlength="20" id="cam_rawfps"><br />
+			<label for="cam_exposure">Exposure [ms]</label> 
+			<input type="text"  size="20" maxlength="20" id="cam_exposure"><br />
+			<label for="cam_xoffset">X Offset</label> 
+			<input type="text"  size="20" maxlength="20" id="cam_xoffset"><br />
+			<label for="cam_yoffset">Y Offset</label> 
+			<input type="text"  size="20" maxlength="20" id="cam_yoffset"><br />
+			<label for="cam_packetsize">Packet size</label> 
+			<input type="text"  size="20" maxlength="20" id="cam_packetsize"><br />
+			<label for="cam_width">Width</label> 
+			<input type="text"  size="20" maxlength="20" id="cam_width"><br />
+			<label for="cam_height">Height</label> 
+			<input type="text"  size="20" maxlength="20" id="cam_height"><br />
+			<label for="cam_ip">IP Address</label> 
+			<input type="text"  size="20" maxlength="20" id="cam_ip" readonly><br />
+			<label for="cam_port">Port</label> 
+			<input type="text"  size="20" maxlength="20" id="cam_port" readonly><br />
+		      <p>
+			<input style="float:bottom;" type="submit" value="Transfer ->" />
+		      </p>
+		    </form>
+		</div>
 		<div>pane 5 content</div>
 	</div>
 
