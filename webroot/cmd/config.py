@@ -41,7 +41,7 @@ configurationMap = {
     , 'cam_width' : '1024'
     , 'cam_height' : '768'
     , 'cam_ip': '130.233.203.154'
-    , 'cam_port' : 6423
+    , 'cam_port' : "6423"
     , 'cam_exposure' : '300'
     , 'cam_rawfps' : '117000'
 }

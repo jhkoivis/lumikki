@@ -11,7 +11,7 @@ try:
     target = jso['target']
     id = jso['id']
     log('status.cgi::' + str(target) + '::' + str(id))
-    active = c.get('g:active')
+    active = c.get('g_active')
     if not active[target]:
         put_json({'status':'100', 'id':id, 'target':target})
     elif target == mg.ttm: 

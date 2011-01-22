@@ -2,6 +2,6 @@
 
 from lumilib import *
 
-jso = getjson()
-putjson(jso)
+message = get_json()
+put_json(message)
 

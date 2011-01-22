@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    /* Hook forms buttons to functions */
     $('#logstatus').submit(function() {
 	statusAction();
 	return false;
@@ -68,15 +67,24 @@ function statusAction() {
 }
 
 function restoreAction() {
-    logC("Form values restored to defaults.");
-    var id = reqId();
-    stateAction({"id":id});
+    dumpMemcached();
 }
 
 function camTransferAction() {
-    var id = reqId();
-    stateAction({"id":id, 'cam_rawfps':$('#cam_rawfps').val()}); 
+    transferStateOfForm("cam");
 }
+
+function transferStateOfForm(formName) {
+    var id = reqId(), stateMap = {"id":id}, i=0;
+    var formChildren = $("#" + formName + " > *");
+    for (i=0; i < formChildren.length; i++) {
+	o = formChildren[i];
+	if (o.id.match("^" + formName + "_") == (formName + "_")) {
+	    stateMap[o.id] = $("#" + o.id).val();
+	}
+    }
+    stateAction(stateMap); 
+} 
 
 function runAction() {
     runRequest();
@@ -86,17 +94,39 @@ function stopAction() {
     logC("Stop");
 }
 
-function stateAction(inputMap) {
-    $.post(R_STATE, JSON.stringify(inputMap), function(response) {
-	logR(R_STATE + ":: values updated from memcached.");
-	if (showError(response)==true) { return; }
-	for (var key in response) {
-	    var jqueryId = "#" + key;
-	    $(jqueryId).val(response[key]);
+
+function dumpMemcached() {
+    var i=0; 
+    stateRequest({}, function(response) {
+	if (showError(response) == true) return;
+	logC("--STATE--");
+	for(var key in response) {
+	    logC(key + "=" + response[key]);
 	}
+    });
+}
+
+function stateAction(inputMap) {
+    stateRequest(inputMap, updateFormValues); 
+}
+
+function stateRequest(inputMap, actionFunction) {
+    inputMap["id"] = reqId();
+    $.post(R_STATE, JSON.stringify(inputMap), function(response) {
+	if (showError(response)==true) { return; }
+	logR(R_STATE + ":: values updated succesfully to/from memcached.");
+	actionFunction(response);
      }, "json");
 }
 
+
+function updateFormValues(response) {
+    for (var key in response) {
+	var jqueryId = "#" + key;
+	$(jqueryId).val(response[key]);
+    }
+
+}
 
 function showError(response) {
     if (typeof response.st != 'undefined' && response.st != 0) {
