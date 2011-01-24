@@ -21,8 +21,7 @@ $(document).ready(function() {
     });
     logC("UI created");
     statusAction();
-    var id = reqId();
-    stateAction({"id":id});
+    stateAction({});
 });
 
 
@@ -31,11 +30,12 @@ $(function() {
 });
 
 
-R_ECHO = "/cmd/echo.cgi"
+R_ECHO = "/cmd/echo.cgi";
 R_STATUS = "/cmd/status.cgi";
 R_RUN = "/cmd/run.cgi";
-R_STATE = "/cmd/state.cgi"
-
+R_STATE = "/cmd/state.cgi";
+R_LOCK = "/cmd/lock.cgi";
+R_STOP = "/cmd/stop.cgi";
 TTM=0;
 AE=1;
 CAM=2;
@@ -45,10 +45,10 @@ NMAP = ["Tensile", "AE", "Camera", "IR Camera"];
 errmap = { "000":"Cannot connect to anything"
 	   , "010":"Server sent unknown status"
 	   , "020":"Server response did not contain status"
-	   , "100":"Machine is not used in this measurement."
+	   , "100":"Disabled from server."
 	   , "110":"Target machine did not respond"
 	   , "120":"Server received malformed command."
-	   , "122":"Server has not implemented the command (TODO)"
+	   , "122":"Not implemented."
 	   , "200":"Target available, values not set"
 	   , "210":"Ready to measure"
 	   , "220":"Measuring"
@@ -74,6 +74,73 @@ function camTransferAction() {
     transferStateOfForm("cam");
 }
 
+function runAction() {
+    runRequest();
+}
+
+function stopAction() {
+    logC("stop sent");
+    stopRequest();
+}
+
+function stateAction(inputMap) {
+    stateRequest(inputMap, updateFormValues); 
+}
+
+function stopRequest() {
+    var params = JSON.stringify({"id":reqId()});
+    $.post(R_STOP, params, function(response) {
+	if (!showError(response)) {
+	    logR("stopped");
+	}
+    }, "json");
+}
+
+/*function lockRequest(value) {
+    var params = JSON.stringify({'id':reqId(), 'lock':value}); 
+    $.post(R_LOCK, params, function(value) {
+	if (showError(response)==true) return false;
+    }, "json");
+    return true;
+}*/
+
+function runRequest() {
+    var id = reqId();
+    var valueMap = {   "id"     : id
+                   , "g_measurementid" : $('#g_measurementid').val() 
+                   }; 
+    var params = JSON.stringify(valueMap); 
+    logC(R_RUN + "::" + params);
+    $.post(R_RUN, params, function(response) { 
+	logR(R_RUN + "::" + JSON.stringify(response)); 
+	showError(response);
+    }, "json");
+
+}
+
+
+function stateRequest(inputMap, actionFunction) {
+    inputMap["id"] = reqId();
+    $.post(R_STATE, JSON.stringify(inputMap), function(response) {
+	if (showError(response)==true) { return; }
+	actionFunction(response);
+     }, "json");
+}
+
+
+
+function statusRequest(request, target) {
+    var rdata = null; 
+    var id = reqId();
+    var params =   JSON.stringify({'id':id, 'target':target});
+    logC(request + "::" + params);
+    $.post(request, params, function(data) { 
+	logR("status: " + JSON.stringify(data)); 
+	showError(data);
+	status(data); }, "json");
+}
+
+
 function transferStateOfForm(formName) {
     var id = reqId(), stateMap = {"id":id}, i=0;
     var formChildren = $("#" + formName + " > *");
@@ -86,12 +153,14 @@ function transferStateOfForm(formName) {
     stateAction(stateMap); 
 } 
 
-function runAction() {
-    runRequest();
-}
 
-function stopAction() {
-    logC("Stop");
+function showError(response) {
+    if (typeof response.st != 'undefined' && response.st != 0) {
+	alert(typeof response.msg == 'undefined' ? "No message!" : 
+	     response.msg);
+	return true;
+    }
+    return false;
 }
 
 
@@ -106,21 +175,9 @@ function dumpMemcached() {
     });
 }
 
-function stateAction(inputMap) {
-    stateRequest(inputMap, updateFormValues); 
-}
-
-function stateRequest(inputMap, actionFunction) {
-    inputMap["id"] = reqId();
-    $.post(R_STATE, JSON.stringify(inputMap), function(response) {
-	if (showError(response)==true) { return; }
-	logR(R_STATE + ":: values updated succesfully to/from memcached.");
-	actionFunction(response);
-     }, "json");
-}
-
 
 function updateFormValues(response) {
+    logR(R_STATE + "::values updated succesfully to/from memcached.");
     for (var key in response) {
 	var jqueryId = "#" + key;
 	$(jqueryId).val(response[key]);
@@ -128,35 +185,13 @@ function updateFormValues(response) {
 
 }
 
-function showError(response) {
-    if (typeof response.st != 'undefined' && response.st != 0) {
-	alert(typeof response.msg == 'undefined' ? "No message!" : 
-	     response.msg);
-	return true;
-    }
-    return false;
-}
-
-function runRequest() {
-    var id = reqId();
-    var valueMap = {   "id"     : id
-                   , "g_measurementid" : $('#g_measurementid').val() 
-                   }; 
-    var params = JSON.stringify(valueMap);  
-    logC(R_RUN + "::" + params);
-    $.post(R_RUN, params, function(response) { 
-	logR(R_RUN + "::" + JSON.stringify(response)); 
-	showError(response);
-    }, "json");
-}
-
-
 
 function showStatus() {
     var rowCount = $('#stable tr').length;
+    var active = [false, false, false, false];
     for (i = 0; i < rowCount -1; i++) {
 	$('#stable tr:last').remove()
-    }	
+    }
     for(i=0; i < NMAP.length; i++) {
 	$('#stable tr:last').after("<tr><td>" 
 				   + NMAP[i]
@@ -164,8 +199,17 @@ function showStatus() {
 				   + status.st[i]	
 				   + "</td><td>" 
 				   + errmap[status.st[i]]
-				   + "</td></tr>");
+				   + "</td><td>"
+				   + "asdf"
+				   + "</td></tr>"
+
+				  );
     }
+    stateRequest({}, function(response) {
+	var isTtmActive = $('#ac5:checked').val("on");
+	var v = $("#ac1").val();
+	var v2 = $("#ac2").val("off");
+    });
 }
 
 function status(value) {
@@ -175,17 +219,6 @@ function status(value) {
     }
 }
 
-
-function statusRequest(request, target) {
-    var rdata = null; 
-    var id = reqId();
-    var params =   JSON.stringify({'id':id, 'target':target});
-    logC(request + "::" + params);
-    $.post(request, params, function(data) { 
-	logR("status: " + JSON.stringify(data)); 
-	showError(data);
-	status(data); }, "json");
-}
 
 
 function reqId() {
