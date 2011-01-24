@@ -19,6 +19,10 @@ $(document).ready(function() {
 	camTransferAction();
 	return false;
     });
+    $('#ttm').submit(function() {
+	ttmTransferAction();
+	return false;
+    });
     logC("UI created");
     statusAction();
     stateAction({});
@@ -72,6 +76,10 @@ function restoreAction() {
 
 function camTransferAction() {
     transferStateOfForm("cam");
+}
+
+function ttmTransferAction() {
+    transferStateOfForm("ttm");
 }
 
 function runAction() {

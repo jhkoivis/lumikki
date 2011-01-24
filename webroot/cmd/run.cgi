@@ -23,6 +23,10 @@ try:
         log("Camera connect and send")
         ret = camera.connectAndSendStart()
         msg = msg + "Cam: " + ret
+    if active[mg.ttm]:
+
+        pass
+        # send tensile command
     put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
     put_json({'id':commandId, 'st':1, 

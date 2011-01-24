@@ -47,4 +47,5 @@ configurationMap = {
     , 'cam_port' : "6423"
     , 'cam_exposure' : '300'
     , 'cam_rawfps' : '117000'
+    , 'ttm_setpoint' : '1'
 }
