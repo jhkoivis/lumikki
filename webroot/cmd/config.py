@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/home/sse/bin/lib/python2.6/site-packages')
+
 import memcache
 
 class conf:
