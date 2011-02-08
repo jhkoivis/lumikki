@@ -1,11 +1,13 @@
+#canvasSection{ position:fixed;}
+
+
 body {
-    background-image:url('sw.jpg');
-    
+    background-image: url('sw.jpg');
     padding:50px 90px;
     font-family:"Lucida Grande","bitstream vera sans","trebuchet ms",sans-serif,verdana;
 }
 
-/* get rid of those system borders being generated for A tags */
+
 a:active {
   outline:none;
 }

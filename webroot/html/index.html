@@ -46,10 +46,17 @@
 		  <div style="float:right;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
 		    <table id="stable"> 
 		      <tr>
-			<th>Machine</th><th>Status</th><th>Description</th><th>Active</th>
+			<th>Machine</th><th>Status</th><th>Description</th><th>Active</th></tr>
+			<tr><td>TTM</td><td id="stableStatus0" /><td id="stableDescr0" /><td><input id="stableIsActive0"  type="checkbox" /></td></tr>
+
+			<tr><td>AE</td><td id="stableStatus1" /><td id="stableDescr1" /><td><input id="stableIsActive1"  type="checkbox" /></td></tr>
+
+			<tr><td>Camera</td><td id="stableStatus2" /><td id="stableDescr2" /><td><input id="stableIsActive2"  type="checkbox" /></td></tr>
+
+			<tr><td>IR</td><td id="stableStatus3" /><td id="stableDescr3" /><td><input id="stableIsActive3"  type="checkbox" /></td></tr>
+
 		      </tr>
 		    </table>
-		    <input id="ac5" type="checkbox" />
 		    <form  id="logstatus" action="">
 		      <input style="float:bottom;" type="submit" value="Force status" />
 		    </form>

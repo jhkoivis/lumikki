@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('#logstatus').submit(function() {
+	updateMachineStatus();
 	statusAction();
 	return false;
     });
@@ -40,10 +41,12 @@ R_RUN = "/cmd/run.cgi";
 R_STATE = "/cmd/state.cgi";
 R_LOCK = "/cmd/lock.cgi";
 R_STOP = "/cmd/stop.cgi";
+
 TTM=0;
 AE=1;
 CAM=2;
 IR=3;
+
 NMAP = ["Tensile", "AE", "Camera", "IR Camera"];
 
 errmap = { "000":"Cannot connect to anything"
@@ -52,7 +55,7 @@ errmap = { "000":"Cannot connect to anything"
 	   , "100":"Disabled from server."
 	   , "110":"Target machine did not respond"
 	   , "120":"Server received malformed command."
-	   , "122":"Not implemented."
+	   , "122":"Connection refused."
 	   , "200":"Target available, values not set"
 	   , "210":"Ready to measure"
 	   , "220":"Measuring"
@@ -104,13 +107,6 @@ function stopRequest() {
     }, "json");
 }
 
-/*function lockRequest(value) {
-    var params = JSON.stringify({'id':reqId(), 'lock':value}); 
-    $.post(R_LOCK, params, function(value) {
-	if (showError(response)==true) return false;
-    }, "json");
-    return true;
-}*/
 
 function runRequest() {
     var id = reqId();
@@ -193,31 +189,29 @@ function updateFormValues(response) {
 
 }
 
+function updateMachineStatus() {
+    var new_active = [false, false, false, false];
+    for (i=0; i <= IR; i++) {
+	new_active[i] = $("#stableIsActive" + i).is(":checked");
+    }
+    stateRequest({'g_active':new_active}, function(r) {});
+}
+
+function activeStateObject(i) {
+    function robj(response) {
+	$("#stableIsActive" + i).attr("checked", response.g_active[i]);
+    };
+    return robj;
+}
 
 function showStatus() {
-    var rowCount = $('#stable tr').length;
-    var active = [false, false, false, false];
-    for (i = 0; i < rowCount -1; i++) {
-	$('#stable tr:last').remove()
+    var i = 0;
+    for (i=0; i<= IR; i++) {
+	$("#stableStatus" + i).text(status.st[i]);
+	$("#stableDescr" + i).text(errmap[status.st[i]]);
+	var robj = new activeStateObject(i);
+	stateRequest({}, robj);
     }
-    for(i=0; i < NMAP.length; i++) {
-	$('#stable tr:last').after("<tr><td>" 
-				   + NMAP[i]
-				   + "</td><td>" 
-				   + status.st[i]	
-				   + "</td><td>" 
-				   + errmap[status.st[i]]
-				   + "</td><td>"
-				   + "asdf"
-				   + "</td></tr>"
-
-				  );
-    }
-    stateRequest({}, function(response) {
-	var isTtmActive = $('#ac5:checked').val("on");
-	var v = $("#ac1").val();
-	var v2 = $("#ac2").val("off");
-    });
 }
 
 function status(value) {

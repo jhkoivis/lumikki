@@ -24,7 +24,6 @@ try:
         ret = camera.connectAndSendStart()
         msg = msg + "Cam: " + ret
     if active[mg.ttm]:
-
         pass
         # send tensile command
     put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
