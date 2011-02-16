@@ -26,7 +26,10 @@ try:
         msg = msg + "Cam: " + ret
     if active[mg.ttm]:
         log("TTM connect and send")
-        ret = ttm.connectAndSendStart()
+        ret = ttm.connectAndInitRamp()
+        if ret == "OK!":
+        	raise Exception("TEST")
+        ret = ttm.connectAndInitRamp()
         msg = msg + "TTM: " + ret
     put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
