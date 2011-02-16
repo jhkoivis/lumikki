@@ -9,6 +9,7 @@ try:
     jsonMessage = get_json()
     commandId = jsonMessage['id']
     camera.connectAndSendStop()
+    ttm.connectAndStopLogging()
     put_json({'st':0, 'id':commandId})
 except Exception as e:
     put_json({'id':commandId, 'st':1, 

@@ -19,17 +19,17 @@ statusResponses = { "000":"Cannot connect to anything"
        , "230":"System is busy, please try again in a while." 
 }
 
-
 def connectToCommand(command, data=None):
     
     command_root = "/lumikki/csm_lumikki_instron_"
-
-    return createUrlAndConnect(command_root, data)
+    
+    return createUrlAndConnect(command_root + command, data)
 
 def createUrlAndConnect(command, data=None):
     c = conf()
     basic_url = "http://%s:%s" % (c.get('ttm_ip'),c.get('ttm_port'))
     url = basic_url + command
+    print url
     if data != None:
         url += "?%s" % urlencode(data)
     return connect(url)

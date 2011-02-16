@@ -27,9 +27,8 @@ try:
     if active[mg.ttm]:
         log("TTM connect and send")
         ret = ttm.connectAndInitRamp()
-        if ret == "OK!":
-        	raise Exception("TEST")
-        ret = ttm.connectAndInitRamp()
+        ret = ttm.connectAndStartLogging()
+        ret = ttm.connectAndStartRamp()
         msg = msg + "TTM: " + ret
     put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
