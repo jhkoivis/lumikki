@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-from lumilib import * 
+from lumilib import *
+import ttm
 from config import conf
 from config import staticglobals as mg
 import sys
@@ -15,7 +16,8 @@ try:
     if not active[target]:
         put_json({'status':'100', 'id':id, 'target':target})
     elif target == mg.ttm: 
-        put_json({'status':'122', 'id':id, 'target':target})
+    	status = ttm.connectAndGetStatus()
+        put_json({'status':status, 'id':id, 'target':target})
     elif target == mg.ae: 
         put_json({'status':'122', 'id':id, 'target':target})
     elif target == mg.cam: 

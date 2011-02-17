@@ -2,6 +2,7 @@
 
 from lumilib import *
 import camera
+import ttm
 from config import conf
 from config import staticglobals as mg
 
@@ -24,8 +25,11 @@ try:
         ret = camera.connectAndSendStart()
         msg = msg + "Cam: " + ret
     if active[mg.ttm]:
-        pass
-        # send tensile command
+        log("TTM connect and send")
+        ret = ttm.connectAndInitRamp()
+        ret = ttm.connectAndStartLogging()
+        ret = ttm.connectAndStartRamp()
+        msg = msg + "TTM: " + ret
     put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
     put_json({'id':commandId, 'st':1, 
