@@ -33,8 +33,9 @@ def createStartMessage(c):
     message += "Y(" + c.get('cam_yoffset')    + ")"
     message += "E(" + c.get('cam_exposure')   + ")"
     mid = c.get('g_measurementid')
-    message += "T(" + "F:\\data\\" + mid + '\\' + mid ")"
+    message += "T(" + 'F:\data\\' + mid + '\\' + mid + ")"
     message += "I(" + "0"                   + ")"
+    print message
     return message
 
 def connectAndSendMessage(c,message):
