@@ -29,7 +29,6 @@ def createUrlAndConnect(command, data=None):
     c = conf()
     basic_url = "http://%s:%s" % (c.get('ttm_ip'),c.get('ttm_port'))
     url = basic_url + command
-    print url
     if data != None:
         url += "?%s" % urlencode(data)
     return connect(url)
