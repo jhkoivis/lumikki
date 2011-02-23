@@ -12,6 +12,10 @@ $(document).ready(function() {
 	stopAction();
 	return false;
     });
+    $('#ttmsetpointrun').submit(function() {
+	ttmSetPointRunRequest();
+	return false;
+    });
     $('#restore').submit(function() {
 	restoreAction();
 	return false;
@@ -41,6 +45,7 @@ R_RUN = "/cmd/run.cgi";
 R_STATE = "/cmd/state.cgi";
 R_LOCK = "/cmd/lock.cgi";
 R_STOP = "/cmd/stop.cgi";
+R_TTMSETPOINT = "/cmd/ttmsetpoint.cgi";
 
 TTM=0;
 AE=1;
@@ -85,6 +90,10 @@ function ttmTransferAction() {
     transferStateOfForm("ttm");
 }
 
+function ttmspTransferAction() {
+    transferStateOfForm("ttmsetpoint");
+}
+
 function runAction() {
     updateMachineStatus();
     runRequest();
@@ -93,6 +102,10 @@ function runAction() {
 function stopAction() {
     logC("stop sent");
     stopRequest();
+}
+
+function ttmSetPointAction() {
+	ttmSetPointRequest()
 }
 
 function stateAction(inputMap) {
@@ -123,6 +136,16 @@ function runRequest() {
 
 }
 
+function ttmSetPointRunRequest() {
+    var id = reqId();
+    var params = JSON.stringify({"id":id}); 
+    logC(R_TTMSETPOINT + "::" + params);
+    $.post(R_TTMSETPOINT, params, function(response) { 
+	logR(R_TTMSETPOINT + "::" + JSON.stringify(response)); 
+	showError(response);
+    }, "json");
+
+}
 
 function stateRequest(inputMap, actionFunction) {
     inputMap["id"] = reqId();
