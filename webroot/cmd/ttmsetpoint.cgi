@@ -15,8 +15,6 @@ try:
         ret = ttm.connectAndMoveToSetPoint()
         msg = "TTM: " + ret
         put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
-    else:
-        raise Exception("TTM not active.")
 except Exception as e:
     put_json({'id':commandId, 'st':1, 
               'msg':'Run failed [' + str(e) + ']'})
