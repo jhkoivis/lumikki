@@ -1,0 +1,157 @@
+#canvasSection{ position:fixed;}
+
+
+body {
+    background-image: url('sw.jpg');
+    padding:50px 90px;
+    font-family:"Lucida Grande","bitstream vera sans","trebuchet ms",sans-serif,verdana;
+}
+
+
+a:active {
+  outline:none;
+}
+
+:focus {
+  -moz-outline-style:none;
+}
+
+/* root element for tabs  */
+ul.css-tabs {  
+	margin:0 !important; 
+	padding:0;
+	height:30px;
+	border-bottom:1px solid #666;	 	
+}
+
+/* single tab */
+ul.css-tabs li {  
+	float:left;	 
+	padding:0; 
+	margin:0;  
+	list-style-type:none;	
+}
+
+/* link inside the tab. uses a background image */
+ul.css-tabs a { 
+	float:left;
+	font-size:13px;
+	display:block;
+	padding:5px 30px;	
+	text-decoration:none;
+	border:1px solid #666;	
+	border-bottom:0px;
+	height:18px;
+	background-color:#efefef;
+	color:#777;
+	margin-right:2px;
+	position:relative;
+	top:1px;	
+	outline:0;
+	-moz-border-radius:4px 4px 0 0;	
+}
+
+ul.css-tabs a:hover {
+	background-color:#F7F7F7;
+	color:#333;
+}
+	
+/* selected tab */
+ul.css-tabs a.current {
+	background-color:#fdd;
+	border-bottom:1px solid #fdd;	
+	color:#000;	
+	cursor:default;
+}
+
+	
+/* tab pane */
+.css-panes div {
+	display:none;
+	border:1px solid #666;
+	border-width:0 1px 1px 1px;
+	min-height:250px;
+	padding:15px 20px;
+	background-color:#fdd;	
+}
+
+
+.css-log-header {  
+	margin:0 !important;
+	padding:0;
+	height:20px;
+	border-bottom:1px solid #666;	 	
+}
+
+
+.css-log {
+    background-color:#ddd;
+    border-bottom:1px solid #ddd;	
+    color:#000;	
+    cursor:default;
+    border:1px solid #666;
+    border-width:1px 1px 1px 1px;
+    min-height:250px;
+    height:300px;
+    padding:10px 10px;
+    background-color:#ddf;	
+    overflow:auto;
+}
+
+.css-log p {
+    font-family:"Bitstream Vera Sans Mono", verdana;
+    font-size:70%;
+    border-width:1px 1px 1px 1px;
+    margin:0 !important; 
+    color:#5f1111;	
+}
+
+.buttonlabel {
+    font-family:"Bitstream Vera Sans Mono", verdana;
+    font-size:70%;
+    margin:0 !important; 
+    color:#5f1111;	
+}
+
+
+.status {
+	float:right;
+	display:block;
+	padding:5px 30px;	
+	text-decoration:none;
+	border:1px solid #666;	
+	border-bottom:0px;
+	height:230px;
+	width:300px;
+	position:relative;
+	top:1px;	
+	-moz-border-radius:4px 4px 0 0;	
+}
+
+
+#stable
+{
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    width:100%;
+    border-collapse:collapse;
+}
+#stable td, #stable th 
+{
+    font-size:0.8em;
+    border:1px solid #AF0000;
+    padding:3px 7px 2px 7px;
+}
+#stable th 
+{
+    font-size:0.8em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#AF0000;
+    color:#fff;
+}
+#stable tr.alt td 
+{
+    color:#000;
+    background-color:#EAF2D3;
+}
