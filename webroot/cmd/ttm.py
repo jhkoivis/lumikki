@@ -41,6 +41,9 @@ def connect(url):
 def getResponseString(response):
     return responses[response]
 
+def getStatusResponseString(response):
+    return statusResponses[response]
+
 def connectAndStartLogging():
     c = conf()
     data = {"expId": c.get('g_measurementid')}
@@ -63,6 +66,10 @@ def connectAndStartRamp():
     response = connectToCommand("startRamp")
     return getResponseString(response)
 
+def connectAndStop():
+    response = connectToCommand("stop")
+    return getResponseString(response)
+
 def connectAndMoveToSetPoint():
     c = conf()
     data = { "setpoint":     c.get('ttm_setpoint')
@@ -74,4 +81,4 @@ def connectAndMoveToSetPoint():
 def connectAndGetStatus():
     # This needs more sophisticated ideas in order to recognize the measuring
     response = createUrlAndConnect("")
-    return statusResponses[response]
+    return getStatusResponseString(response)
