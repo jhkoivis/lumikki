@@ -19,6 +19,7 @@ try:
         camera.connectAndSendStop()
     if active[mg.ttm]:
         ttm.connectAndStopLogging()
+        ttm.connectAndStop()
     put_json({'st':0, 'id':commandId})
 except Exception as e:
     put_json({'id':commandId, 'st':1, 
