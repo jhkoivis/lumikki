@@ -28,6 +28,14 @@ $(document).ready(function() {
 	ttmTransferAction();
 	return false;
     });
+    $('#ir').submit(function() {
+	irTransferAction();
+	return false;
+    });
+    $('#irtest').submit(function() {
+	irTestAction();
+	return false;
+    });
     logC("UI created");
     statusAction();
     stateAction({});
@@ -46,6 +54,8 @@ R_STATE = "/cmd/state.cgi";
 R_LOCK = "/cmd/lock.cgi";
 R_STOP = "/cmd/stop.cgi";
 R_TTMSETPOINT = "/cmd/ttmsetpoint.cgi";
+
+R_IRTEST = "/cmd/irtest.cgi";
 
 TTM=0;
 AE=1;
@@ -90,6 +100,10 @@ function ttmTransferAction() {
     transferStateOfForm("ttm");
 }
 
+function irTransferAction() {
+    transferStateOfForm("ir");
+}
+
 function ttmspTransferAction() {
     transferStateOfForm("ttmsetpoint");
 }
@@ -106,6 +120,21 @@ function stopAction() {
 
 function ttmSetPointAction() {
 	ttmSetPointRequest()
+}
+
+function irTestAction() {
+	irTestRequest()
+}
+
+function irTestRequest() {
+    var id = reqId();
+    var params = JSON.stringify({"id":id}); 
+    logC(R_IRTEST + "::" + params);
+    $.post(R_IRTEST, params, function(response) { 
+	logR(R_IRTEST + "::" + JSON.stringify(response)); 
+	showError(response);
+    }, "json");
+
 }
 
 function stateAction(inputMap) {

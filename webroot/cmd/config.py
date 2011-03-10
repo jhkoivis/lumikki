@@ -35,6 +35,7 @@ class staticglobals:
 configurationMap = {
     'g_active':[False, False, True, False]
     , 'g_measurementid'     : 'default'
+    , 'cam_parentfolder' : ''
     , 'cam_packetsize' : '9144'
     , 'cam_xoffset' : '0'
     , 'cam_yoffset' : '0'
@@ -50,4 +51,6 @@ configurationMap = {
     , 'ttm_setpointtime' : '1'
     , 'ttm_ip' : '127.0.0.1'
     , 'ttm_port' : '8000'
+    , 'ir_ip' : '127.0.0.1'
+    , 'ir_port' : '8000'
 }
