@@ -2,6 +2,7 @@
 
 from lumilib import *
 import ttm
+import ir
 from config import conf
 from config import staticglobals as mg
 import sys
@@ -22,8 +23,9 @@ try:
         put_json({'status':'122', 'id':id, 'target':target})
     elif target == mg.cam: 
         put_json({'status':'122', 'id':id, 'target':target})
-    elif target == mg.ir:     
-        put_json({'status':'122', 'id':id, 'target':target})
+    elif target == mg.ir:
+        status = ir.connectAndGetStatus()
+        put_json({'status':status, 'id':id, 'target':target})
     else: 
         put_json({'status':'120', 'id':id, 'target':target})
 
