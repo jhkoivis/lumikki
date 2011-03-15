@@ -1,4 +1,4 @@
-from urllib2 import urlopen
+from urllib2 import urlopen, URLError
 from urllib import urlencode
 from httplib import responses
 from config import conf
@@ -80,5 +80,8 @@ def connectAndMoveToSetPoint():
 
 def connectAndGetStatus():
     # This needs more sophisticated ideas in order to recognize the measuring
-    response = createUrlAndConnect("")
+    try:
+        response = createUrlAndConnect("")
+    except URLError:
+        return "110"
     return getStatusResponseString(response)
