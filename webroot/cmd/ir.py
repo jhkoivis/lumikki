@@ -5,6 +5,7 @@ from config import conf
 from lumilib import *
 
 timeout = 3
+cgipath = ""
 
 statusResponses = { "000":"Cannot connect to anything"
        , "010":"Server sent unknown status"
@@ -31,7 +32,7 @@ def createRequest(data):
     c = conf()
     ip = c.get('ir_ip')
     port = c.get('ir_port')
-    url = "http://%s:%s" % (ip,port)
+    url = "http://%s:%s/%s" % (ip,port,cgipath)
     json = dumps(data)
     req = Request(url, json, {'Content-Type':'application/json'})
     return req
@@ -44,6 +45,10 @@ def getStatusResponseString(response):
 
 def connectAndConnectIR():
     response = connectAndGetResponse({"connect":0})
+    return getResponseString(response)
+
+def connectAndDisconnectIR():
+    response = connectAndGetResponse({"disconnect":0})
     return getResponseString(response)
 
 def connectAndFocus():
@@ -61,10 +66,6 @@ def connectAndGetImage():
 
 def connectAndGetImageSeries():
     response = connectAndGetResponse({"getImageSeries":0})
-    return getResponseString(response)
-
-def connectAndDisconnectIR():
-    response = connectAndGetResponse({"disconnect":0})
     return getResponseString(response)
 
 def connectAndGetStatus():

@@ -36,6 +36,14 @@ $(document).ready(function() {
     irFocusAction();
     return false;
     });
+    $('#irconnect').submit(function() {
+    irConnectAction();
+    return false;
+    });
+    $('#irdisconnect').submit(function() {
+    irDisconnectAction();
+    return false;
+    });
     logC("UI created");
     statusAction();
     stateAction({});
@@ -55,6 +63,8 @@ R_LOCK = "/cmd/lock.cgi";
 R_STOP = "/cmd/stop.cgi";
 R_TTMSETPOINT = "/cmd/ttmsetpoint.cgi";
 R_IRFOCUS = "/cmd/irfocus.cgi";
+R_IRCONNECT = "/cmd/irconnect.cgi";
+R_IRDISCONNECT = "/cmd/irdisconnect.cgi";
 
 TTM=0;
 AE=1;
@@ -121,15 +131,12 @@ function irFocusAction() {
     irFocusRequest()
 }
 
-function irFocusRequest() {
-    var id = reqId();
-    var params = JSON.stringify({"id":id}); 
-    logC(R_IRFOCUS + "::" + params);
-    $.post(R_IRFOCUS, params, function(response) { 
-    logR(R_IRFOCUS + "::" + JSON.stringify(response)); 
-    showError(response);
-    }, "json");
+function irConnectAction() {
+    irConnectRequest()
+}
 
+function irDisconnectAction() {
+    irDisconnectRequest()
 }
 
 function stateAction(inputMap) {
@@ -144,7 +151,6 @@ function stopRequest() {
     }
     }, "json");
 }
-
 
 function runRequest() {
     var id = reqId();
@@ -166,6 +172,39 @@ function ttmSetPointRunRequest() {
     logC(R_TTMSETPOINT + "::" + params);
     $.post(R_TTMSETPOINT, params, function(response) { 
     logR(R_TTMSETPOINT + "::" + JSON.stringify(response)); 
+    showError(response);
+    }, "json");
+
+}
+
+function irFocusRequest() {
+    var id = reqId();
+    var params = JSON.stringify({"id":id}); 
+    logC(R_IRFOCUS + "::" + params);
+    $.post(R_IRFOCUS, params, function(response) { 
+    logR(R_IRFOCUS + "::" + JSON.stringify(response)); 
+    showError(response);
+    }, "json");
+
+}
+
+function irConnectRequest() {
+    var id = reqId();
+    var params = JSON.stringify({"id":id}); 
+    logC(R_IRCONNECT + "::" + params);
+    $.post(R_IRCONNECT, params, function(response) { 
+    logR(R_IRCONNECT + "::" + JSON.stringify(response)); 
+    showError(response);
+    }, "json");
+
+}
+
+function irDisconnectRequest() {
+    var id = reqId();
+    var params = JSON.stringify({"id":id}); 
+    logC(R_IRDISCONNECT + "::" + params);
+    $.post(R_IRDISCONNECT, params, function(response) { 
+    logR(R_IRDISCONNECT + "::" + JSON.stringify(response)); 
     showError(response);
     }, "json");
 
