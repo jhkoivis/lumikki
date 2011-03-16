@@ -4,7 +4,7 @@ from json import dumps, loads
 from config import conf
 from lumilib import *
 
-timeout = 10
+timeout = 60
 cgipath = "/cgi-bin/MessageSenderCon.exe"
 
 statusResponses = { "000":"Cannot connect to anything"
