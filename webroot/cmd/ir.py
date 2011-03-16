@@ -4,8 +4,8 @@ from json import dumps, loads
 from config import conf
 from lumilib import *
 
-timeout = 3
-cgipath = ""
+timeout = 60
+cgipath = "/cgi-bin/MessageSenderCon.exe"
 
 statusResponses = { "000":"Cannot connect to anything"
        , "010":"Server sent unknown status"
@@ -32,7 +32,7 @@ def createRequest(data):
     c = conf()
     ip = c.get('ir_ip')
     port = c.get('ir_port')
-    url = "http://%s:%s/%s" % (ip,port,cgipath)
+    url = "http://%s:%s%s" % (ip,port,cgipath)
     json = dumps(data)
     req = Request(url, json, {'Content-Type':'application/json'})
     return req
@@ -73,9 +73,10 @@ def connectAndGetStatus():
     try:
         connection = urlopen(req,timeout=timeout)
         r_json = loads(connection.read())
-        return getStatusResponseString(r_json["isConnected"])
+        #return getStatusResponseString(r_json["isConnected"])
+        return (getStatusResponseString(connection.getcode()), r_json)
     except URLError:
-        return "110"
+        return ("110", "")
     #except ValueError:
     #    return "110"
     
