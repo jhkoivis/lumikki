@@ -10,11 +10,18 @@ def connectAndSendStart():
 def connectAndSendStop():
     c = conf()
     return connectAndSend(c, createStopMessage(c))
+
+def connectAndSendStatusQuery():
+    c = conf()
+    return connectAndSend(c, createStatusMessage(c))
     
 def connectAndSend(c,message):
     log(message);
     ret = connectAndSendMessage(c, message)
     return ret
+
+def createStatusMessage(c):
+    return "status?"
 
 def createStopMessage(c):
     return "M(2)"
