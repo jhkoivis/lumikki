@@ -40,7 +40,7 @@ def createStartMessage(c):
     message += "Y(" + c.get('cam_yoffset')    + ")"
     message += "E(" + c.get('cam_exposure')   + ")"
     mid = c.get('g_measurementid')
-    message += "T(" + 'F:\data\\' + mid + '\\' + mid + ")"
+    message += "T(" + c.get('cam_parentfolder') + '\\' + mid + '\\' + mid + ")"
     message += "I(" + "0"                   + ")"
     print message
     return message
