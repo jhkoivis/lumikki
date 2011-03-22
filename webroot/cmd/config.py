@@ -44,13 +44,13 @@ configurationMap = {
     , 'cam_ip': '130.233.203.154'
     , 'cam_port' : "6423"
     , 'cam_exposure' : '300'
-    , 'cam_rawfps' : '117000'
+    , 'cam_rawfps' : '1000'
     , 'ttm_ramprate' : '0.2'
     , 'ttm_rampamplitude' : '2'
     , 'ttm_setpoint' : '1'
     , 'ttm_setpointtime' : '1'
     , 'ttm_ip' : '127.0.0.1'
-    , 'ttm_port' : '8000'
+    , 'ttm_port' : '80'
     , 'ir_ip' : '127.0.0.1'
     , 'ir_port' : '8000'
 }
