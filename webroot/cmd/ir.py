@@ -75,11 +75,11 @@ def connectAndGetStatus():
     req = createRequest({"isConnected":0})
     try:
         connection = urlopen(req,timeout=timeout)
-        r_json = loads(connection.read())
+        #r_json = loads(connection.read())
         #return getStatusResponseString(r_json["isConnected"])
-        return (getStatusResponseString(connection.getcode()), r_json)
+        return getStatusResponseString(connection.getcode())
     except URLError:
-        return ("110", "")
+        return "110"
     #except ValueError:
     #    return "110"
     
