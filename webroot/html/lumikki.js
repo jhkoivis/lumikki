@@ -84,6 +84,7 @@ errmap = { "000":"Cannot connect to anything"
        , "210":"Ready to measure"
        , "220":"Measuring"
        , "230":"System is busy, please try again in a while." 
+       , "240":"Measurement device error"
      };
 
 

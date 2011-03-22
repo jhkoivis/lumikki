@@ -1,74 +1,45 @@
 from urllib2 import urlopen, URLError
 from urllib import urlencode
-from httplib import responses
 from config import conf
 from lumilib import *
+from json import loads
 
-timeout = 3
-
-statusResponses = { "000":"Cannot connect to anything"
-       , "010":"Server sent unknown status"
-       , "020":"Server response did not contain status"
-       , "100":"Disabled from server."
-       , "110":"Target machine did not respond"
-       , "120":"Server received malformed command."
-       , 403:"122"
-       , "200":"Target available, values not set"
-       , 200:"210"
-       , "220":"Measuring"
-       , "230":"System is busy, please try again in a while." 
-}
+timeout = 5
 
 def connectToCommand(command, data=None):
-    
-    command_root = "/lumikki/csm_lumikki_instron_"
-    
-    return createUrlAndConnect(command_root + command, data)
-
-def createUrlAndConnect(command, data=None):
     c = conf()
-    basic_url = "http://%s:%s" % (c.get('ttm_ip'),c.get('ttm_port'))
+    basic_url = "http://%s:%s/lumikki/csm_lumikki_instron_" % (c.get('ttm_ip'),c.get('ttm_port'))
     url = basic_url + command
     if data != None:
         url += "?%s" % urlencode(data)
-    return connect(url)
-    
-def connect(url):
     connection = urlopen(url, timeout=timeout)
-    response = connection.getcode()
-    return response
-
-def getResponseString(response):
-    return responses[response]
-
-def getStatusResponseString(response):
-    return statusResponses[response]
+    return connection
 
 def connectAndStartLogging():
     c = conf()
     data = {"expId": c.get('g_measurementid')}
-    response = connectToCommand("startLogging", data)
-    return getResponseString(response)
+    connection = connectToCommand("startLogging", data)
+    return connectAndGetStatus()
 
 def connectAndStopLogging():
-    response = connectToCommand("stopLogging")
-    return getResponseString(response)
+    connection = connectToCommand("stopLogging")
+    return connectAndGetStatus()
     
 def connectAndInitRamp():
     c = conf()
     data = { "rampRate":      c.get('ttm_ramprate')
             ,"rampAmplitude": c.get('ttm_rampamplitude')
             }
-    response = connectToCommand("initRamp", data)
-    return getResponseString(response)
+    connection = connectToCommand("initRamp", data)
+    return connectAndGetStatus()
 
 def connectAndStartRamp():
-    response = connectToCommand("startRamp")
-    return getResponseString(response)
+    connection = connectToCommand("startRamp")
+    return connectAndGetStatus()
 
 def connectAndStop():
-    response = connectToCommand("stop")
-    return getResponseString(response)
+    connection = connectToCommand("stop")
+    return connectAndGetStatus()
 
 def connectAndMoveToSetPoint():
     c = conf()
@@ -76,12 +47,23 @@ def connectAndMoveToSetPoint():
             ,"setpointTime": c.get('ttm_setpointtime')
             }
     response = connectToCommand("moveToSetpoint", data)
-    return getResponseString(response)
+    return connectAndGetStatus()
 
-def connectAndGetStatus():
-    # This needs more sophisticated ideas in order to recognize the measuring
+def connectAndGetStatusNew():
     try:
-        response = createUrlAndConnect("")
+        connection = connectToCommand("status")
+        response = loads(connection.read())
     except URLError:
         return "110"
-    return getStatusResponseString(response)
+    return response['status']
+
+def connectAndGetStatusLegacy():
+    try:
+        c = conf()
+        url = "http://%s:%s" % (c.get('ttm_ip'),c.get('ttm_port'))
+        connection = urlopen(url, timeout=timeout)
+    except URLError:
+        return "110"
+    return "200"
+
+connectAndGetStatus = connectAndGetStatusLegacy
