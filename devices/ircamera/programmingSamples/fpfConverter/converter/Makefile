@@ -10,4 +10,4 @@ clean:
 
 tests:
 	./fpfConverter test/1.fpf test/1.pgm
-	open test/1.pgm
+	#open test/1.pgm
