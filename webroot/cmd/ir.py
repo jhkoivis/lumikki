@@ -4,6 +4,9 @@ from json import dumps, loads
 from config import conf
 from lumilib import *
 
+# TODO: move constants to external configuration file
+# same way as in stdic
+
 timeout = 60
 cgipath = "/cgi-bin/MessageSenderCon.exe"
 
