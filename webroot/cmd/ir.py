@@ -36,9 +36,15 @@ def connectAndFocus():
     response = connectAndGetResponse({"focus":0})
     return response
 
-def connectAndSetExpID():
+def connectAndSendSettings():
     c = conf()
-    response = connectAndGetResponse({"expId":c.get('g_measurementid')})
+    data ={
+           "expId":c.get('g_measurementid'),
+           "filename":c.get('ir_filename'),
+           "framerate":float(c.get('ir_framerate')),
+           "recordtime":float(c.get('ir_recordtime'))
+           }
+    response = connectAndGetResponse(data)
     return response
 
 def connectAndGetImage():
