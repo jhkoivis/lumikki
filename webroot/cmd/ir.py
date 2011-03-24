@@ -55,6 +55,10 @@ def connectAndGetImageSeries():
     response = connectAndGetResponse({"getImageSeries":0})
     return response
 
+def connectAndStopRecording():
+    response = connectAndGetResponse({"stopRecording":0})
+    return response
+
 def connectAndGetStatusNew():
     try:
         req = createRequest({"status":0})

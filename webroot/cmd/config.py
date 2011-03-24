@@ -33,7 +33,7 @@ class staticglobals:
     ir = 3
 
 configurationMap = {
-    'g_active':[False, False, True, False]
+    'g_active':[False, False, False, False]
     , 'g_measurementid'     : 'default'
     , 'cam_parentfolder' : 'F:\data'
     , 'cam_packetsize' : '9144'
@@ -55,5 +55,5 @@ configurationMap = {
     , 'ir_recordtime' : '5.0'
     , 'ir_filename' : 'irpicture'
     , 'ir_ip' : '127.0.0.1'
-    , 'ir_port' : '8000'
+    , 'ir_port' : '57944'
 }
