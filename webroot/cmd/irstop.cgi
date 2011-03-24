@@ -12,8 +12,7 @@ try:
     active = c.get('g_active')
     msg = ''
     if active[mg.ir]:
-        ir.connectAndSendSettings()
-        ret = ir.stopRecording()
+        ret = ir.connectAndStopRecording()
         msg = "IR: " + ret
         put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
