@@ -42,7 +42,7 @@ def connectAndSendSettings():
            "expId":c.get('g_measurementid'),
            "filename":c.get('ir_filename'),
            "framerate":float(c.get('ir_framerate')),
-           "recordtime":float(c.get('ir_recordtime'))
+           "recordTime":float(c.get('ir_recordtime'))
            }
     response = connectAndGetResponse(data)
     return response
