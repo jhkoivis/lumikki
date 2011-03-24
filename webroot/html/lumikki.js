@@ -44,6 +44,10 @@ $(document).ready(function() {
     irDisconnectAction();
     return false;
     });
+    $('#irimageseries').submit(function() {
+    irImageSeriesAction();
+    return false;
+    });
     logC("UI created");
     statusAction();
     stateAction({});
@@ -65,6 +69,7 @@ R_TTMSETPOINT = "/cmd/ttmsetpoint.cgi";
 R_IRFOCUS = "/cmd/irfocus.cgi";
 R_IRCONNECT = "/cmd/irconnect.cgi";
 R_IRDISCONNECT = "/cmd/irdisconnect.cgi";
+R_IRIMAGESERIES = "/cmd/irimageseries.cgi";
 
 TTM=0;
 AE=1;
@@ -140,6 +145,10 @@ function irDisconnectAction() {
     irDisconnectRequest()
 }
 
+function irImageSeriesAction() {
+    irImageSeriesRequest()
+}
+
 function stateAction(inputMap) {
     stateRequest(inputMap, updateFormValues); 
 }
@@ -206,6 +215,17 @@ function irDisconnectRequest() {
     logC(R_IRDISCONNECT + "::" + params);
     $.post(R_IRDISCONNECT, params, function(response) { 
     logR(R_IRDISCONNECT + "::" + JSON.stringify(response)); 
+    showError(response);
+    }, "json");
+
+}
+
+function irImageSeriesRequest() {
+    var id = reqId();
+    var params = JSON.stringify({"id":id}); 
+    logC(R_IRIMAGESERIES + "::" + params);
+    $.post(R_IRIMAGESERIES, params, function(response) { 
+    logR(R_IRIMAGESERIES + "::" + JSON.stringify(response)); 
     showError(response);
     }, "json");
 
