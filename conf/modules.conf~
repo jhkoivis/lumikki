@@ -41,12 +41,16 @@
 
 server.modules = (
   "mod_access",
-#  "mod_alias",
-#  "mod_auth",
+  "mod_accesslog",
+  "mod_auth",
+  "mod_alias",
+  "mod_setenv",	
+  "mod_rewrite",
+  "mod_cgi",
 #  "mod_evasive",
 #  "mod_redirect",
-#  "mod_rewrite",
-#  "mod_setenv",
+
+
 #  "mod_usertrack",
 )
 
@@ -134,7 +138,7 @@ server.modules = (
 ##
 ## plain old CGI (mod_cgi)
 ##
-#include "conf.d/cgi.conf"
+include "conf.d/cgi.conf"
 
 ##
 #######################################################################
