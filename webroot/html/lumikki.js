@@ -48,6 +48,10 @@ $(document).ready(function() {
     irImageSeriesAction();
     return false;
     });
+    $('#irstop').submit(function() {
+    irStopAction();
+    return false;
+    });
     logC("UI created");
     statusAction();
     stateAction({});
@@ -70,6 +74,7 @@ R_IRFOCUS = "/cmd/irfocus.cgi";
 R_IRCONNECT = "/cmd/irconnect.cgi";
 R_IRDISCONNECT = "/cmd/irdisconnect.cgi";
 R_IRIMAGESERIES = "/cmd/irimageseries.cgi";
+R_IRSTOP = "/cmd/irstop.cgi";
 
 TTM=0;
 AE=1;
@@ -147,6 +152,9 @@ function irDisconnectAction() {
 
 function irImageSeriesAction() {
     irImageSeriesRequest()
+}
+function irStopAction() {
+    irStopRequest()
 }
 
 function stateAction(inputMap) {
@@ -226,6 +234,17 @@ function irImageSeriesRequest() {
     logC(R_IRIMAGESERIES + "::" + params);
     $.post(R_IRIMAGESERIES, params, function(response) { 
     logR(R_IRIMAGESERIES + "::" + JSON.stringify(response)); 
+    showError(response);
+    }, "json");
+
+}
+
+function irStopRequest() {
+    var id = reqId();
+    var params = JSON.stringify({"id":id}); 
+    logC(R_IRSTOP + "::" + params);
+    $.post(R_IRSTOP, params, function(response) { 
+    logR(R_IRSTOP + "::" + JSON.stringify(response)); 
     showError(response);
     }, "json");
 
