@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from lumilib import *
-from config import conf, configurationMap
+from lib.lumilib import *
+from lib.config import conf, configurationMap
 
 command_id = 1
 try: 

@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-from lumilib import *
-import ir
-from config import conf
-from config import staticglobals as mg
+from lib.lumilib import *
+from lib import ir
+from lib.config import conf
+from lib.config import staticglobals as mg
 
 try:
     c = conf()
