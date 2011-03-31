@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from lumilib import *
+from lib.lumilib import *
 
 message = get_json()
 put_json(message)
