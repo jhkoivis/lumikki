@@ -4,4 +4,5 @@ __all__=[
         "camera",
         "ir",
         "ttm",
+        "timestamp"
         ]
