@@ -31,7 +31,7 @@ try:
         ret = ttm.connectAndInitRamp()
         ret = ttm.connectAndStartLogging()
         ret = ttm.connectAndStartRamp()
-        msg = msg + "TTM: " + ret
+        msg = msg + "TTM: " + str(ret)
     put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
     put_json({'id':commandId, 'st':1, 
