@@ -35,7 +35,7 @@ class staticglobals:
 configurationMap = {
     'g_active':[False, False, False, False]
     , 'g_measurementid'     : 'default'
-    , 'g_measurementidunique'     : ''
+    , 'g_timestamp'     : ''
     , 'cam_parentfolder' : r'F:\data'
     , 'cam_packetsize' : '9144'
     , 'cam_xoffset' : '0'

@@ -5,7 +5,7 @@ from lib import camera
 from lib import ttm
 from lib.config import conf
 from lib.config import staticglobals as mg
-from lib.timestamp import stampID
+from lib.timestamp import timestamp
 
 commandId = 1
 try: 
@@ -19,7 +19,7 @@ try:
         c.set('g_measurementid', measurementid)
     else: 
         raise ValueError("No measurement ID set.")
-    stampID()
+    timestamp()
     active = c.get('g_active')
     log("active array: " + str(active))
     if active[mg.cam]:
