@@ -49,10 +49,13 @@ def connectAndMoveToSetPoint():
     response = connectToCommand("moveToSetpoint", data)
     return connectAndGetStatus()
 
-def connectAndGetStatusNew():
+def connectAndGetStatus():
+
+
     try:
         connection = connectToCommand("status")
-        response = loads(connection.read())
+	response = loads(connection.read())
+	print response
     except URLError:
         return "110"
     return response['status']
@@ -66,4 +69,4 @@ def connectAndGetStatusLegacy():
         return "110"
     return "200"
 
-connectAndGetStatus = connectAndGetStatusLegacy
+#connectAndGetStatus = connectAndGetStatusLegacy
