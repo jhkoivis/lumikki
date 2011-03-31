@@ -41,8 +41,15 @@ def connectAndSendSettings():
     data ={
            "expId":c.get('g_measurementid'),
            "filename":c.get('ir_filename'),
+           "path":c.get('ir_parentfolder'),
            "framerate":float(c.get('ir_framerate')),
-           "recordTime":float(c.get('ir_recordtime'))
+           "recordTime":float(c.get('ir_recordtime')),
+           "storeCondition":int(c.get('ir_storecondition')),
+           "stopCondition":int(c.get('ir_stopcondition')),
+           "startCondition":int(c.get('ir_startcondition')),
+           "startValue":int(c.get('ir_startvalue')),
+           "storeValue":int(c.get('ir_storevalue')),
+           "recordFormat":int(c.get('ir_recordformat')),
            }
     response = connectAndGetResponse(data)
     return response
