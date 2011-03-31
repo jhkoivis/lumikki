@@ -35,7 +35,7 @@ class staticglobals:
 configurationMap = {
     'g_active':[False, False, False, False]
     , 'g_measurementid'     : 'default'
-    , 'cam_parentfolder' : 'F:\data'
+    , 'cam_parentfolder' : r'F:\data'
     , 'cam_packetsize' : '9144'
     , 'cam_xoffset' : '0'
     , 'cam_yoffset' : '0'
@@ -56,4 +56,11 @@ configurationMap = {
     , 'ir_filename' : 'irpicture'
     , 'ir_ip' : '127.0.0.1'
     , 'ir_port' : '57944'
+    , 'ir_parentfolder' : r'D:\irimages'
+    , 'ir_storecondition' : '1'
+    , 'ir_stopcondition' : '1'
+    , 'ir_startcondition' : '0'
+    , 'ir_startvalue' : '0'
+    , 'ir_storevalue' : '0'
+    , 'ir_recordformat' : '2'
 }
