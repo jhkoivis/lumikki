@@ -22,9 +22,9 @@ try:
     	status = ttm.connectAndGetStatus()
         put_json({'status':status, 'id':id, 'target':target})
     elif target == mg.ae: 
-        put_json({'status':'122', 'id':id, 'target':target})
+        put_json({'status':'130', 'id':id, 'target':target})
     elif target == mg.cam: 
-        put_json({'status':'122', 'id':id, 'target':target})
+        put_json({'status':'130', 'id':id, 'target':target})
     elif target == mg.ir:
         status = ir.connectAndGetStatus()
         put_json({'status':status, 'id':id, 'target':target})
