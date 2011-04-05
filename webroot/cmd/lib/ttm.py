@@ -17,7 +17,7 @@ def connectToCommand(command, data=None):
 
 def connectAndStartLogging():
     c = conf()
-    data = {"expId": c.get('g_measurementid') + c.get('g_timestamp')}
+    data = {"expId": "%s-%s" % (c.get('g_measurementid'), c.get('g_timestamp'))}
     connection = connectToCommand("startLogging", data)
     return connectAndGetStatus()
 
