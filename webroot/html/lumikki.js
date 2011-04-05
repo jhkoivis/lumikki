@@ -5,6 +5,7 @@ $(document).ready(function() {
     return false;
     });
     $('#run').submit(function() {
+    timeStampAction();
     runAction();
     return false;
     });
@@ -75,6 +76,7 @@ R_IRCONNECT = "/cmd/irconnect.cgi";
 R_IRDISCONNECT = "/cmd/irdisconnect.cgi";
 R_IRIMAGESERIES = "/cmd/irimageseries.cgi";
 R_IRSTOP = "/cmd/irstop.cgi";
+R_TIMESTAMP = "/cmd/timestamp.cgi";
 
 TTM=0;
 AE=1;
@@ -123,6 +125,10 @@ function ttmTransferAction() {
 
 function irTransferAction() {
     transferStateOfForm("ir");
+}
+
+function timeStampAction() {
+    timeStampRequest();
 }
 
 function runAction() {
@@ -191,6 +197,16 @@ function ttmSetPointRunRequest() {
     logC(R_TTMSETPOINT + "::" + params);
     $.post(R_TTMSETPOINT, params, function(response) { 
     logR(R_TTMSETPOINT + "::" + JSON.stringify(response)); 
+    showError(response);
+    }, "json");
+
+}
+function timeStampRequest() {
+    var id = reqId();
+    var params = JSON.stringify({"id":id}); 
+    logC(R_TIMESTAMP + "::" + params);
+    $.post(R_TIMESTAMP, params, function(response) { 
+    logR(R_TIMESTAMP + "::" + JSON.stringify(response)); 
     showError(response);
     }, "json");
 
