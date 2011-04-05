@@ -51,7 +51,6 @@ def connectAndMoveToSetPoint():
 
 def connectAndGetStatus():
 
-
     try:
         connection = connectToCommand("status")
 	response = loads(connection.read())
@@ -59,14 +58,3 @@ def connectAndGetStatus():
     except URLError:
         return "110"
     return response['status']
-
-def connectAndGetStatusLegacy():
-    try:
-        c = conf()
-        url = "http://%s:%s" % (c.get('ttm_ip'),c.get('ttm_port'))
-        connection = urlopen(url, timeout=timeout)
-    except URLError:
-        return "110"
-    return "200"
-
-#connectAndGetStatus = connectAndGetStatusLegacy
