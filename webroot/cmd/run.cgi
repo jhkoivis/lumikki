@@ -19,7 +19,6 @@ try:
         c.set('g_measurementid', measurementid)
     else: 
         raise ValueError("No measurement ID set.")
-    timestamp()
     active = c.get('g_active')
     log("active array: " + str(active))
     if active[mg.cam]:
