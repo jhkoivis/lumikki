@@ -1,8 +1,9 @@
 from BaseHTTPServer import HTTPServer
 from threading import Thread
 from SocketServer import ThreadingMixIn
-from mockdevices import MockCamHandler, MockTTMHandler
+from mockdevices import MockCamHandler, MockTTMHandler, MockIRHandler
 from urllib2 import urlopen
+from config import conf
 
 class MockServer:
         
@@ -10,7 +11,8 @@ class MockServer:
     
         self.devicemap = {
                           MockCamHandler:('localhost',40001),
-                          MockTTMHandler:('localhost',40002)
+                          MockTTMHandler:('localhost',40002),
+                          MockIRHandler:('localhost',40003)
                           }
         self.devices = dict()
         for handler, address in self.devicemap.items():
@@ -36,6 +38,7 @@ class MockDevice(HTTPServer,ThreadingMixIn):
 
     def __init__(self, address, handler):
         self.stop = False
+        self.config = dict({'measuring':False})
         HTTPServer.__init__(self, address, handler)
     
     def serve(self):
