@@ -10,9 +10,13 @@ timeout = 60
 cgipath = "/cgi-bin/MessageSenderCon.exe"
 
 def connectAndGetResponse(data):
-    req = createRequest(data)
-    connection = urlopen(req,timeout=timeout)
-    return connectAndGetStatus()
+    try:
+        req = createRequest(data)
+        connection = urlopen(req,timeout=timeout)
+        response_json = loads(connection.read())
+        return response_json["status"]
+    except URLError:
+        return "110"
 
 def createRequest(data):
     
@@ -66,28 +70,9 @@ def connectAndStopRecording():
     response = connectAndGetResponse({"stopRecording":0})
     return response
 
-def connectAndGetStatusNew():
-    try:
-        req = createRequest({"status":0})
-        connection = urlopen(req,timeout=timeout)
-        response_json = loads(connection.read())
-        return response_json["status"]
-    except URLError:
-        return "110"
-    
-def connectAndGetStatusLegacy():
-    try:
-        req = createRequest({"isConnected":0})
-        connection = urlopen(req,timeout=timeout)
-        response_json = loads(connection.read())
-        if response_json["isConnected"] == 0:
-            return "210"
-        else:
-            return "200"
-    except URLError:
-        return "110"
-    
-connectAndGetStatus = connectAndGetStatusLegacy
+def connectAndGetStatus():
+    response = connectAndGetResponse({"status":0})
+    return response
     
 def connectAndGetState():
     req = createRequest({"isConnected":0})
