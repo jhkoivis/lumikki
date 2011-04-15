@@ -10,14 +10,16 @@ class MockServer:
     def __init__(self):
     
         self.devicemap = {
-                          MockCamHandler:('localhost',40001),
-                          MockTTMHandler:('localhost',40002),
-                          MockIRHandler:('localhost',40003)
+                          'cam':(MockCamHandler,('localhost',40001)),
+                          'ttm':(MockTTMHandler,('localhost',40002)),
+                          'ir' :( MockIRHandler,('localhost',40003))
                           }
         self.devices = dict()
-        for handler, address in self.devicemap.items():
-            device = MockDevice(address, handler)
-            self.devices[device] = Thread(target=device.serve)
+        self.threads = dict()
+        for name, config in self.devicemap.items():
+            handler, address = config
+            self.devices[name] = MockDevice(address, handler)
+            self.threads[name] = Thread(target=self.devices[name].serve)
             
     def run(self):
         try:
