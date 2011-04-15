@@ -4,6 +4,7 @@ from SocketServer import ThreadingMixIn
 from mockdevices import MockCamHandler, MockTTMHandler, MockIRHandler
 from urllib2 import urlopen
 from config import conf
+from itertools import izip
 
 class MockServer:
         
@@ -23,14 +24,14 @@ class MockServer:
             
     def run(self):
         try:
-            for device, thread in self.devices.items():
+            for device, thread in izip(self.devices.values(), self.threads.values()):
                 thread.daemon = False
                 thread.start()
         except AssertionError:
             raise Exception("Run not possible, server destroyed.")
             
     def stop(self):
-        for device, thread in self.devices.items():
+        for device, thread  in izip(self.devices.values(), self.threads.values()):
             if thread.isAlive:
                 device.stop_server()
                 device.socket.close()
