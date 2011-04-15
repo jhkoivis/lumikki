@@ -50,3 +50,9 @@ class MockDevice(HTTPServer,ThreadingMixIn):
     def stop_server(self):
         self.stop = True
         urlopen("http://%s:%s" % self.server_address)
+        
+if __name__=="__main__":
+    server = MockServer()
+    server.run()
+    raw_input("Press enter to shutdown server...")
+    server.stop()

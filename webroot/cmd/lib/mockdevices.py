@@ -1,5 +1,5 @@
 
-from BaseHTTPServer import BaseHTTPRequestHandler
+from BaseHTTPServer import BaseHTTPRequestHandler as Handler
 from SocketServer import StreamRequestHandler
 from json import loads, dumps
 from time import time
@@ -12,18 +12,27 @@ class MockHTTPHandler(StreamRequestHandler):
         
         print "REQUEST: %s" % self.request
         print "COMMAND: %s" % self.command
-        print "DATA: %s" % self.data
+        try:
+            print "DATA: %s" % self.data
+        except AttributeError:
+            pass
         print "DEVICE CONF: %s" % self.server.config
         
         if self.request == 'GET':
-            self.wfile.write("HTTP/1.1 200 \r\nContent-Type: text/html\r\n\r\n")
-            try:
-                function = getattr(self, self.command)
-                response = function()
-                self.wfile.write(response)
-            except AttributeError as e:
-                response = "COMMAND: %s, DATA: %s" % (self.command, dumps(self.data))
-                self.wfile.write(response)     
+            self.writeResponse()
+        if self.request == 'POST':
+            self.HTTPGetJSON()
+            self.writeResponse()
+            
+    def writeResponse(self):
+        self.wfile.write("HTTP/1.1 200 \r\nContent-Type: text/html\r\n\r\n")
+        try:
+            function = getattr(self, self.command)
+            response = function()
+            self.wfile.write(response)
+        except AttributeError as e:
+            response = "COMMAND: %s, DATA: %s" % (self.command, dumps(self.data))
+            self.wfile.write(response)
     
     def HTTPGetData(self):
         self.data = dict()
@@ -37,7 +46,26 @@ class MockHTTPHandler(StreamRequestHandler):
             self.command = self.command
             
     def HTTPGetJSON(self):
-        pass
+        self.data = dict()
+        try:
+            dataline = self.rfile.readline()
+            print dataline
+            while dataline != '\n':
+                try:
+                    datasplit = dataline.split()
+                    if datasplit[0] == 'Content-Length:':
+                        contentlen = int(datasplit[1])
+                except IndexError:
+                    pass
+                dataline = self.rfile.readline()
+                print dataline
+                print "baa"
+            dataline = self.rfile.read(contentlen-1)
+            jsondata = loads(dataline)
+            print jsondata
+            self.data.update(jsondata)
+        except ValueError:
+            self.command = self.command
         
 class MockTTMHandler(MockHTTPHandler):
 
@@ -97,14 +125,43 @@ class MockTTMHandler(MockHTTPHandler):
         conf['starttime'] = time()
         return 'moveToSetpoint'
             
-class MockIRHandler(BaseHTTPRequestHandler):
+class MockIRHandler(Handler):
 
-    def do_GET(self):
+    def do_POST(self):
+        print "%s:\n%s" % (self.command, self.path)
+        conf = self.server.config
+        if self.headers['content-type'] == "application/json":
+            clength = int(self.headers['content-length'])
+            data = self.rfile.read(clength)
+            loaded = loads(data)
+            for key in loaded.keys():
+                try:
+                    function = getattr(self,key)
+                    function()
+                except AttributeError:
+                    conf[key] = value
+        self.writeResponse()
+                    
+    def status(self):
+        pass
+        
+    def writeResponse(self):
+    
+        conf = self.server.config
+        if conf['measuring']:
+            statuscode = "220"
+        else:
+            statuscode = "210"
+        response = dumps(dict({'status':statuscode}))
         self.send_response(200)
-        self.send_header("Content-type", r"text/html")
+        self.send_header('Content-Type','application/json')
         self.end_headers()
-        self.wfile.write("ir")
-        return
+        self.wfile.write(response)
+        self.wfile.close()
+                    
+    def do_GET(self):
+        print "%s:\n%s" % (self.command, self.path)
+        self.writeResponse()
 
 class MockCamHandler(StreamRequestHandler):
 
@@ -117,7 +174,6 @@ class MockCamHandler(StreamRequestHandler):
         elif self.raw_requestline.find("status") != -1:
             self.wfile.write('Satus:CAMERA IS ON\r\n')
             self.connection.shutdown()
-        
     
     def do_GET(self):
         self.send_response(200)
