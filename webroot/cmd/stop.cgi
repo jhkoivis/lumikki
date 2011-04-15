@@ -3,6 +3,7 @@
 from lib.lumilib import *
 from lib import camera
 from lib import ttm
+from lib import ir
 from lib.config import conf
 from lib.config import staticglobals as mg
 
@@ -18,6 +19,8 @@ try:
     if active[mg.ttm]:
         ttm.connectAndStopLogging()
         ttm.connectAndStop()
+    if active[mg.ir]:
+        ir.connectAndStopRecording()
     put_json({'st':0, 'id':commandId})
 except Exception as e:
     put_json({'id':commandId, 'st':1, 

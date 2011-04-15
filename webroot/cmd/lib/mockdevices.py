@@ -1,180 +1,178 @@
 
-from BaseHTTPServer import BaseHTTPRequestHandler as Handler
+from BaseHTTPServer import BaseHTTPRequestHandler
 from SocketServer import StreamRequestHandler
 from json import loads, dumps
 from time import time
-
-#import mockserver; s = mockserver.MockServer(); s.run()
-
-class MockHTTPHandler(StreamRequestHandler):
-    
-    def respond(self):
         
-        print "REQUEST: %s" % self.request
-        print "COMMAND: %s" % self.command
-        try:
-            print "DATA: %s" % self.data
-        except AttributeError:
-            pass
-        print "DEVICE CONF: %s" % self.server.config
+class MockTTMHandler(BaseHTTPRequestHandler):
+
+    def do_GET(self):
+        self.checkStatus()
+        raw_command = self.path.split('_')[-1]
+        command = self.parseCommand(raw_command)
         
-        if self.request == 'GET':
-            self.writeResponse()
-        if self.request == 'POST':
-            self.HTTPGetJSON()
-            self.writeResponse()
-            
-    def writeResponse(self):
-        self.wfile.write("HTTP/1.1 200 \r\nContent-Type: text/html\r\n\r\n")
         try:
-            function = getattr(self, self.command)
+            function = getattr(self, command)
             response = function()
-            self.wfile.write(response)
-        except AttributeError as e:
-            response = "COMMAND: %s, DATA: %s" % (self.command, dumps(self.data))
-            self.wfile.write(response)
-    
-    def HTTPGetData(self):
+            print "COMMAND: %s" % command
+        except AttributeError:
+            response = ''
+
+        self.send_response(200)
+        self.send_header('Content-Type','application/json')
+        self.end_headers()
+        self.wfile.write(response)
+        self.wfile.close()
+        print "SERVER CONFIG: %s" % self.server.config
+        
+    def parseCommand(self, command):
         self.data = dict()
         try:
-            self.command, raw_data = self.command.split('?')
+            command, raw_data = command.split('?')
             keyvalues = raw_data.split('&')
             for keyvalue in keyvalues:
                 key, value = keyvalue.split('=')
                 self.data[key] = value
         except ValueError:
-            self.command = self.command
-            
-    def HTTPGetJSON(self):
-        self.data = dict()
-        try:
-            dataline = self.rfile.readline()
-            print dataline
-            while dataline != '\n':
-                try:
-                    datasplit = dataline.split()
-                    if datasplit[0] == 'Content-Length:':
-                        contentlen = int(datasplit[1])
-                except IndexError:
-                    pass
-                dataline = self.rfile.readline()
-                print dataline
-                print "baa"
-            dataline = self.rfile.read(contentlen-1)
-            jsondata = loads(dataline)
-            print jsondata
-            self.data.update(jsondata)
-        except ValueError:
-            self.command = self.command
+            pass
+        return command
         
-class MockTTMHandler(MockHTTPHandler):
-
-    def handle(self):
-        
-        requestline = self.rfile.readline()
-        self.request, raw_command = requestline.split()[0:2]
-        self.command = raw_command.split('_')[-1]
-        self.checkSetPointTime()
-        MockHTTPHandler.HTTPGetData(self)
-        MockHTTPHandler.respond(self)
-        
-    def checkSetPointTime(self):
+    def checkStatus(self):
         conf = self.server.config
         if conf['measuring'] == True:
             try:
-                measurementtime = time() - conf['starttime']
+                measurementtime = time() - conf['startTime']
                 if measurementtime >= float(conf['setpointTime']):
                     conf['measuring'] = False
-                    del conf['starttime']
+                    del conf['startTime']
             except KeyError:
                 return
-            
+                
     def status(self):
         conf = self.server.config
         if conf['measuring'] == True:
-            status = dumps({'status':'220'})
+            statuscode = '220'
         else:
-            status = dumps({'status':'200'})
-        return status
+            statuscode = '200'
+        return dumps(dict({'status':statuscode}))
     
     def initRamp(self):
         conf = self.server.config
         conf.update(self.data)
         conf['measuring'] = True
-        return 'initRamp'
+        return ''
     
     def stop(self):
         conf = self.server.config
         conf['measuring'] = False
-        return 'stop' 
+        return ''
     
     def startLogging(self):
         conf = self.server.config
         conf['logging'] = True
-        return 'startLogging.'
+        return ''
     
     def stopLogging(self):
         conf = self.server.config
         conf['logging'] = False
-        return 'stopLogging'
+        return ''
     
     def moveToSetpoint(self):
         conf = self.server.config
         conf.update(self.data)
         conf['measuring'] = True
-        conf['starttime'] = time()
-        return 'moveToSetpoint'
+        conf['startTime'] = time()
+        return ''
             
-class MockIRHandler(Handler):
+class MockIRHandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
-        print "%s:\n%s" % (self.command, self.path)
+        self.checkStatus()
         conf = self.server.config
+        
         if self.headers['content-type'] == "application/json":
             clength = int(self.headers['content-length'])
             data = self.rfile.read(clength)
             loaded = loads(data)
             for key in loaded.keys():
                 try:
-                    function = getattr(self,key)
-                    function()
-                except AttributeError:
-                    conf[key] = value
-        self.writeResponse()
+                    function = getattr(self, key)
+                    response = function()
+                    print "COMMAND: %s" % key
+                except (AttributeError, TypeError):
+                    conf[key] = loaded[key]
+                    response = self.status()
                     
-    def status(self):
-        pass
+        self.writeResponse(response)
+        print "SERVER CONFIG: %s" % self.server.config
+                    
+    def do_GET(self):
+        self.writeResponse(self.status())
         
-    def writeResponse(self):
-    
+    def writeResponse(self, response):
+        self.send_response(200)
+        self.send_header('Content-Type','application/json')
+        self.end_headers()
+        self.wfile.write(response)
+        print "RESPONSE: %s" % response
+        
+    def status(self):
         conf = self.server.config
         if conf['measuring']:
             statuscode = "220"
         else:
             statuscode = "210"
-        response = dumps(dict({'status':statuscode}))
-        self.send_response(200)
-        self.send_header('Content-Type','application/json')
-        self.end_headers()
-        self.wfile.write(response)
-        self.wfile.close()
-                    
-    def do_GET(self):
-        print "%s:\n%s" % (self.command, self.path)
-        self.writeResponse()
-
-class MockCamHandler(StreamRequestHandler):
-
-    def handle(self):
+        return dumps(dict({'status':statuscode}))
         
-        self.raw_requestline = self.rfile.readline()
-        print "REQUEST: %s" % self.raw_requestline
-        if self.raw_requestline.split()[0] == 'GET':
-            self.wfile.write("HTTP/1.1 200 \r\nContent-Type: text/html\r\n\r\ncam")
-        elif self.raw_requestline.find("status") != -1:
-            self.wfile.write('Satus:CAMERA IS ON\r\n')
-            self.connection.shutdown()
+    def connect(self):
+        conf = self.server.config
+        if not conf['measuring']:
+            conf['isConnected'] = True
+        return self.status()
     
+    def disconnect(self):
+        conf = self.server.config
+        if not conf['measuring']:
+            conf['isConnected'] = False
+        return self.status()
+    
+    def focus(self):
+        conf = self.server.config
+        if not conf['measuring']:
+            conf['focused'] = True
+        return self.status()
+        
+    def getImage(self):
+        return self.status()
+        
+    def getImageSeries(self):
+        conf = self.server.config
+        conf['measuring'] = True
+        conf['startTime'] = time()
+        return self.status()
+
+    def stopRecording(self):
+        conf = self.server.config
+        conf['measuring'] = False
+        try:
+            del conf['startTime']
+        except KeyError:
+            pass
+        return self.status()
+        
+    def checkStatus(self):
+        conf = self.server.config
+        if conf['measuring']:
+            try:
+                currenttime = time()
+                if (currenttime - conf['startTime']) >= conf['recordTime']:
+                    conf['measuring'] = False
+                    del conf['startTime']
+            except KeyError:
+                pass
+
+class MockCamHandler(BaseHTTPRequestHandler):
+
     def do_GET(self):
         self.send_response(200)
         self.send_header("Content-type", r"text/html")
