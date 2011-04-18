@@ -6,6 +6,23 @@ from json import loads
 
 timeout = 5
 
+
+def connectAndSendStart():
+	'''
+	TODO: this is the only function that is called 
+	from cgi.
+
+	This includes if-else for constant load, speed, etc
+	'''
+	pass
+
+def connectAndSendInit():
+	'''
+	TODO: this sends long instructions to the machine.
+	This is bind to the init.cgi
+	'''
+	pass
+
 def connectToCommand(command, data=None):
     c = conf()
     basic_url = "http://%s:%s/lumikki/csm_lumikki_instron_" % (c.get('ttm_ip'),c.get('ttm_port'))
