@@ -41,10 +41,12 @@ def connectAndFocus():
 
 def connectAndSendSettings():
     c = conf()
+    # TODO: path parsing belongs to device side, remove filename and add timestamp to data -dictionary 
+    path = c.get('ir_parentfolder') + '\\' + c.get('g_measurementid') + '-' + c.get('g_timestamp') 
     data ={
            "expId":c.get('g_measurementid'),
-           "filename":c.get('g_measurementid'),
-           "path":c.get('ir_parentfolder'),
+           "filename":c.get('g_measurementid') + '-',
+           "path":path,
            "framerate":float(c.get('ir_framerate')),
            "recordTime":float(c.get('ir_recordtime')),
            "storeCondition":int(c.get('ir_storecondition')),
