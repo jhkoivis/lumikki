@@ -58,7 +58,6 @@ configurationMap = {
     , 'ttm_load' : '0.0'
     , 'ir_framerate' : '30'
     , 'ir_recordtime' : '5.0'
-    , 'ir_filename' : 'irpicture'
     , 'ir_ip' : '127.0.0.1'
     , 'ir_port' : '57944'
     , 'ir_parentfolder' : r'D:\irimages'
