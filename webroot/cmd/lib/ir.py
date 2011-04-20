@@ -19,7 +19,6 @@ def connectAndGetResponse(data):
         return "110"
 
 def createRequest(data):
-    
     c = conf()
     ip = c.get('ir_ip')
     port = c.get('ir_port')
@@ -44,7 +43,7 @@ def connectAndSendSettings():
     c = conf()
     data ={
            "expId":c.get('g_measurementid'),
-           "filename":c.get('ir_filename'),
+           "filename":c.get('g_measurementid'),
            "path":c.get('ir_parentfolder'),
            "framerate":float(c.get('ir_framerate')),
            "recordTime":float(c.get('ir_recordtime')),

@@ -6,7 +6,10 @@ class conf:
 
     def getAndSetCurrent(self, inputMap):
         retDict = dict()
-        for key in configurationMap: 
+        # TODO: change this other way around. Currently, 
+	# if configurationMap does not have key, it is not 
+	# updated 
+	for key in configurationMap: 
             inKeys = inputMap.keys()
             if key in inKeys:
                 self.set(key, inputMap[key])
@@ -52,6 +55,7 @@ configurationMap = {
     , 'ttm_setpointtime' : '1'
     , 'ttm_ip' : '127.0.0.1'
     , 'ttm_port' : '80'
+    , 'ttm_load' : '0.0'
     , 'ir_framerate' : '30'
     , 'ir_recordtime' : '5.0'
     , 'ir_filename' : 'irpicture'
