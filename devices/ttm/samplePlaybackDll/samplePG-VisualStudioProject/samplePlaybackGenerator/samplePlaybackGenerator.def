@@ -1,0 +1,6 @@
+
+LIBRARY samplePlaybackGenerator
+EXPORTS
+      avg_num
+      add_num
+      num_Integers
