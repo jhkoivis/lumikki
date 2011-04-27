@@ -8,8 +8,15 @@ try:
     c = conf()
     jsonMessage = get_json()
     command_id = jsonMessage['id']
+    
+    outFile = open('/tmp/lumikki.log', 'a')
+    for key, value in jsonMessage:
+    	outFile.write(key + value)
+    outFile.close()
+    
     del jsonMessage['id']
     put_json(c.getAndSetCurrent(jsonMessage))
+
 except Exception as e:
     raise
     put_json({'id':command_id, 'st':1, 'msg':'State.cgi failed [' + str(e) + ']'})

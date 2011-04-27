@@ -52,6 +52,8 @@ configurationMap = {
     , 'ttm_setpointtime' : '1'
     , 'ttm_ip' : '127.0.0.1'
     , 'ttm_port' : '80'
+    , 'ttm_load' : '0.0'
+    , 'ttm_creep_experiment' : False
     , 'ir_framerate' : '30'
     , 'ir_recordtime' : '5.0'
     , 'ir_filename' : 'irpicture'

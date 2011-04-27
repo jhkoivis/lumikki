@@ -4,17 +4,17 @@ import os
 
 rd = {}
 # lumikki.env
-rd['MYPREFIX'] = '/home/sauna/usr/'
+rd['MYPREFIX'] = '/home/jko/usr/'
 # conf/lighttpd.conf
 rd['var.log_root'] = '"/tmp"'
-rd['var.server_root'] = '"/home/sauna/lumikki_devel/webroot"'
+rd['var.server_root'] = '"/home/jko/workspace/lumikki/lumikki/webroot"'
 rd['var.state_dir'] = '"/tmp"'
 rd['var.home_dir'] = '"/tmp"'
-rd['var.conf_dir'] = '"/home/sauna/lumikki_devel/conf"'
+rd['var.conf_dir'] = '"/home/jko/lumikki/lumikki/conf"'
 rd['server.port'] = '8000'
 
 # conf/conf.d/cgi.conf
-rd['setenv.add-environment'] = '("PYTHONPATH" => "/usr/lib/python2.6/site-packages")'
+rd['setenv.add-environment'] = '("PYTHONPATH" => "/home/jko/usr/lib/python2.6/site-packages")'
 rd['cgi.assign'] = '( ".cgi" => "/usr/bin/python2.6" )'
 
 def makeBackup(filename):

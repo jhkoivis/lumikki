@@ -78,10 +78,15 @@
 		      <input type="text"  size="20" maxlength="20" id="ttm_setpoint"><br />
 		      <label for="ttm_setpointtime">Set Point Time</label> 
 		      <input type="text"  size="20" maxlength="20" id="ttm_setpointtime"><br />
-		      <input style="float:bottom;" type="submit" value="Apply" />
+				<hr />				
+		    	<label for="ttm_creep_experiment">Constant load instead of ramp</label>
+		    	<input id="ttm_creep_experiment" type="checkbox" /><br />
+		      	<label for="ttm_load">Constant load</label> 
+		     	<input type="text"  size="20" maxlength="20" id="ttm_load"><br />
+		     	<input style="float:bottom;" type="submit" value="Apply" />
 		    </form>
 		  </div>
-		  <div style="float:right;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
+		  <div style="float:right;width:250px;min-height:200px;display:block;border-width: 1px 1px 1px">
 		    <form  id="ttmsetpointrun" action="" style="text-align:right">
 		      <input style="float:bottom;" type="submit" value="Move to Set Point" />
 		    </form>
