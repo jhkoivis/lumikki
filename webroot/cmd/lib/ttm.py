@@ -14,7 +14,13 @@ def connectAndSendStart():
 
 	This includes if-else for constant load, speed, etc
 	'''
-	pass
+	c = conf()
+	if c.get('ttm_creep_experiment') == True:
+		data = {"load":	  c.get('ttm_load')}
+	else:
+		ret = ttm.connectAndInitRamp()
+		ret = ttm.connectAndStartLogging()
+		ret = ttm.connectAndStartRamp()
 
 def connectAndSendInit():
 	'''
@@ -65,6 +71,11 @@ def connectAndMoveToSetPoint():
             }
     response = connectToCommand("moveToSetpoint", data)
     return connectAndGetStatus()
+
+def connectAndStartCreepExperiment():
+	c = conf()
+	data = {"load":	  c.get('ttm_load')}
+	connectToCommand('creep', data)
 
 def connectAndGetStatus():
 

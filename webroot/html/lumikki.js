@@ -120,6 +120,11 @@ function camTransferAction() {
 }
 
 function ttmTransferAction() {
+	/*
+	bCreep = $("#ttm_creep_experiment").is(":checked");
+	logR(bCreep);
+	stateAction({"ttm_creep_experiment": bCreep});
+	*/
     transferStateOfForm("ttm");
 }
 
@@ -188,7 +193,6 @@ function runRequest() {
     logR(R_RUN + "::" + JSON.stringify(response)); 
     showError(response);
     }, "json");
-
 }
 
 function ttmSetPointRunRequest() {
@@ -209,7 +213,6 @@ function timeStampRequest() {
     logR(R_TIMESTAMP + "::" + JSON.stringify(response)); 
     showError(response);
     }, "json");
-
 }
 
 function irFocusRequest() {
@@ -220,7 +223,6 @@ function irFocusRequest() {
     logR(R_IRFOCUS + "::" + JSON.stringify(response)); 
     showError(response);
     }, "json");
-
 }
 
 function irConnectRequest() {
@@ -231,7 +233,6 @@ function irConnectRequest() {
     logR(R_IRCONNECT + "::" + JSON.stringify(response)); 
     showError(response);
     }, "json");
-
 }
 
 function irDisconnectRequest() {
@@ -275,8 +276,6 @@ function stateRequest(inputMap, actionFunction) {
      }, "json");
 }
 
-
-
 function statusRequest(request, target) {
     var rdata = null; 
     var id = reqId();
@@ -290,11 +289,19 @@ function statusRequest(request, target) {
 
 
 function transferStateOfForm(formName) {
+	/* 
+		Check all variables starting with formName and
+		add them to memcache via stateMap -> stateAction -> config.py
+	*/
     var id = reqId(), stateMap = {"id":id}, i=0;
     var formChildren = $("#" + formName + " > *");
     for (i=0; i < formChildren.length; i++) {
     o = formChildren[i];
     if (o.id.match("^" + formName + "_") == (formName + "_")) {
+    	if (o.type == "checkbox"){
+    		stateMap[o.id] = $("#" + o.id).is(":checked");
+    		logR(o.id + '=' + stateMap[o.id])
+    	}
         stateMap[o.id] = $("#" + o.id).val();
     }
     }
@@ -378,8 +385,6 @@ function status(value) {
     }
 }
 
-
-
 function reqId() {
     if ( typeof reqId.c == 'undefined' || reqId.c > 9998) {
         reqId.c = 999;
@@ -400,7 +405,6 @@ function getTime() {
     + f2(parseInt((d.getMilliseconds()/1000*1000))
        );
 }
-
 
 function logC(logstring) { log("C", logstring); }
 function logR(logstring) { log("R", logstring); }
