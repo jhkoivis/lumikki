@@ -1,0 +1,89 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[pdftex]{hyperref}
+\usepackage{graphicx}
+\hypersetup{pdftitle={Fatigue experiments with Lumikki}}
+\usepackage{SIunits}
+\usepackage{color}
+\usepackage{framed}
+
+\begin{document}
+
+\begin{figure}[htb]
+  \begin{minipage}[\textwidth]{\textwidth}
+    {\color{red}
+     {\Large Operator safety}
+     \begin{itemize}
+       \item Do not place your hand in between the crosshead and the compression plate unless the measurement device is on \textsf{MODE 0}!
+       \item In case the machine must be stopped immediately, press the red button on the control panel. To release the button, rotate it clockwise.
+     \end{itemize}
+     }
+  \end{minipage}
+\end{figure}
+
+\begin{framed}
+This document should probably contain something like:
+\begin{itemize}
+  \item Foreword, warnings
+  \item Before experiments
+  \item During experiments
+  \item After experiments
+\end{itemize}
+\end{framed}
+
+
+\section{Foreword}
+
+This is a list of instructions to bring the Instron measurement device
+and necessary camera gear on-line and to perform wood fatigue
+tests. Please read the manual through before attempting to use the
+equipment. The Instron measurement device contain safety mechanisms to
+stop the user from harming it. Nonetheless, care should be taken not
+to drive the crosshead into the sample plate. This can cause damage to
+the force gauge (rather expensive) in the device.
+
+\section{Instron initialization}
+
+First, before anything else is done with the measurement device, it
+must be initialized properly. In the case of compression tests, the
+measurement device must be configured so that the crosshead does not
+reach the sample plate when fully extended. Also setting proper safety
+limits and calibration are necessary.
+
+
+To begin turn on the measurement device. The power switch is on the
+back side of the gray box next to the concrete table. The device boots
+up for a while and remains in \textsf{MODE 0}, untill at some point it
+can be switched to \textsf{MODE I}. The device itself does not give
+any signal about this. but if you watch the log on the TTM machine,
+you will notice activity when the measurement device is ready to be
+switched to \textsf{MODE I}.
+
+While the machine is booting up, check logs from the {\it Instron
+control program} to see when the machine was used last. If you are
+confident that the machine was last used for the same measurement and
+has been initialized already, you can skip the rest of this section
+and set the machine on \textsf{MODE I}.
+
+
+\begin{enumerate}
+  \item Set machine to \textsf{MODE I}.
+  \begin{itemize}
+    \item Clear all safety limits.
+    \item Loosen the two black screw bolts. When open, the handles are to be set downwards (as if they were valves). When closed, the handles point inwards or toward each other.
+    \item Lift the machine using the black rocker switch enough so that you can fully extend the crosshead.
+    \item Using the arrow buttons on the remote, extend the driver head fully taking caution not to allow the driver head to touch the sample pedestal.
+    \item Using the black rocking switch, bring down the machine slowly until there is only a small gap (about $0.5$ \milli\meter) between the driver head and the compression plate. {\bf Take care not to ram the driver head into the compression plate!}
+    \item Secure the machine by tightening the screw bolts. Leave the handles pointing towards each other.
+  \end{itemize}
+  \item Switch the machine to \textsf{MODE II}.
+  \begin{itemize}  
+    \item Calibrate the force sensor by opening the force tab, clicking ``Calibration'' and then ``Balance''.
+    \item Set force safety limits to $\mathbf{\pm 1000}$ {\bf\newton}.
+    \item Set digital position to zero by opening digital position tab, clicking ``Calibration'' and then ``Balance''.
+    \item Set position safety limits to $\mathbf{\pm 30}$ {\bf\milli\meter}. To do this, you must set Instron to \textsf{MODE 1} and moove the crosshead up a bit, as the crosshead is bellow the $\mathbf{-30}$ {\bf\milli\meter} safety limit at this point.
+  \end{itemize}
+\end{enumerate}
+
+\end{document}
