@@ -47,11 +47,12 @@
 		<Item Name="csm_lumikki_instron_init.vi" Type="VI" URL="../csm_lumikki_instron_init.vi"/>
 		<Item Name="csm_lumikki_instron_creep.vi" Type="VI" URL="../csm_lumikki_instron_creep.vi"/>
 		<Item Name="lumikkiVariableList.lvlib" Type="Library" URL="../lumikkiVariableList.lvlib"/>
-		<Item Name="CSM_creep_function.vi" Type="VI" URL="../CSM_creep_function.vi"/>
 		<Item Name="MX Data Logging Read.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Data Acquisition/MX Data Logging Read.vi"/>
 		<Item Name="csm_lumikki_instron_status.vi" Type="VI" URL="../csm_lumikki_instron_status.vi"/>
 		<Item Name="MX System Status with Dialog.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/System Status/MX System Status with Dialog.vi"/>
 		<Item Name="csm_lumikki_instron_statusQue.vi" Type="VI" URL="../csm_lumikki_instron_statusQue.vi"/>
+		<Item Name="statusQuery.vi" Type="VI" URL="../lib/statusQuery.vi"/>
+		<Item Name="moreSamplesToPlayback.vi" Type="VI" URL="../lib/moreSamplesToPlayback.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Close File+.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Close File+.vi"/>
@@ -114,16 +115,16 @@
 				<Item Name="Write To Spreadsheet File (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write To Spreadsheet File (string).vi"/>
 				<Item Name="NI_Matrix.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/Matrix/NI_Matrix.lvlib"/>
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
-				<Item Name="Open_Create_Replace File.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/Open_Create_Replace File.vi"/>
-				<Item Name="compatFileDialog.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatFileDialog.vi"/>
-				<Item Name="compatOpenFileOperation.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatOpenFileOperation.vi"/>
-				<Item Name="compatCalcOffset.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatCalcOffset.vi"/>
 				<Item Name="Wait types.ctl" Type="VI" URL="/&lt;vilib&gt;/Platform/ax-events.llb/Wait types.ctl"/>
 				<Item Name="List Event Descriptions.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/ax-events.llb/List Event Descriptions.vi"/>
 				<Item Name="List Events Available.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/ax-events.llb/List Events Available.vi"/>
 				<Item Name="Create Error Clust.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/ax-events.llb/Create Error Clust.vi"/>
 				<Item Name="Event Param Info.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/ax-events.llb/Event Param Info.vi"/>
 				<Item Name="Create ActiveX Event Queue.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/ax-events.llb/Create ActiveX Event Queue.vi"/>
+				<Item Name="Open_Create_Replace File.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/Open_Create_Replace File.vi"/>
+				<Item Name="compatFileDialog.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatFileDialog.vi"/>
+				<Item Name="compatOpenFileOperation.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatOpenFileOperation.vi"/>
+				<Item Name="compatCalcOffset.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatCalcOffset.vi"/>
 			</Item>
 			<Item Name="Get Conversion Factors.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Data Acquisition/Get Conversion Factors.vi"/>
 			<Item Name="MX Data Logging Start-Stop.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Data Acquisition/MX Data Logging Start-Stop.vi"/>
@@ -219,6 +220,8 @@
 			<Item Name="manipulate3Columns.vi" Type="VI" URL="../../csm_setpoint_and_ramp/manipulate3Columns.vi"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="../../../Program Files/National Instruments/LabVIEW 2009/resource/lvanlys.dll"/>
 			<Item Name="MX Arbitrator Globals.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Arbitrator Interface/MX Arbitrator Globals.vi"/>
+			<Item Name="CreateCreepSamples.vi" Type="VI" URL="../lib/CreateCreepSamples.vi"/>
+			<Item Name="samplePlaybackGenerator.dll" Type="Document" URL="../lib/samplePlaybackGenerator.dll"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="lumikki" Type="RESTful WS">
