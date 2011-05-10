@@ -5,55 +5,20 @@
 #include <string.h>
 #include <ctype.h>
 #include "samplePlaybackGenerator.h"
-#include "singen.h"
 
-//#ifdef _MANAGED 
-//#pragma managed(push, off) 
-//#endif 
 BOOL APIENTRY DllMain( HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved ) { return TRUE; } 
 
-
-//#include "singen.h"
-
-_declspec (dllexport) double *sinWaveform(double t0, double step, double *output, int outputLen){
+_declspec (dllexport) double *dllSinWave(double t0, double step, double *output, int outputLen){
 
 	return singen(t0, step, output, outputLen);
 }
 
-/* Add two integers */
-_declspec (dllexport) long add_num(long a, long b){
-    return((long)(a+b));}
-
-/* This function finds the average of an array of single precision numbers */
-_declspec (dllexport)  long  avg_num(float  *a, long size, float  *avg)
-{
-    float sum=0;
-
-    if(a != NULL)
-    {
-        for(int i=0;i < size; i++)
-        sum = sum + a[i];
-    }
-    else
-        return (1);
-    *avg = sum / size;
-    return (0);
-}
-
-// Counts the number of integer numbers appearing in a string. */
-// Note that this function does not check for sign, decimal, or exponent
-_declspec (dllexport) unsigned int num_Integers (char *inputString) {
-	int      lastDigit = 0;
-  int      numberOfNumbers = 0;
-  int      stringSize;
-
-  stringSize = strlen(inputString);
-  for(int i = 0; i < stringSize; i++){
-		if (!lastDigit && isdigit(inputString[i]))   
- 	   	numberOfNumbers++;
-			lastDigit = isdigit(inputString[i]);                                                     
-		}
-
-	return numberOfNumbers;                                                             
+_declspec (dllexport) double *dllCreepWithLinearStartRamp(double	t0,
+													   double	tStep,
+													   double	*output,
+													   int		outputLength,
+													   double	loadInNewtons,
+													   double	rampTimeInSeconds){
+	return creepWithLinearStartRamp(t0, tStep, output, outputLength, loadInNewtons, rampTimeInSeconds);
 }
 

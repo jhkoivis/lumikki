@@ -1,9 +1,5 @@
 
-//#include "stdafx.h"
 #include <math.h>
-
-//#define PI 3.1415265
-//(atan(1.0)*4)
 
 double *singen(
 		double t0,

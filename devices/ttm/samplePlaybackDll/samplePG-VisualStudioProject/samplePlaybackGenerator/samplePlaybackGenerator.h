@@ -1,12 +1,20 @@
 
+#include "singen.h"
+#include "creepWithLinearStartRamp.h"
 
 BOOL WINAPI DllMain(HINSTANCE hinstDLL,DWORD,LPVOID);
-_declspec (dllexport) long  add_num(long, long);
-_declspec (dllexport) long  avg_num(float *, long, float *);
-_declspec (dllexport) unsigned int  numIntegers (unsigned char *);
 
-_declspec (dllexport) double *sinWave(double	t0, 
+_declspec (dllexport) double *dllSinWave(double	t0, 
 									  double	tStep, 
 									  double	*output,
 									  int		outputLength);
+
+_declspec (dllexport) double *dllCreepWithLinearStartRamp(double	t0,
+													   double	tStep,
+													   double	*output,
+													   int		outputLength,
+													   double	load,
+													   double	rampTime);
+
+
 
