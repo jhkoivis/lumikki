@@ -8,7 +8,7 @@
 <script src = 'jquery-1.4.4.js' type = 'text/javascript'></script> 
 <script src = 'jquery.tools.min.js' type = 'text/javascript'></script> 
 <script src = 'underscore.js' type = 'text/javascript'></script>
-<script src = 'lumikki.js' type = 'text/javascript'></script>
+<script src = 'lumikkiCreep.js' type = 'text/javascript'></script>
 </head>
 <body>
 	<ul class="css-tabs">
@@ -23,7 +23,8 @@
 		<div>
 		  <div style="float:left;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
 		    <form  id="run" action="">
-		      <p>
+		      <h1>THIS RUNS CREEP EXPERIMENT</h1>
+			<p>
 			<label for="g_measurementid">Measurement ID (Max. len. 9)</label> 
 			<input type="text"  size="20" maxlength="9" id="g_measurementid">
 		      </p>
@@ -78,15 +79,14 @@
 		      <input type="text"  size="20" maxlength="20" id="ttm_setpoint"><br />
 		      <label for="ttm_setpointtime">Set Point Time</label> 
 		      <input type="text"  size="20" maxlength="20" id="ttm_setpointtime"><br />
-				<hr />				
-		    	<label for="ttm_creep_experiment">Constant load instead of ramp</label>
-		    	<input id="ttm_creep_experiment" type="checkbox" /><br />
-		      	<label for="ttm_load">Constant load</label> 
-		     	<input type="text"  size="20" maxlength="20" id="ttm_load"><br />
-		     	<input style="float:bottom;" type="submit" value="Apply" />
+<hr />
+<label for="ttm_load">Creep Load [kN]</label>
+<input type=text size="20" maxlength="20" id="ttm_load"><br />
+<hr />		    
+  <input style="float:bottom;" type="submit" value="Apply" />
 		    </form>
 		  </div>
-		  <div style="float:right;width:250px;min-height:200px;display:block;border-width: 1px 1px 1px">
+		  <div style="float:right;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
 		    <form  id="ttmsetpointrun" action="" style="text-align:right">
 		      <input style="float:bottom;" type="submit" value="Move to Set Point" />
 		    </form>

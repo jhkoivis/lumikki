@@ -60,6 +60,12 @@ def connectAndStartRamp():
     connection = connectToCommand("startRamp")
     return connectAndGetStatus()
 
+def connectAndStartCreep():
+    c = conf()
+    data = { "creepLoad": c.get('ttm_load'), "channelInt": 2}
+    connecttion = connectToCommand("creep", data)
+    return connectAndGetStatus()
+
 def connectAndStop():
     connection = connectToCommand("stop")
     return connectAndGetStatus()
