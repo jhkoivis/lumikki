@@ -15,7 +15,7 @@
     {\color{red}
      {\Large Operator safety}
      \begin{itemize}
-       \item Do not place your hand in between the crosshead and the compression plate unless the measurement device is on \textsf{MODE 0}! To operate the clamps, use manual switches located in the clamp body (operator panel does not work in 0 mode). 
+       \item Do not place your hand in between the crosshead and the compression plate unless the measurement device is on \textsf{MODE 0}! To operate the clamps, use manual switches located in the clamp body (operator panel does not work in 0 mode).
        \item In case the machine must be stopped immediately, press the red button on the control panel. To release the button, rotate it clockwise.
   		\item Upper safetylimit is 10 mm for force controlled pulling experiment (e.g. paper creep). It takes more than 10 mm for clamps to stop moving.    
 	\end{itemize}
@@ -47,60 +47,62 @@ the force gauge (rather expensive) in the device.
 \section{Before you start}
 
 \begin{itemize}
-	\item Reboot windows (clear memory)
+  \item Reboot windows (clear memory)
   \item Reboot instron (clear memory)
 \end{itemize}
 
 \section{How to do measurements with the machine}
 
-\subsection{Before starting each experiment} 
+\subsection{Before starting each experiment}
 
-Be sure that the Instron machine is calibrated. For example, in constant 
-strain compression experiments, the force indicator on Instron Computer 
-(second computer from left) should give 0.000 kN in the start. If needed, 
+Be sure that the Instron machine is calibrated. For example, in constant
+strain compression experiments, the force indicator on Instron Computer
+(second computer from left) should give 0.000 kN in the start. If needed,
 calibrate the machine (adviced later).
 
-\subsection{For checking that the camera takes good images} 
+\subsection{For checking that the camera takes good images}
 
-Go to the Camera Computer (first computer from right) and open program 
-called Measurement \& Automation Explorer. Choose from side bar menu: 
-My System $\rightarrow$ Devices and Interfaces $\rightarrow$ NI-IMAQdx Devices 
-$\rightarrow$ cam0: DALSA Genie HM1024. Then, click button "Grab". Now, you 
-should see a real-time video image of the clamps/compression plates of the 
-machine. With that, you can check if the camera takes proper images, the 
+Go to the Camera Computer (first computer from right) and open program
+called Measurement \& Automation Explorer. Choose from side bar menu:
+My System $\rightarrow$ Devices and Interfaces $\rightarrow$ NI-IMAQdx Devices
+$\rightarrow$ cam0: DALSA Genie HM1024. Then, click button "Grab". Now, you
+should see a real-time video image of the clamps/compression plates of the
+machine. With that, you can check if the camera takes proper images, the
 sample piece is set straight, etc.
 
-\subsection{For putting the sample to the machine:} 
+\subsection{For putting the sample to the machine}
 
-Set the machine on \textsf{MODE I}, and move the clamps enough for setting 
-the sample piece right. Then, \emph{set the machine on} \textsf{MODE 0}, 
-to be sure that the clamps/compression plates are not moving when you operate 
-with the sample. Put the sample to the clamps/on the compression plate and 
-check that the camera image looks clear. Adjust lights, 
-camera lenses, position of the sample etc. if needed. After all looks clear, 
-switch the machine again on \textsf{MODE II}. 
+Set the machine on \textsf{MODE I}, and move the clamps enough for setting
+the sample piece right. Then, \textit{set the machine on} \textsf{MODE 0},
+to be sure that the clamps/compression plates are not moving when you operate
+with the sample. Put the sample to the clamps/on the compression plate and
+check that the camera image looks clear. Adjust lights, camera lenses, 
+position of the sample etc. if needed. After all looks clear,switch the 
+machine again on \textsf{MODE II}.
 
-In wood compression experiments, you can also put around the sample black cardboard 
-pieces (next to the machine) to avoid the pieces of explosively shattered samples 
-from flying all over the laboratory. The samples rarely break down in that way, 
+In wood compression experiments, you can also put around the sample black cardboard
+pieces (next to the machine) to avoid the pieces of explosively shattered samples
+from flying all over the laboratory. The samples rarely break down in that way,
 but it is easier to collect the pieces if it happens.
 
-\textbf{For initial straightening/pinching for the sample:} Go to the Instron 
-Computer and check that the Specimen Protect button is on. The button can be 
-recognized by shield image that turns green when Specimen Protect is on. Then, 
-go to the machine and move the clamps/plates in the way that either the sample 
-paper gets straightened or the sample wood piece gets pinched between the 
-compression plates. Specimen Protect makes sure that the sample doesn't get 
-ripped or compressed too much, but the sample is just adjusted to stay in place.
+\subsection{For initial straightening/pinching for the sample} 
 
-\textbf{Just before starting the experiment itself:} \emph{Turn off the Scepimen 
-Protect from the Instron Computer AND the Measurement \& Automation Explorer from 
-the Camera Computer.} When the last one asks about saving, click "No". Then, go to 
-Lumikki Computer (first computer from left) and open its control tab from web browser. 
-Name your experiment to the text field of the front page. Then, \emph{click button 
-"Force status"}, to make sure that all parts of the experiment machine are ready to 
-measure. Once the "Force status" button tells that the whole experiment machine is 
-ready for measurement, click "Run".
+Go to the Instron Computer and check that the Specimen Protect button is on. 
+The button can be recognized by shield image that turns green when Specimen 
+Protect is on. Then, go to the machine and move the clamps/plates in the way 
+that either the sample paper gets straightened or the sample wood piece gets 
+pinched between the compression plates. Specimen Protect makes sure that the 
+sample doesn't get ripped or compressed too much, but the sample is just 
+adjusted to stay in place.
+
+\subsection{Just before starting the experiment itself} 
+\emph{Turn off the Specimen Protect from the Instron Computer AND the Measurement 
+\& Automation Explorer from the Camera Computer.} When the last one asks about 
+saving, click "No". Then, go to Lumikki Computer (first computer from left) and 
+open its control tab from web browser. Name your experiment to the text field of 
+the front page. Then, \textit{click button "Force status"}, to make sure that all 
+parts of the experiment machine are ready to measure. Once the "Force status" 
+button tells that the whole experiment machine is ready for measurement, click "Run".
 
 \section{After experiments}
 
@@ -160,19 +162,25 @@ and set the machine on \textsf{MODE I}.
 \begin{itemize}  
   \item Open the Instron panel and choose either Position or Load tab, depending on which you want to calibrate.
   \item Here, open Primary Limits section from side menu, and take the ticks away from parts "Limit enabled" and "Limit tripped".
-  \itme Turn Specimen Protect off.
+  \item Turn Specimen Protect off.
   \item Open Calibration section and click "Balance".
   \item Go back to Primary Limits section and put ticks back to "Limit enabled" and "Limit tripped". If needed, turn Specimen Protect on.
 \end{itemize}
 
-\subsection{I accidentally forgot to click "Stop" after my last experiment, and now the computers are confused. What should I do?}
+\subsection{I have a problem with the Instron Computer, how can I restart it?}
 
 \begin{itemize}  
-   \item Delete the experimental stress/strain data of the over-long experiment from the Instron Computer and corresponding pictures from the Camera Computer
-   \item Here, open Primary Limits section from side menu, and take the ticks away from parts "Limit enabled" and "Limit tripped".
-   \itme Turn Specimen Protect off.
-   \item Open Calibration section and click "Balance".
-  \item  Go back to Primary Limits section and put ticks back to "Limit enabled"  and "Limit tripped". If needed, turn Specimen Protect on.
- \end{itemize}
+  \item Close all programs.
+  \item Restart the computer normally.
+  \item Open the Instron Console and wait that its panel stops flashing or turns green.
+  \item Open LabView from Start menu and choose there lumikkiInterface. Open and activate all windows that end with ".poller".
+  \item Go the the Instron Console panel, then its tabs Position and Load. Go to Primary Limits section and put ticks to "Limit enabled" and "Limit tripped" in both tabs.
+\end{itemize}
 
+\subsection{I accidentally forgot to click "Stop" after my last experiment, and the computers continued data unnecessary gathering all the night. What should I do?}
+
+\begin{itemize}  
+  \item Delete the experimental stress/strain data of the over-long experiment from the Instron Computer and corresponding pictures from the Camera Computer to free memory.
+  \item Restart the Instron Computer and open necessary LabView programs (see the previous question).
+\end{itemize}
 \end{document}
