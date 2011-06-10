@@ -17,8 +17,14 @@
      \begin{itemize}
        \item Do not place your hand in between the crosshead and the compression plate unless the measurement device is on \textsf{MODE 0}! To operate the clamps, use manual switches located in the clamp body (operator panel does not work in 0 mode).
        \item In case the machine must be stopped immediately, press the red button on the control panel. To release the button, rotate it clockwise.
-  		\item Upper safetylimit is 10 mm for force controlled pulling experiment (e.g. paper creep). It takes more than 10 mm for clamps to stop moving.    
-	\end{itemize}
+       \item Upper safetylimit is 10 mm for force controlled pulling experiment (e.g. paper creep). It takes more than 10 mm for clamps to stop moving.
+     \end{itemize}
+
+     {\Large General user rules}
+     \begin{itemize}
+       \item Log out after your experiments for all machines.
+       \item If somebody is logged in, you are not allowed kick him out. For example, if you are trying to contact the computer remotely, click "No", when remote desktop asks: "User XYZ is logged in and his session will be closed. Do you want to proceed?"
+     \end{itemize}
      }
   \end{minipage}
 \end{figure}
@@ -56,33 +62,33 @@ the force gauge (rather expensive) in the device.
 \subsection{Before starting each experiment}
 
 Be sure that the Instron machine is calibrated. For example, in constant
-strain compression experiments, the force indicator on Instron Computer
-(second computer from left) should give 0.000 kN in the start. If needed,
-calibrate the machine (adviced later).
+strain compression experiments, the force indicator on Instron Computer 
+(second computer from left) should give 0.000 kN in the start. If needed, 
+calibrate the machine (adviced later in Troubleshooting section).
 
 \subsection{For checking that the camera takes good images}
 
-Go to the Camera Computer (first computer from right) and open program
-called Measurement \& Automation Explorer. Choose from side bar menu:
-My System $\rightarrow$ Devices and Interfaces $\rightarrow$ NI-IMAQdx Devices
-$\rightarrow$ cam0: DALSA Genie HM1024. Then, click button "Grab". Now, you
-should see a real-time video image of the clamps/compression plates of the
-machine. With that, you can check if the camera takes proper images, the
+Go to the Camera Computer (first computer from right) and open program 
+called Measurement \& Automation Explorer. Choose from side bar menu: 
+My System $\rightarrow$ Devices and Interfaces $\rightarrow$ NI-IMAQdx Devices 
+$\rightarrow$ cam0: DALSA Genie HM1024. Then, click button "Grab". Now, you 
+should see a real-time video image of the clamps/compression plates of the 
+machine. With that, you can check if the camera takes proper images, the 
 sample piece is set straight, etc.
 
 \subsection{For putting the sample to the machine}
 
-Set the machine on \textsf{MODE I}, and move the clamps enough for setting
-the sample piece right. Then, \textit{set the machine on} \textsf{MODE 0},
-to be sure that the clamps/compression plates are not moving when you operate
-with the sample. Put the sample to the clamps/on the compression plate and
+Set the machine on \textsf{MODE I}, and move the clamps enough for setting 
+the sample piece right. Then, \textit{set the machine on} \textsf{MODE 0}, 
+to be sure that the clamps/compression plates are not moving when you operate 
+with the sample. Put the sample to the clamps/on the compression plate and 
 check that the camera image looks clear. Adjust lights, camera lenses, 
 position of the sample etc. if needed. After all looks clear,switch the 
 machine again on \textsf{MODE II}.
 
-In wood compression experiments, you can also put around the sample black cardboard
-pieces (next to the machine) to avoid the pieces of explosively shattered samples
-from flying all over the laboratory. The samples rarely break down in that way,
+In wood compression experiments, you can also put around the sample black cardboard 
+pieces (next to the machine) to avoid the pieces of explosively shattered samples 
+from flying all over the laboratory. The samples rarely break down in that way, 
 but it is easier to collect the pieces if it happens.
 
 \subsection{For initial straightening/pinching for the sample} 
@@ -96,16 +102,20 @@ sample doesn't get ripped or compressed too much, but the sample is just
 adjusted to stay in place.
 
 \subsection{Just before starting the experiment itself} 
+
 \textit{Turn off the Specimen Protect from the Instron Computer AND the Measurement 
 \& Automation Explorer from the Camera Computer.} When the last one asks about 
 saving, click "No". Then, go to Lumikki Computer (first computer from left) and 
 open its control tab from web browser. Name your experiment to the text field of 
 the front page. Then, \textit{click button "Force status"}, to make sure that all 
-parts of the experiment machine are ready to measure. Once the "Force status" 
-button tells that the whole experiment machine is ready for measurement, click "Run".
-Now the experiment starts, and you can follow the stress-strain curve from then
-Instron Computer, from LabVIEW  window called something like startLogging.poller.
-(Exact name added later.)
+parts of the experiment machine are ready to measure. 
+
+\subsection{Starting the experiment} 
+
+Once the "Force status" button tells that the whole experiment machine is ready 
+for measurement, click "Run". Now the experiment starts, and you can follow the 
+stress-strain curve from the Instron Computer, in LabVIEW  window called something 
+like startLogging.poller. (Exact name added later.)
 
 \section{After experiments}
 
