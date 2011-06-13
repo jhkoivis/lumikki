@@ -9,10 +9,12 @@
 username=$1
 local_lumikki_ssh=7780
 local_ttm_rdesktop=7781
+local_cam_rdesktop=7782
 
 firewall=hugo.hut.fi
 lumikki=erin.hut.fi
 ttm=10.0.0.10
+cam=10.0.0.20
 
 p_rdesktop=3389
 p_ssh=22
@@ -24,4 +26,4 @@ ssh -ftX $firewall ssh -fN -L $middlePort1:$ttm:$p_rdesktop $username@$lumikki
 
 ssh -fN -L $local_lumikki_ssh:$lumikki:$p_ssh $username@$firewall # veranta
 ssh -fN -L $local_ttm_rdesktop:localhost:$middlePort1 $username@$firewall  # veranta
-
+ssh -fN -L $local_cam_rdesktop:$cam:$p_rdesktop $username@$lumikki  # veranta
