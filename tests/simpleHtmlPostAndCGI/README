@@ -1,0 +1,9 @@
+
+This folder contains lighttpd webroot.
+
+HTML subfolder has a simple index.html with
+a button that (calls test.js and) posts json 
+object to cmd/test.cgi. test.cgi responds by
+posting another json object. If succesful, 
+an alert box is shown by test.js and log file
+is written by test.cgi. 
