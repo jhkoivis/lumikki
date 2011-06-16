@@ -1,7 +1,11 @@
-import json, sys
+import json, sys, os, config
 
-def log(s): 
-    open('/tmp/lumcgi.log', 'a').write(s + '\n')
+def log(s):
+    c = config.conf()
+    path = os.path.expanduser(c.get('g_logdir')) + '/lumcgi.log'
+    open(path, 'a').write(s + '\n')
+    #except IOError:
+    #    open(c.get('g_logdir') + '/lumcgi')
 
 def put_json(jso):
     s = json.dumps(jso)

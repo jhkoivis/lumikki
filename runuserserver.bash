@@ -1,4 +1,7 @@
 
 . lumikki.env
-memcached&
+
+
+memcached -p 50001 &
+
 lighttpd -f conf/lighttpd.conf -D
