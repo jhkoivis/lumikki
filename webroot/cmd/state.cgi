@@ -10,8 +10,8 @@ try:
     command_id = jsonMessage['id']
     
     outFile = open('/tmp/lumikki.log', 'a')
-    for key, value in jsonMessage:
-    	outFile.write(key + value)
+    for key, value in jsonMessage.items():
+    	outFile.write(str(key) + str(value))
     outFile.close()
     
     del jsonMessage['id']
