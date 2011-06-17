@@ -3,6 +3,7 @@
 from lib.lumilib import *
 from lib import camera
 from lib import ttm
+from lib import ae
 from lib.config import conf
 from lib.config import staticglobals as mg
 from lib.timestamp import timestamp
@@ -31,6 +32,10 @@ try:
         ret = ttm.connectAndStartLogging()
         ret = ttm.connectAndStartRamp()
         msg = msg + "TTM: " + str(ret)
+    if active[mg.ae]:
+        log("AE connect and send")
+        ret = ae.connectAndStart()
+        msg = msg + "AE: " + str(ret)
     put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
     put_json({'id':commandId, 'st':1, 
