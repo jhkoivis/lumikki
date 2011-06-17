@@ -37,6 +37,9 @@ configurationMap = {'g_logdir'        : '~'
     , 'ir_startvalue' : '0'
     , 'ir_storevalue' : '0'
     , 'ir_recordformat' : '2'
+    , 'ae_ip' : '10.0.0.40'
+    , 'ae_port' : '80'
+    , 'ae_example' : 'test'
 }
 
 class conf:

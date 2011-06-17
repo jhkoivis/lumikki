@@ -33,6 +33,10 @@ $(document).ready(function() {
     irTransferAction();
     return false;
     });
+    $('#ae').submit(function(){
+    aeTransferAction();
+    return false;
+    });
     $('#irfocus').submit(function() {
     irFocusAction();
     return false;
@@ -126,6 +130,10 @@ function ttmTransferAction() {
 	stateAction({"ttm_creep_experiment": bCreep});
 	*/
     transferStateOfForm("ttm");
+}
+
+function aeTransferAction(){
+	transferStateOfForm("ae");
 }
 
 function irTransferAction() {
@@ -293,6 +301,7 @@ function transferStateOfForm(formName) {
 		Check all variables starting with formName and
 		add them to memcache via stateMap -> stateAction -> config.py
 	*/
+	logC("test");
     var id = reqId(), stateMap = {"id":id}, i=0;
     var formChildren = $("#" + formName + " > *");
     for (i=0; i < formChildren.length; i++) {
