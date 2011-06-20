@@ -1,0 +1,199 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[pdftex]{hyperref}
+\usepackage{graphicx}
+\hypersetup{pdftitle={Fatigue experiments with Lumikki}}
+\usepackage{SIunits}
+\usepackage{color}
+\usepackage{framed}
+
+\begin{document}
+
+\begin{figure}[htb]
+  \begin{minipage}[\textwidth]{\textwidth}
+    {\color{red}
+     {\Large Operator safety}
+     \begin{itemize}
+       \item Do not place your hand in between the crosshead and the compression plate unless the measurement device is on \textsf{MODE 0}! To operate the clamps, use manual switches located in the clamp body (operator panel does not work in 0 mode).
+       \item In case the machine must be stopped immediately, press the red button on the control panel. To release the button, rotate it clockwise.
+       \item Upper safetylimit is 10 mm for force controlled pulling experiment (e.g. paper creep). It takes more than 10 mm for clamps to stop moving.
+     \end{itemize}
+
+     {\Large General user rules}
+     \begin{itemize}
+       \item Log out after your experiments for all machines.
+       \item If somebody is logged in, you are not allowed kick him out. For example, if you are trying to contact the computer remotely, click "No", when remote desktop asks: "User XYZ is logged in and his session will be closed. Do you want to proceed?"
+     \end{itemize}
+     }
+  \end{minipage}
+\end{figure}
+
+\begin{framed}
+This document should probably contain something like:
+\begin{itemize}
+  \item Foreword, warnings
+  \item Before experiments
+  \item During experiments
+  \item After experiments
+\end{itemize}
+\end{framed}
+
+
+\section{Foreword}
+
+This is a list of instructions to bring the Instron measurement device
+and necessary camera gear on-line and to perform wood fatigue
+tests. Please read the manual through before attempting to use the
+equipment. The Instron measurement device contain safety mechanisms to
+stop the user from harming it. Nonetheless, care should be taken not
+to drive the crosshead into the sample plate. This can cause damage to
+the force gauge (rather expensive) in the device.
+
+\section{Before you start}
+
+\begin{itemize}
+  \item Reboot windows (clear memory)
+  \item Reboot instron (clear memory)
+\end{itemize}
+
+\section{How to do measurements with the machine}
+
+\subsection{Before starting each experiment}
+
+Be sure that the Instron machine is calibrated. For example, in constant
+strain compression experiments, the force indicator on Instron Computer 
+(second computer from left) should give 0.000 kN in the start. If needed, 
+calibrate the machine (adviced later in Troubleshooting section).
+
+\subsection{Checking that the camera takes good images}
+
+Go to the Camera Computer (first computer from right) and open program 
+called Measurement \& Automation Explorer. Choose from side bar menu: 
+My System $\rightarrow$ Devices and Interfaces $\rightarrow$ NI-IMAQdx Devices 
+$\rightarrow$ cam0: DALSA Genie HM1024. Then, click button "Grab". Now, you 
+should see a real-time video image of the clamps/compression plates of the 
+machine. With that, you can check if the camera takes proper images, the 
+sample piece is set straight, etc.
+
+\subsection{Putting the sample to the machine}
+
+Set the machine on \textsf{MODE I}, and move the clamps enough for setting 
+the sample piece right. Then, \textit{set the machine on} \textsf{MODE 0}, 
+to be sure that the clamps/compression plates are not moving when you operate 
+with the sample. Put the sample to the clamps/on the compression plate and 
+check that the camera image looks clear. Adjust lights, camera lenses, 
+position of the sample etc. if needed. After all looks clear,switch the 
+machine again on \textsf{MODE II}.
+
+In wood compression experiments, you can also put around the sample black cardboard 
+pieces (next to the machine) to avoid the pieces of explosively shattered samples 
+from flying all over the laboratory. The samples rarely break down in that way, 
+but it is easier to collect the pieces if it happens.
+
+\subsection{Initial straightening/pinching of the sample} 
+
+Go to the Instron Computer and check that the Specimen Protect button is on. 
+The button can be recognized by shield image that turns green when Specimen 
+Protect is on. Then, go to the machine and move the clamps/plates in the way 
+that either the sample paper gets straightened or the sample wood piece gets 
+pinched between the compression plates. Specimen Protect makes sure that the 
+sample doesn't get ripped or compressed too much, but the sample is just 
+adjusted to stay in place.
+
+\subsection{Just before starting the experiment itself} 
+
+\textit{Turn off the Specimen Protect from the Instron Computer AND the Measurement 
+\& Automation Explorer from the Camera Computer.} When the last one asks about 
+saving, click "No". Then, go to Lumikki Computer (first computer from left) and 
+open its control tab from web browser. Name your experiment to the text field of 
+the front page. Then, \textit{click button "Force status"}, to make sure that all 
+parts of the experiment machine are ready to measure. 
+
+\subsection{Starting the experiment} 
+
+Once the "Force status" button tells that the whole experiment machine is ready 
+for measurement, click "Run". Now the experiment starts, and you can follow the 
+stress-strain curve from the Instron Computer, in LabVIEW  window called something 
+like startLogging.poller. (Exact name added later.)
+
+\section{After experiments}
+
+\begin{itemize}
+  \item Make sure that the machine isn't gathering data anymore. In other words, click button "Stop" after each experiment, especially the last one. Otherwise, the experiment setting continues gathering data after you have left, with may eventually fulfill the data storage of the computers.
+  \item Put the machine to (analog) position control.
+\end{itemize}
+
+
+\section{Instron initialization}
+
+First, before anything else is done with the measurement device, it
+must be initialized properly. In the case of compression tests, the
+measurement device must be configured so that the crosshead does not
+reach the sample plate when fully extended. Also setting proper safety
+limits and calibration are necessary.
+
+
+To begin turn on the measurement device. The power switch is on the
+back side of the gray box next to the concrete table. The device boots
+up for a while and remains in \textsf{MODE 0}, untill at some point it
+can be switched to \textsf{MODE I}. The device itself does not give
+any signal about this. but if you watch the log on the TTM machine,
+you will notice activity when the measurement device is ready to be
+switched to \textsf{MODE I}.
+
+While the machine is booting up, check logs from the {\it Instron
+control program} to see when the machine was used last. If you are
+confident that the machine was last used for the same measurement and
+has been initialized already, you can skip the rest of this section
+and set the machine on \textsf{MODE I}.
+
+
+\begin{enumerate}
+  \item Set machine to \textsf{MODE I}.
+  \begin{itemize}
+    \item Clear all safety limits.
+    \item Loosen the two black screw bolts. When open, the handles are to be set downwards (as if they were valves). When closed, the handles point inwards or toward each other.
+    \item Lift the machine using the black rocker switch enough so that you can fully extend the crosshead.
+    \item Using the arrow buttons on the remote, extend the driver head fully taking caution not to allow the driver head to touch the sample pedestal.
+    \item Using the black rocking switch, bring down the machine slowly until there is only a small gap (about $0.5$ \milli\meter) between the driver head and the compression plate. {\bf Take care not to ram the driver head into the compression plate!}
+    \item Secure the machine by tightening the screw bolts. Leave the handles pointing towards each other.
+  \end{itemize}
+  \item Switch the machine to \textsf{MODE II}.
+  \begin{itemize}  
+    \item Calibrate the force sensor by opening the force tab, clicking ``Calibration'' and then ``Balance''.
+    \item Set force safety limits to $\mathbf{\pm 1000}$ {\bf\newton}.
+    \item Set digital position to zero by opening digital position tab, clicking ``Calibration'' and then ``Balance''.
+    \item Set position safety limits to $\mathbf{\pm 30}$ {\bf\milli\meter}. To do this, you must set Instron to \textsf{MODE 1} and moove the crosshead up a bit, as the crosshead is bellow the $\mathbf{-30}$ {\bf\milli\meter} safety limit at this point.
+  \end{itemize}
+\end{enumerate}
+
+\section{FAQ}
+
+\subsection{How can I calibrate the force and position meters?}
+
+\begin{itemize}  
+  \item Open the Instron panel and choose either Position or Load tab, depending on which you want to calibrate.
+  \item Here, open Primary Limits section from side menu, and take the ticks away from parts "Limit enabled" and "Limit tripped".
+  \item Turn Specimen Protect off.
+  \item Open Calibration section and click "Balance".
+  \item Go back to Primary Limits section and put ticks back to "Limit enabled" and "Limit tripped". If needed, turn Specimen Protect on.
+\end{itemize}
+
+\subsection{I have a problem with the Instron Computer, how can I restart it?}
+
+\begin{itemize}  
+  \item Close all programs.
+  \item Restart the computer normally.
+  \item Open the Instron Console and wait that its panel stops flashing or turns green.
+  \item Open LabVIEW from Start menu and choose there lumikkiInterface. Open and activate all windows that end with ".poller".
+  \item Go the the Instron Console panel, then its tabs Position and Load. Go to Primary Limits section and put ticks to "Limit enabled" and "Limit tripped" in both tabs.
+\end{itemize}
+
+\subsection{I accidentally forgot to click "Stop" after my last experiment, and the computers continued data unnecessary gathering all the night. What should I do?}
+
+\begin{itemize}  
+  \item Delete the experimental stress/strain data of the over-long experiment from the Instron Computer and corresponding pictures from the Camera Computer to free memory.
+  \item Restart the Instron Computer and open necessary LabVIEW programs (see the previous question).
+\end{itemize}
+\end{document}
