@@ -1,4 +1,3 @@
-
 ########################################################
 # EMMENTAL - your network is full of (secure) holes
 ########################################################
@@ -6,7 +5,9 @@
 # passwordless login: 
 # http://blogs.translucentcode.org/mick/archives/000230.html
 #
-
+# memcached: 38333 + X
+# lumikki-UI: 39333 + X
+#
 
 username=$1
 id=0
