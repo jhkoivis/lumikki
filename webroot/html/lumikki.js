@@ -307,11 +307,18 @@ function transferStateOfForm(formName) {
     for (i=0; i < formChildren.length; i++) {
     o = formChildren[i];
     if (o.id.match("^" + formName + "_") == (formName + "_")) {
+    	/* different types of input require different handling */
     	if (o.type == "checkbox"){
     		stateMap[o.id] = $("#" + o.id).is(":checked");
-    		logR(o.id + '=' + stateMap[o.id])
     	}
-        stateMap[o.id] = $("#" + o.id).val();
+    	else if (o.type == "select-one"){
+    		stateMap[o.id] = $("#" + o.id).val();
+    	}
+    	else {
+    		stateMap[o.id] = $("#" + o.id).val();
+    		
+    	}
+    	logR(o.type + ' : ' + o.id + '=' + stateMap[o.id])  
     }
     }
     stateAction(stateMap); 
