@@ -55,6 +55,7 @@ def connectAndSendSettings():
            "startValue":int(c.get('ir_startvalue')),
            "storeValue":int(c.get('ir_storevalue')),
            "recordFormat":int(c.get('ir_recordformat')),
+           "trigSource":int(c.get('ir_trigsource'))
            }
     response = connectAndGetResponse(data)
     return response
@@ -65,6 +66,14 @@ def connectAndGetImage():
 
 def connectAndGetImageSeries():
     response = connectAndGetResponse({"getImageSeries":0})
+    return response
+
+def connectAndEnableRecording():
+    response = connectAndGetResponse({"enableRecording":0})
+    return response
+
+def connectAndSimulateTrigger():
+    response = connectAndGetResponse({"simulateTrigger":0})
     return response
 
 def connectAndStopRecording():

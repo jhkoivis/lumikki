@@ -13,7 +13,7 @@ try:
     msg = ''
     if active[mg.ir]:
         ret = ir.connectAndFocus()
-        msg = "IR: " + ret
+        msg = "IR: " + str(ret)
         put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
     put_json({'id':commandId, 'st':1, 
