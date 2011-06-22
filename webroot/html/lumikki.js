@@ -57,6 +57,10 @@ $(document).ready(function() {
     irStopAction();
     return false;
     });
+    $('#irsimulatetrigger').submit(function() {
+    irSimulateTriggerAction();
+    return false;
+    });
     logC("UI created");
     statusAction();
     stateAction({});
@@ -80,6 +84,7 @@ R_IRCONNECT = "/cmd/irconnect.cgi";
 R_IRDISCONNECT = "/cmd/irdisconnect.cgi";
 R_IRIMAGESERIES = "/cmd/irimageseries.cgi";
 R_IRSTOP = "/cmd/irstop.cgi";
+R_IRSIMULATETRIGGER = "/cmd/irsimulatetrigger.cgi";
 R_TIMESTAMP = "/cmd/timestamp.cgi";
 
 TTM=0;
@@ -173,8 +178,13 @@ function irDisconnectAction() {
 function irImageSeriesAction() {
     irImageSeriesRequest()
 }
+
 function irStopAction() {
     irStopRequest()
+}
+
+function irSimulateTriggerAction() {
+    irSimulateTriggerRequest()
 }
 
 function stateAction(inputMap) {
@@ -271,6 +281,17 @@ function irStopRequest() {
     logC(R_IRSTOP + "::" + params);
     $.post(R_IRSTOP, params, function(response) { 
     logR(R_IRSTOP + "::" + JSON.stringify(response)); 
+    showError(response);
+    }, "json");
+
+}
+
+function irSimulateTriggerRequest() {
+    var id = reqId();
+    var params = JSON.stringify({"id":id}); 
+    logC(R_IRSIMULATETRIGGER + "::" + params);
+    $.post(R_IRSIMULATETRIGGER, params, function(response) { 
+    logR(R_IRSIMULATETRIGGER + "::" + JSON.stringify(response)); 
     showError(response);
     }, "json");
 
