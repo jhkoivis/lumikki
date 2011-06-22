@@ -12,7 +12,7 @@ try:
     active = c.get('g_active')
     msg = ''
     if active[mg.ir]:
-        ret = ir.connectAndConnectIR()
+        ret = ir.connectAndSimulateTrigger()
         msg = "IR: " + str(ret)
         put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
