@@ -6,13 +6,12 @@ from json import loads
 
 timeout = 5
 
-def connectToCommand(command, data=None):
+def connectToCommand(data=None):
     c = conf()
     # TODO: no hardcoded values
     # move ae_service to config.py as variable
     # move vi_basename to config.py as variable
-    basic_url = "http://%s:%s/ae_service/vi_basename" % (c.get('ae_ip'),c.get('ae_port'))
-    url = basic_url + command
+    url = "http://%s:%s/%s/%s" % (c.get('ae_ip'),c.get('ae_port'),c.get('ae_service'),c.get('ae_viname'))
     if data != None:
         # this converts dict to ?key1=value1&key2=value2&...
         url += "?%s" % urlencode(data)
@@ -21,10 +20,16 @@ def connectToCommand(command, data=None):
 
 def connectAndStart():
     c = conf()
-    aeValue = "%s" % (c.get('ae_example')) # this is the variable name defined in html
-    data = {"ae_server_key_example": aeValue} # this is the variable name defined in device side
-    connection = connectToCommand("vi_name_end", data)
-    return connectAndGetStatus()
+    filename = "%s-%s" % (c.get('g_measurementid'), c.get('g_timestamp'))
+    clockfreq = "%s" % (c.get('ae_freq')) 
+    data = {"filename": filename, "ClockFrequency" : clockfreq,"startClock":"1","startCollection":"1"} # this is the variable name defined in device side
+    connection = connectToCommand(data)
+    #return connectAndGetStatus()
+
+def connectAndStop():
+    data = {"setTermination":"1"} # temporary
+    connection = connectToCommand(data)
+    #return connectAndGetStatus()
 
 def connectAndGetStatus():
     try:
