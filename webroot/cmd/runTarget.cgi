@@ -3,7 +3,6 @@
 from lib.lumilib import *
 from lib import camera
 from lib import ttm
-from lib import ir
 #from lib import ae
 from lib.config import conf
 from lib.config import staticglobals as mg
@@ -25,24 +24,20 @@ try:
     log("active array: " + str(active))
     if active[mg.cam]:
         log("Camera connect and send")
-        ret = camera.connectAndSendStart()
-        msg = msg + "Cam: " + ret
+        ret = camera.connectAndStart()
+        msg = msg + "Cam: " + str(ret)
     if active[mg.ttm]:
         log("TTM connect and send")
-        ret = ttm.connectAndInitRamp()
-        ret = ttm.connectAndStartLogging()
-        ret = ttm.connectAndStartRamp()
+        ret = ttm.connectAndStart()
         msg = msg + "TTM: " + str(ret)
     if active[mg.ae]:
         log("AE connect and send")
         ret = ae.connectAndStart()
         msg = msg + "AE: " + str(ret)
     if active[mg.ir]:
-        ir.connectAndSendSettings()
-        ret = ir.connectAndEnableRecording()
-        #ret = ir.connectAndGetImageSeries()
-        msg = "IR: " + str(ret)
-        put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
+    	log("IR connect and send")
+    	ret = ir.connectAndStart()
+    	msg = msg + "IR: " + str(ret)
     put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
     put_json({'id':commandId, 'st':1, 

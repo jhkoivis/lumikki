@@ -57,6 +57,10 @@ $(document).ready(function() {
     irStopAction();
     return false;
     });
+    $('#irsimulatetrigger').submit(function() {
+    irSimulateTriggerAction();
+    return false;
+    });
     logC("UI created");
     statusAction();
     stateAction({});
@@ -80,6 +84,7 @@ R_IRCONNECT = "/cmd/irconnect.cgi";
 R_IRDISCONNECT = "/cmd/irdisconnect.cgi";
 R_IRIMAGESERIES = "/cmd/irimageseries.cgi";
 R_IRSTOP = "/cmd/irstop.cgi";
+R_IRSIMULATETRIGGER = "/cmd/irsimulatetrigger.cgi";
 R_TIMESTAMP = "/cmd/timestamp.cgi";
 
 TTM=0;
@@ -173,8 +178,13 @@ function irDisconnectAction() {
 function irImageSeriesAction() {
     irImageSeriesRequest()
 }
+
 function irStopAction() {
     irStopRequest()
+}
+
+function irSimulateTriggerAction() {
+    irSimulateTriggerRequest()
 }
 
 function stateAction(inputMap) {
@@ -276,6 +286,17 @@ function irStopRequest() {
 
 }
 
+function irSimulateTriggerRequest() {
+    var id = reqId();
+    var params = JSON.stringify({"id":id}); 
+    logC(R_IRSIMULATETRIGGER + "::" + params);
+    $.post(R_IRSIMULATETRIGGER, params, function(response) { 
+    logR(R_IRSIMULATETRIGGER + "::" + JSON.stringify(response)); 
+    showError(response);
+    }, "json");
+
+}
+
 function stateRequest(inputMap, actionFunction) {
     inputMap["id"] = reqId();
     $.post(R_STATE, JSON.stringify(inputMap), function(response) {
@@ -307,11 +328,18 @@ function transferStateOfForm(formName) {
     for (i=0; i < formChildren.length; i++) {
     o = formChildren[i];
     if (o.id.match("^" + formName + "_") == (formName + "_")) {
+    	/* different types of input require different handling */
     	if (o.type == "checkbox"){
     		stateMap[o.id] = $("#" + o.id).is(":checked");
-    		logR(o.id + '=' + stateMap[o.id])
     	}
-        stateMap[o.id] = $("#" + o.id).val();
+    	else if (o.type == "select-one"){
+    		stateMap[o.id] = $("#" + o.id).val();
+    	}
+    	else {
+    		stateMap[o.id] = $("#" + o.id).val();
+    		
+    	}
+    	logR(o.type + ' : ' + o.id + '=' + stateMap[o.id])  
     }
     }
     stateAction(stateMap); 

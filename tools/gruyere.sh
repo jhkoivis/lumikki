@@ -19,7 +19,7 @@ case "$username" in
 	amandine)
 	id=2;
 	;;	
-	movaskv1)
+	ovaskav1)
 	id=3;
 	;;	
 	mmyntti)
@@ -79,10 +79,6 @@ echo echo ttm: rdesktop localhost:$local_ttm_rdesktop
 echo echo cam: rdesktop localhost:$local_cam_rdesktop
 echo echo ir: rdesktop localhost:$local_ir_rdesktop
 echo echo ae: rdesktop localhost:$local_ae_rdesktop
-
-
-
-
 
 
 
