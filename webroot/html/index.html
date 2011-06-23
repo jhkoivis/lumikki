@@ -102,8 +102,12 @@
 		<div style="min-height:320px;display:block;border-width: 1px 1px 1px">
 		  <div style="float:left;width:350px;min-height:200px;display:block;border-width: 1px 1px 1px">
 		    <form  id="ae" action="" style="text-align:right">
-		      <label for="ae_example">Example label</label>
-		      <input type="text" size="20" maxlength="20" id="ae_example">
+		      <label for="ae_freq">Clock frequency</label>
+		      <input type="text" size="20" maxlength="20" id="ae_freq">
+		      <label for="ae_ip">Ip address</label>
+		      <input type="text" size="20" maxlength="20" id="ae_ip">
+		      <label for="ae_port">Port</label>
+		      <input type="text" size="20" maxlength="20" id="ae_port">
 		      <input style="float:bottom;" type="submit" value="Apply" />
 		    </form>
 		  </div>
@@ -154,6 +158,16 @@
 		      <input type="text"  size="20" maxlength="20" id="ir_ip"><br />
 		      <label for="ir_port">Port</label> 
 		      <input type="text"  size="20" maxlength="20" id="ir_port"><br />
+		      <label for="ir_startcondition">Start Condition</label> 
+		      <input type="text"  size="20" maxlength="20" id="ir_startcondition"><br />
+		      <label for="ir_stopcondition">Stop Condition</label> 
+		      <input type="text"  size="20" maxlength="20" id="ir_stopcondition"><br />
+		      <label for="ir_storecondition">Store Condition</label> 
+		      <input type="text"  size="20" maxlength="20" id="ir_storecondition"><br />
+		      <label for="ir_startvalue">Start Value </label> 
+		      <input type="text"  size="20" maxlength="20" id="ir_startvalue"><br />
+		      <label for="ir_trigsource">Trigger Source </label> 
+		      <input type="text"  size="20" maxlength="20" id="ir_trigsource"><br />
 		      <input style="float:bottom;" type="submit" value="Apply" />
 		    </form>
 		  </div>
@@ -181,6 +195,11 @@
 			<p>
 		      <form  id="irstop" action="" style="text-align:right">
 		        <input style="float:bottom;" type="submit" value="Stop recording" />
+		      </form>
+			</p>
+			<p>
+		      <form  id="irsimulatetrigger" action="" style="text-align:right">
+		        <input style="float:bottom;" type="submit" value="Simulate trigger" />
 		      </form>
 			</p>
 		  </div>
