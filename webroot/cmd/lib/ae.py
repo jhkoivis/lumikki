@@ -22,12 +22,12 @@ def connectAndStart():
     c = conf()
     filename = "%s-%s" % (c.get('g_measurementid'), c.get('g_timestamp'))
     clockfreq = "%s" % (c.get('ae_freq')) 
-    data = {"filename": filename, "ClockFrequency" : clockfreq,"startClock":"1","startCollection":"1"} # this is the variable name defined in device side
+    data = {"stopClock":"0","stopCollection":"0","filename": filename, "ClockFrequency" : clockfreq,"startClock":"1","startCollection":"1"}
     connection = connectToCommand(data)
     #return connectAndGetStatus()
 
 def connectAndStop():
-    data = {"setTermination":"1"} # temporary
+    data = {"startClock":"0","startCollection":"0","stopClock":"1","stopCollection":"1"} # temporary
     connection = connectToCommand(data)
     #return connectAndGetStatus()
 
