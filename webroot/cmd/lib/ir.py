@@ -55,7 +55,8 @@ def connectAndSendSettings():
            "startValue":int(c.get('ir_startvalue')),
            "storeValue":int(c.get('ir_storevalue')),
            "recordFormat":int(c.get('ir_recordformat')),
-           "trigSource":int(c.get('ir_trigsource'))
+           "trigSource":int(c.get('ir_trigsource')),
+           "autoShutter":int(c.get('ir_autoshutter'))
            }
     response = connectAndGetResponse(data)
     return response
