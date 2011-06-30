@@ -38,11 +38,9 @@ try:
         ret = ae.connectAndStart()
         msg = msg + "AE: " + str(ret)
     if active[mg.ir]:
-        ir.connectAndSendSettings()
-        ret = ir.connectAndEnableRecording()
-        #ret = ir.connectAndGetImageSeries()
+        log("IR connect and send")
+        ret = ir.connectAndStart()
         msg = "IR: " + str(ret)
-        put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
     put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
 except Exception as e:
     put_json({'id':commandId, 'st':1, 

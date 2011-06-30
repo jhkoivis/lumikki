@@ -39,6 +39,13 @@ def connectAndFocus():
     response = connectAndGetResponse({"focus":0})
     return response
 
+def connectAndStart():
+    c = conf()
+    recordmode = int(c.get('ir_triggerexperiment'))
+    connectAndSendSettings()
+    response = connectAndGetResponse({"startRecording":recordmode})
+    return response
+
 def connectAndSendSettings():
     c = conf()
     # TODO: path parsing belongs to device side, remove filename and add timestamp to data -dictionary 
@@ -67,10 +74,6 @@ def connectAndGetImage():
 
 def connectAndGetImageSeries():
     response = connectAndGetResponse({"getImageSeries":0})
-    return response
-
-def connectAndEnableRecording():
-    response = connectAndGetResponse({"enableRecording":0})
     return response
 
 def connectAndSimulateTrigger():
