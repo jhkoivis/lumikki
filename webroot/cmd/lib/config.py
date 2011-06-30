@@ -3,7 +3,7 @@ import memcache
 # TODO: load configuration map from a file
 
 configurationMap = {'g_logdir'        : '~'
-    , 'g_memcacheAddr'	: '127.0.0.1:38336'
+    , 'g_memcacheAddr'	: '127.0.0.1:38338'
     , 'g_active':[False, False, False, False]
     , 'g_measurementid'     : 'default'
     , 'g_timestamp'     : ''
@@ -42,7 +42,10 @@ configurationMap = {'g_logdir'        : '~'
     , 'ir_triggerexperiment' : '1'
     , 'ae_ip' : '10.0.0.40'
     , 'ae_port' : '80'
-    , 'ae_example' : 'test'
+    , 'ae_freq' : '2000000'
+    , 'ae_service' : 'aewebservice'
+    , 'ae_viname' : 'gateway'
+
 }
 
 class conf:

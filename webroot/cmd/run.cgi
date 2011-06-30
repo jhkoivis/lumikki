@@ -4,7 +4,7 @@ from lib.lumilib import *
 from lib import camera
 from lib import ttm
 from lib import ir
-#from lib import ae
+from lib import ae
 from lib.config import conf
 from lib.config import staticglobals as mg
 from lib.timestamp import timestamp
