@@ -22,6 +22,29 @@ def connectAndSendStart():
 		ret = ttm.connectAndStartLogging()
 		ret = ttm.connectAndStartRamp()
 
+def connectAndStart():
+	'''
+	TODO: this is the only function that is called 
+	from cgi.
+
+	This includes if-else for constant load, speed, etc
+	'''
+	c = conf()
+	data = {"protocolName":	  c.get('ttm_protocol'),
+			"channelInt":	  c.get('ttm_channel'),
+			"rampRateAE":	  c.get('ttm_ramprateae'),
+			"rampRateSilent":	  c.get('ttm_rampratesilent'),
+			"timeWindow":	  c.get('ttm_window'),
+			"cycleLength":	  c.get('ttm_cyclelength'),
+			"holdTime":	  c.get('ttm_holdtime'),
+			"rampRate":	  c.get('ttm_ramprate'),
+			"load":	  c.get('ttm_load'),
+			"rampAmplitude":	  c.get('ttm_rampamplitude'),
+			"expId":	c.get('g_measurementid')
+
+			}
+	ret = connectAndStartSwitch(data)
+
 def connectAndSendInit():
 	'''
 	TODO: this sends long instructions to the machine.
@@ -37,6 +60,16 @@ def connectToCommand(command, data=None):
         url += "?%s" % urlencode(data)
     connection = urlopen(url, timeout=timeout)
     return connection
+
+def connectAndStartSwitch(data=None):
+	c = conf()
+	basic_url = "http://%s:%s/lumikki/ttm_run2" % (c.get('ttm_ip'),c.get('ttm_port'))
+	url = basic_url
+	if data != None:
+		url += "?%s" % urlencode(data)
+			
+	connection = urlopen(url, timeout=timeout)
+	return connection
 
 def connectAndStartLogging():
     c = conf()
