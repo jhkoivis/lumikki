@@ -42,4 +42,5 @@ try:
 except Exception as e:
     put_json({'id':commandId, 'st':1, 
               'msg':'Run failed [' + str(e) + ']'})
+    raise
     
