@@ -1,7 +1,6 @@
 
 . lumikki.env
 
+memcached -p $lumikki_memcache_port &
 
-memcached -p 38338 &
-
-lighttpd -f conf/lighttpd.conf -D
+lighttpd -f $lumikki_config_path/lighttpd.conf -D

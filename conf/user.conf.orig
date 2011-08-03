@@ -1,0 +1,38 @@
+
+##############################################
+# user configuration file
+##############################################
+#
+# This file contains user specific information.
+# You have to change each line
+#
+# Note that this file is used by shell scripts
+# and lighttpd. This means that the syntax 
+# must be simple:
+#
+# key="value"
+#
+#############################################
+
+
+# general variables
+lumikki_prefix="/home/jko/usr"
+lumikki_config_path="/home/jko/workspace/lumikki/lumikki/conf"
+
+# memcache configurations
+lumikki_memcache_ip="127.0.0.1"
+lumikki_memcache_port="38338" 
+
+# cgi python environment
+lumikki_python_pythonpath="/home/jko/usr/lib/python2.6/site-packages"
+lumikki_python_cgiassign="/usr/bin/python2.6"
+lumikki_python_uidefaults="/home/jko/workspace/lumikki/lumikki/conf/uiDefaults.conf"
+
+# lighttpd conf
+lumikki_lighttpd_port="8000"
+lumikki_lighttpd_log_root="/home/jko/workspace/lumikki/lumikki/tmp"
+lumikki_lighttpd_state_dir="/home/jko/workspace/lumikki/lumikki/tmp"
+lumikki_lighttpd_server_root="/home/jko/workspace/lumikki/lumikki/webroot"
+lumikki_lighttpd_home_dir="/home/jko/workspace/lumikki/lumikki"
+
+
