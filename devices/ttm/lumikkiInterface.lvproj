@@ -1,23 +1,35 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="9008000">
+	<Property Name="varPersistentID:{236B8A09-BFC4-40A4-959C-61C5BFCB95A8}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/protocolName</Property>
 	<Property Name="varPersistentID:{27A437C3-08E6-4272-BF4C-BCA3A427A737}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/stop</Property>
 	<Property Name="varPersistentID:{2B2FC599-F619-4235-B2BA-4148E630442A}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/creepRunning</Property>
+	<Property Name="varPersistentID:{2C8E8433-5162-44DA-8122-0EA3737DCB93}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/Cyclic/cycleLength</Property>
 	<Property Name="varPersistentID:{328BF208-91FB-42DF-90F1-1D0F893C8AAB}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/expId</Property>
 	<Property Name="varPersistentID:{336383FD-A068-47D7-BCDB-43B3AE27493D}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/channelInt</Property>
 	<Property Name="varPersistentID:{34B2EAD7-88AF-4171-88AF-0015D3E71CEF}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/setpointTime</Property>
+	<Property Name="varPersistentID:{351174C8-9DF9-4756-AFA3-AAF057CD58CA}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/AEcontrol/AEdataSum2</Property>
+	<Property Name="varPersistentID:{3FA77910-DDBA-4E63-9DD3-1108978C0E03}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/AEcontrol/timeWindow</Property>
+	<Property Name="varPersistentID:{464587E9-032C-4001-AFF5-6AA60AD074E3}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/AEcontrol/aeControlRunning</Property>
 	<Property Name="varPersistentID:{502809B8-22B0-44C2-89E0-65ACE7145AE6}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/startStatusQuery</Property>
+	<Property Name="varPersistentID:{57E7A7E7-2C60-4A24-9787-129CBFC8BC89}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/AEcontrol/startAeControl</Property>
 	<Property Name="varPersistentID:{80BFE2B5-B71D-403E-939A-EE2C41E4D3CC}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/loggingIsOn</Property>
 	<Property Name="varPersistentID:{8B411B40-7358-46B4-8486-EBC064765ADE}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/busy</Property>
 	<Property Name="varPersistentID:{8D94BF3C-E8AD-4BC6-B6AC-5588B36BB534}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/startCreep</Property>
 	<Property Name="varPersistentID:{8DF4073D-E5FF-49EF-92EB-9C1E14A7C45E}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/newSetpointCommand</Property>
+	<Property Name="varPersistentID:{8F4DC731-EC30-4880-AB25-959B00E2E158}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/Cyclic/holdTime</Property>
 	<Property Name="varPersistentID:{945017DA-938E-4FB6-9D3E-F8A2B85F5443}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/startRamp</Property>
+	<Property Name="varPersistentID:{9AAFFC6A-7139-4E52-BBC9-71975DD59D83}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/Cyclic/cyclicRunning</Property>
 	<Property Name="varPersistentID:{9BFCA6F4-477D-4AE1-BA4E-0DEA32C88F3C}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/creepLoad</Property>
 	<Property Name="varPersistentID:{A08E68F5-7EA0-4B22-A0D7-7D0C2C951E29}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/startLogging</Property>
 	<Property Name="varPersistentID:{A3B70838-E574-40C5-9727-A5407E46F553}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/statusText</Property>
 	<Property Name="varPersistentID:{AE3850BA-CACD-44E6-A2DA-285D8087E66B}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/statusCode</Property>
+	<Property Name="varPersistentID:{B12A26D4-DF92-4A1D-B995-BCDD9AB7F307}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/AEcontrol/rampRateSilent</Property>
+	<Property Name="varPersistentID:{B35740DA-FE63-4A54-92C3-0729102C3BB8}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/Cyclic/startCyclic</Property>
 	<Property Name="varPersistentID:{CBF25575-E584-488F-87C1-99997E90A92E}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/startSetRamp</Property>
 	<Property Name="varPersistentID:{D35C91FC-7202-4C7F-B1FB-9AD09AB88073}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/rampAmplitude</Property>
 	<Property Name="varPersistentID:{DC07E9E3-96F8-4700-8BDF-E46784C10E56}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/setpoint</Property>
+	<Property Name="varPersistentID:{F25ABF28-83C2-42D8-8558-EDB088FBCF66}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/AEcontrol/AEdataSum</Property>
+	<Property Name="varPersistentID:{F2C2A6C5-0E96-4CC8-9FAD-D257EBE61FAE}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/AEcontrol/rampRateAE</Property>
 	<Property Name="varPersistentID:{F4E9CABE-A97B-4289-AD67-613727397037}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/stopLogging</Property>
 	<Property Name="varPersistentID:{FF1066FC-C3B1-4F72-A129-42DE239D4CB1}" Type="Ref">/My Computer/lumikkiVariableList.lvlib/rampRate</Property>
 	<Item Name="My Computer" Type="My Computer">
@@ -35,9 +47,10 @@
 		<Item Name="csm_lumikki_instron_stopLogging_poller.vi" Type="VI" URL="../csm_lumikki_instron_stopLogging_poller.vi"/>
 		<Item Name="csm_lumikki_instron_initRamp_poller.vi" Type="VI" URL="../csm_lumikki_instron_initRamp_poller.vi"/>
 		<Item Name="csm_lumikki_instron_startRamp_poller.vi" Type="VI" URL="../csm_lumikki_instron_startRamp_poller.vi"/>
-		<Item Name="csm_lumikki_instron_creep_poller.vi" Type="VI" URL="../csm_lumikki_instron_creep_poller.vi"/>
 		<Item Name="csm_lumikki_instron_status_poller.vi" Type="VI" URL="../csm_lumikki_instron_status_poller.vi"/>
 		<Item Name="csm_lumikki_instron_stop_poller.vi" Type="VI" URL="../csm_lumikki_instron_stop_poller.vi"/>
+		<Item Name="csm_lumikki_instron_creep_poller.vi" Type="VI" URL="../csm_lumikki_instron_creep_poller.vi"/>
+		<Item Name="ttm_run.vi" Type="VI" URL="../ttm_run.vi"/>
 		<Item Name="csm_lumikki_instron_moveToSetpoint.vi" Type="VI" URL="../csm_lumikki_instron_moveToSetpoint.vi"/>
 		<Item Name="csm_lumikki_instron_startLogging.vi" Type="VI" URL="../csm_lumikki_instron_startLogging.vi"/>
 		<Item Name="csm_lumikki_instron_stopLogging.vi" Type="VI" URL="../csm_lumikki_instron_stopLogging.vi"/>
@@ -53,6 +66,14 @@
 		<Item Name="csm_lumikki_instron_statusQue.vi" Type="VI" URL="../csm_lumikki_instron_statusQue.vi"/>
 		<Item Name="statusQuery.vi" Type="VI" URL="../lib/statusQuery.vi"/>
 		<Item Name="moreSamplesToPlayback.vi" Type="VI" URL="../lib/moreSamplesToPlayback.vi"/>
+		<Item Name="csm_lumikki_instron_creep_poller_4.vi" Type="VI" URL="../csm_lumikki_instron_creep_poller_4.vi"/>
+		<Item Name="MX Control Mode.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Control Mode/MX Control Mode.vi"/>
+		<Item Name="8X00 Initialise.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Central/8X00 Initialise.vi"/>
+		<Item Name="csm_lumikki_instron_cyclic_test.vi" Type="VI" URL="../csm_lumikki_instron_cyclic_test.vi"/>
+		<Item Name="AE_data_read.vi" Type="VI" URL="../AE_data_read.vi"/>
+		<Item Name="ttm_run2.vi" Type="VI" URL="../ttm_run2.vi"/>
+		<Item Name="ttm_aecontrol_poller.vi" Type="VI" URL="../../../instronLabviewProgramsCleaned/csm_setpoint_and_ramp_lumikki/ttm_aecontrol_poller.vi"/>
+		<Item Name="debug.vi" Type="VI" URL="../debug.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Close File+.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Close File+.vi"/>
@@ -170,7 +191,6 @@
 			<Item Name="Join command and selectors.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Utility/Join command and selectors.vi"/>
 			<Item Name="MX Data Logging Setup.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Data Acquisition/MX Data Logging Setup.vi"/>
 			<Item Name="Format &amp; Append with comma replace.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Utility/Format &amp; Append with comma replace.vi"/>
-			<Item Name="8X00 Initialise.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Central/8X00 Initialise.vi"/>
 			<Item Name="MX Get Device ID and GPIB Group.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Arbitrator Interface/MX Get Device ID and GPIB Group.vi"/>
 			<Item Name="RegFunc_RegGetGroupString.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Arbitrator Interface/RegFunc_RegGetGroupString.vi"/>
 			<Item Name="Regfunc.dll" Type="Document" URL="Regfunc.dll">
@@ -196,7 +216,6 @@
 			<Item Name="Select Channels to match axes.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Utility/Select Channels to match axes.vi"/>
 			<Item Name="MX Ramp Waveform Type.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Ramp Waveform/MX Ramp Waveform Type.vi"/>
 			<Item Name="MX Ramp Amplitude.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Ramp Waveform/MX Ramp Amplitude.vi"/>
-			<Item Name="MX Control Mode.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Control Mode/MX Control Mode.vi"/>
 			<Item Name="MX Read Control Mode.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Control Mode/MX Read Control Mode.vi"/>
 			<Item Name="MX Query.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Central/MX Query.vi"/>
 			<Item Name="SX Query.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Central/SX Query.vi"/>
@@ -220,8 +239,11 @@
 			<Item Name="manipulate3Columns.vi" Type="VI" URL="../../csm_setpoint_and_ramp/manipulate3Columns.vi"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="../../../Program Files/National Instruments/LabVIEW 2009/resource/lvanlys.dll"/>
 			<Item Name="MX Arbitrator Globals.vi" Type="VI" URL="../../../Documents and Settings/All Users/Documents/Instron/FastTrack3/Common/MultiAxis/Arbitrator Interface/MX Arbitrator Globals.vi"/>
-			<Item Name="CreateCreepSamples.vi" Type="VI" URL="../lib/CreateCreepSamples.vi"/>
+			<Item Name="CreateSinSamples.vi" Type="VI" URL="../lib/CreateSinSamples.vi"/>
 			<Item Name="samplePlaybackGenerator.dll" Type="Document" URL="../lib/samplePlaybackGenerator.dll"/>
+			<Item Name="CreateCreepSamples2.vi" Type="VI" URL="../lib/CreateCreepSamples2.vi"/>
+			<Item Name="CreateCreepSamples.vi" Type="VI" URL="../lib/CreateCreepSamples.vi"/>
+			<Item Name="CreateAEControlSamples.vi" Type="VI" URL="../../../instronLabviewProgramsCleaned/csm_setpoint_and_ramp_lumikki/lib/CreateAEControlSamples.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="lumikki" Type="RESTful WS">
@@ -240,6 +262,8 @@
 				<Property Name="RESTfulWebSrvc_routingTemplate[0].VIName" Type="Str">csm_lumikki_instron_moveToSetpoint.vi</Property>
 				<Property Name="RESTfulWebSrvc_routingTemplate[1].template" Type="Str">/csm_lumikki_instron_startLogging/:expId</Property>
 				<Property Name="RESTfulWebSrvc_routingTemplate[1].VIName" Type="Str">csm_lumikki_instron_startLogging.vi</Property>
+				<Property Name="RESTfulWebSrvc_routingTemplate[10].template" Type="Str">/ttm_run2/:protocolName/:channelInt/:rampRateAE/:rampRateSilent/:timeWindow/:cycleLength/:holdTime/:rampRate/:load/:rampAmplitude/:expId</Property>
+				<Property Name="RESTfulWebSrvc_routingTemplate[10].VIName" Type="Str">ttm_run2.vi</Property>
 				<Property Name="RESTfulWebSrvc_routingTemplate[2].template" Type="Str">/csm_lumikki_instron_stopLogging</Property>
 				<Property Name="RESTfulWebSrvc_routingTemplate[2].VIName" Type="Str">csm_lumikki_instron_stopLogging.vi</Property>
 				<Property Name="RESTfulWebSrvc_routingTemplate[3].template" Type="Str">/csm_lumikki_instron_initRamp/:rampRate/:rampAmplitude</Property>
@@ -254,8 +278,10 @@
 				<Property Name="RESTfulWebSrvc_routingTemplate[7].VIName" Type="Str">csm_lumikki_instron_creep.vi</Property>
 				<Property Name="RESTfulWebSrvc_routingTemplate[8].template" Type="Str">/csm_lumikki_instron_status</Property>
 				<Property Name="RESTfulWebSrvc_routingTemplate[8].VIName" Type="Str">csm_lumikki_instron_status.vi</Property>
-				<Property Name="RESTfulWebSrvc_routingTemplateCount" Type="Int">9</Property>
-				<Property Name="Source[0].itemID" Type="Str">{56681B55-B83C-4840-BFF6-D2F62BD250AF}</Property>
+				<Property Name="RESTfulWebSrvc_routingTemplate[9].template" Type="Str">/ttm_run</Property>
+				<Property Name="RESTfulWebSrvc_routingTemplate[9].VIName" Type="Str">ttm_run.vi</Property>
+				<Property Name="RESTfulWebSrvc_routingTemplateCount" Type="Int">11</Property>
+				<Property Name="Source[0].itemID" Type="Str">{E058E4D1-26A9-438C-8424-AD31B917521B}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/csm_lumikki_instron_stopLogging_poller.vi</Property>
@@ -280,6 +306,16 @@
 				<Property Name="Source[13].RESTfulVI.VIConfigInfoOutputFormat" Type="Str">JSON</Property>
 				<Property Name="Source[13].sourceInclusion" Type="Str">TopLevel</Property>
 				<Property Name="Source[13].type" Type="Str">RESTfulVI</Property>
+				<Property Name="Source[14].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[14].itemID" Type="Ref">/My Computer/ttm_run.vi</Property>
+				<Property Name="Source[14].RESTfulVI.VIConfigInfoOutputFormat" Type="Str">HTML</Property>
+				<Property Name="Source[14].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[14].type" Type="Str">RESTfulVI</Property>
+				<Property Name="Source[15].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[15].itemID" Type="Ref">/My Computer/ttm_run2.vi</Property>
+				<Property Name="Source[15].RESTfulVI.VIConfigInfoOutputFormat" Type="Str">HTML</Property>
+				<Property Name="Source[15].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[15].type" Type="Str">RESTfulVI</Property>
 				<Property Name="Source[2].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[2].itemID" Type="Ref">/My Computer/csm_lumikki_instron_init.vi</Property>
 				<Property Name="Source[2].type" Type="Str">VI</Property>
@@ -312,7 +348,7 @@
 				<Property Name="Source[9].RESTfulVI.VIConfigInfoOutputFormat" Type="Str">JSON</Property>
 				<Property Name="Source[9].sourceInclusion" Type="Str">TopLevel</Property>
 				<Property Name="Source[9].type" Type="Str">RESTfulVI</Property>
-				<Property Name="SourceCount" Type="Int">14</Property>
+				<Property Name="SourceCount" Type="Int">16</Property>
 				<Property Name="WebSrvc_enableDebugging" Type="Bool">true</Property>
 				<Property Name="WebSrvc_serviceGUID" Type="Str">{C3134F95-9BBA-4846-98B5-326E0C907D4C}</Property>
 				<Property Name="WebSrvc_serviceName" Type="Str">lumikki</Property>
