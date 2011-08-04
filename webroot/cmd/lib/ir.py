@@ -3,15 +3,10 @@ from json import dumps, loads
 from config import conf
 from lumilib import *
 
-# TODO: move constants to external configuration file
-# same way as in stdic
-
-timeout = 60
-cgipath = "/cgi-bin/MessageSenderCon.exe"
-
 def connectAndGetResponse(data):
     try:
         req = createRequest(data)
+        timeout = int(c.get('g_timeout'))
         connection = urlopen(req,timeout=timeout)
         response_json = loads(connection.read())
         return response_json["status"]
@@ -20,9 +15,10 @@ def connectAndGetResponse(data):
 
 def createRequest(data):
     c = conf()
-    ip = c.get('ir_ip')
-    port = c.get('ir_port')
-    url = "http://%s:%s%s" % (ip,port,cgipath)
+    ip      = c.get('ir_ip')
+    port    = c.get('ir_port')
+    cgipath = c.get('ir_cgipath')
+    url = "http://%s:%s/%s" % (ip,port,cgipath)
     json = dumps(data)
     req = Request(url, json, {'Content-Type':'application/json'})
     return req
@@ -90,6 +86,8 @@ def connectAndGetStatus():
     
 def connectAndGetState():
     req = createRequest({"isConnected":0})
+    timeout=c.conf()
+    timeout = int(c.get('g_timeout'))
     connection = urlopen(req,timeout=timeout)
     r_json = loads(connection.read())
     return r_json
