@@ -2,10 +2,39 @@ import LabVIEW
 import getpass
 from config import conf
 from lumilib import *
+from json import loads
+from urllib2 import urlopen, URLError
+from urllib import urlencode
 
 def connectAndSendStart():
     c = conf()
     return connectAndSend(c, createStartMessage(c))
+
+def connectAndStart():
+    c = conf()
+    data = {"offsetY":      c.get('cam_yoffset'),
+            "offsetX":      c.get('cam_xoffset'),
+            "fps":      c.get('cam_rawfps'),
+            "width":      c.get('cam_width'),
+            "height":      c.get('cam_height'),
+            "testName":      c.get('g_measurementid'),
+            "packSize":      c.get('cam_packetsize'),
+            "index":      c.get('cam_index'),
+            "exposure":      c.get('cam_exposure'),
+            "parentFolder": c.get('cam_parentfolder')
+
+            }
+    return connectAndStartCam(data)
+
+def connectAndStartCam(data):
+    c = conf()
+    basic_url = "http://%s:%s/camera/manualCamera" % (c.get('cam_ip'),c.get('cam_port'))
+    url = basic_url
+    if data != None:
+        url += "?%s" % urlencode(data)
+            
+    connection = urlopen(url, timeout=timeout)
+    return connection
 
 def connectAndSendStop():
     c = conf()
