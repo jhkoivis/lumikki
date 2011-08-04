@@ -17,6 +17,7 @@ configurationMap = {'g_logdir'        : '~'
     , 'cam_port' : "6423"
     , 'cam_exposure' : '300'
     , 'cam_rawfps' : '1000'
+    , 'cam_index' : '0'
     , 'ttm_ramprate' : '0.2'
     , 'ttm_rampamplitude' : '2'
     , 'ttm_setpoint' : '1'
