@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from lib.lumilib import *
-from lib import camera
+from lib import cam
 from lib import ttm
 from lib import ir
 from lib import ae
