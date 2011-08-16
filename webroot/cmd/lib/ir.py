@@ -4,6 +4,7 @@ from config import conf
 from lumilib import *
 
 def connectAndGetResponse(data):
+    c = conf()
     try:
         req = createRequest(data)
         timeout = int(c.get('g_timeout'))
