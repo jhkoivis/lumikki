@@ -1,0 +1,7 @@
+
+This folder contains cgi-scripts for html-buttons. 
+
+Folder lib contains the functionality written in python.
+
+Files with "Target" in the name are the goals where to aim 
+(before we learned how to use hg branch).
