@@ -23,26 +23,32 @@ try:
         raise ValueError("No measurement ID set.")
     active = c.get('g_active')
     log("active array: " + str(active))
+    
     if active[mg.cam]:
-        log("Camera connect and send")
-        ret = camera.connectAndSendStart()
+        log("CAM start")
+        ret = cam.start()
         msg = msg + "Cam: " + ret
+        
     if active[mg.ttm]:
         log("TTM connect and send")
         ret = ttm.connectAndInitRamp()
         ret = ttm.connectAndStartLogging()
         ret = ttm.connectAndStartRamp()
         msg = msg + "TTM: " + str(ret)
+        
     if active[mg.ae]:
         log("AE connect and send")
         ret = ae.connectAndStart()
         msg = msg + "AE: " + str(ret)
+        
     if active[mg.ir]:
         log("IR connect and send")
         ret = ir.connectAndStart()
         msg = "IR: " + str(ret)
+        
     put_json({'st':0, 'id':commandId, 'msg':'Success: ' + msg})
+    
 except Exception as e:
-    put_json({'id':commandId, 'st':1, 
-              'msg':'Run failed [' + str(e) + ']'})
+    put_json({'id':commandId, 'st':1, 'msg':'Run failed [' + str(e) + ']'})
+    raise
     

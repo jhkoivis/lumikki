@@ -1,7 +1,7 @@
 from BaseHTTPServer import HTTPServer
 from threading import Thread
 from SocketServer import ThreadingMixIn
-from mockdevices import MockCamHandler, MockTTMHandler, MockIRHandler
+from mockdevices import MockCAMHandler, MockTTMHandler,MockIRHandler,MockAEHandler
 from urllib2 import urlopen
 from config import conf
 from itertools import izip
@@ -11,9 +11,10 @@ class MockServer:
     def __init__(self):
     
         self.devicemap = {
-                          'cam':(MockCamHandler,('localhost',40001)),
-                          'ttm':(MockTTMHandler,('localhost',40002)),
-                          'ir' :( MockIRHandler,('localhost',40003))
+                          'cam' :(MockCAMHandler,   ('localhost',40001)),
+                          'ttm' :(MockTTMHandler,   ('localhost',40002)),
+                          'ir'  :(MockIRHandler,    ('localhost',40003)),
+                          'ae'  :(MockAEHandler,    ('localhost',40004))
                           }
         self.devices = dict()
         self.threads = dict()

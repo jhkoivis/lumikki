@@ -17,12 +17,20 @@ def labViewCommand(service, command, data=None):
         posted via http-post.
     '''
     c = conf()
-    basic_url = "http://%s:%s/%s/%s" % (c.get(service + '_ip'),
-                                        c.get(service + '_port'),
-                                        service,
-                                        command)
+    url = "http://%s:%s/%s/%s" % (  c.get(service + '_ip'),
+                                    c.get(service + '_port'),
+                                    service,
+                                    command)
     if data != None:
         url += "?%s" % urlencode(data)
-    connection = urlopen(url, timeout=c.conf())
+    connection = urlopen(url, 
+                         timeout=int(c.get('g_timeout')))
+    
+    # connection must be a string, 
+    # urlopen may return a request object if device is not present
+    ccn = connection.__class__.__name__
+    if not (ccn == "str" or ccn == "unicode"):
+        connection = '240' # not ready
+    
     return connection
 

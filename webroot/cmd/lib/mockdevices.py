@@ -171,12 +171,21 @@ class MockIRHandler(BaseHTTPRequestHandler):
             except KeyError:
                 pass
 
-class MockCamHandler(BaseHTTPRequestHandler):
+class MockCAMHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self.send_response(200)
         self.send_header("Content-type", r"text/html")
         self.end_headers()
         self.wfile.write("cam")
+        return
+    
+class MockAEHandler(BaseHTTPRequestHandler):
+
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header("Content-type", r"text/html")
+        self.end_headers()
+        self.wfile.write("ae")
         return
     
