@@ -8,9 +8,11 @@ Known Issues:
 
 - If Datasocket is enabled but the Datasocket server is not running on the target computer, AECollector.vi crashes when it receives stop-signal (this happens due to Datasocket buffer overflow). Does not affect to data collection
 - EventListener.vi throws 'Collection didn't stop'-error after two consecutive measurements. Doesn't affect to data collection.
-
+- some times (1/40 exps) one of the lines in the output file is corrupted. This happens in data write function.
+ 
 To-Do List:
 
 - Fix the issues mentioned above
 - Add support for status query to EventListerner.vi
 - Clean up the code using more subVIs? 
+
