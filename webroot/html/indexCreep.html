@@ -1,0 +1,179 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Lumikki UI</title>
+<META http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+<link rel="stylesheet" type="text/css" href="lumikki.css"/>
+
+<script src = 'jquery-1.4.4.js' type = 'text/javascript'></script> 
+<script src = 'jquery.tools.min.js' type = 'text/javascript'></script> 
+<script src = 'underscore.js' type = 'text/javascript'></script>
+<script src = 'lumikkiCreep.js' type = 'text/javascript'></script>
+</head>
+<body>
+	<ul class="css-tabs">
+		<li><a href="#">Main</a></li>
+		<li><a href="#">Tensile</a></li>
+		<li><a href="#">Acoustic Emission</a></li>
+		<li><a href="#">Camera</a></li>
+		<li><a href="#">IR Camera</a></li>
+	</ul>
+
+	<div class="css-panes" style="opacity:0.9;filter:alpha(opacity=99);">
+		<div>
+		  <div style="float:left;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
+		    <form  id="run" action="">
+		      <h1>THIS RUNS CREEP EXPERIMENT</h1>
+			<p>
+			<label for="g_measurementid">Measurement ID (Max. len. 9)</label> 
+			<input type="text"  size="20" maxlength="9" id="g_measurementid">
+		      </p>
+		      <p>
+			<input style="float:bottom;" type="submit" value="Run" />
+		      </p>
+		    </form>
+		    <p>
+		      <form  id="stop" action="">
+			<input style="float:bottom;" type="submit" value="Stop" />
+		      </form>
+		    </p>
+		    <hr />
+		    <p>
+		      <form  id="restore" action="">
+			<input id="rbutton" style="float:bottom;" type="submit" value="Dump state" /><br /><label for="rbutton" class="buttonlabel">Returns server state as log events.</label>
+		      </form>
+		    </p>
+		  </div>
+		  <div style="float:right;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
+		    <table id="stable"> 
+		      <tr>
+			<th>Machine</th><th>Status</th><th>Description</th><th>Active</th></tr>
+			<tr><td>TTM</td><td id="stableStatus0" /><td id="stableDescr0" /><td><input id="stableIsActive0"  type="checkbox" /></td></tr>
+
+			<tr><td>AE</td><td id="stableStatus1" /><td id="stableDescr1" /><td><input id="stableIsActive1"  type="checkbox" /></td></tr>
+
+			<tr><td>Camera</td><td id="stableStatus2" /><td id="stableDescr2" /><td><input id="stableIsActive2"  type="checkbox" /></td></tr>
+
+			<tr><td>IR</td><td id="stableStatus3" /><td id="stableDescr3" /><td><input id="stableIsActive3"  type="checkbox" /></td></tr>
+
+		      </tr>
+		    </table>
+		    <form  id="logstatus" action="">
+		      <input style="float:bottom;" type="submit" value="Force status" />
+		    </form>
+		  </div>
+		</div>
+		<div>
+		  <div style="float:left;width:350px;min-height:200px;display:block;border-width: 1px 1px 1px">
+		    <form  id="ttm" action="" style="text-align:right">
+		      <label for="ttm_ramprate">Ramp Rate</label> 
+		      <input type="text"  size="20" maxlength="20" id="ttm_ramprate"><br />
+		      <label for="ttm_rampamplitude">Ramp Amplitude</label> 
+		      <input type="text"  size="20" maxlength="20" id="ttm_rampamplitude"><br />
+		      <label for="ttm_ip">Ip</label> 
+		      <input type="text"  size="20" maxlength="20" id="ttm_ip"><br />
+		      <label for="ttm_port">Port</label> 
+		      <input type="text"  size="20" maxlength="20" id="ttm_port"><br />
+		      <hr />
+		      <label for="ttm_setpoint">Set Point</label>
+		      <input type="text"  size="20" maxlength="20" id="ttm_setpoint"><br />
+		      <label for="ttm_setpointtime">Set Point Time</label> 
+		      <input type="text"  size="20" maxlength="20" id="ttm_setpointtime"><br />
+<hr />
+<label for="ttm_load">Creep Load [kN]</label>
+<input type=text size="20" maxlength="20" id="ttm_load"><br />
+<hr />		    
+  <input style="float:bottom;" type="submit" value="Apply" />
+		    </form>
+		  </div>
+		  <div style="float:right;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
+		    <form  id="ttmsetpointrun" action="" style="text-align:right">
+		      <input style="float:bottom;" type="submit" value="Move to Set Point" />
+		    </form>
+		  </div>
+		</div>
+		<div>pane 3 content</div>
+		<div style="min-height:320px;display:block;border-width: 1px 1px 1px">
+		  <div style="float:left;width:350px;min-height:200px;display:block;border-width: 1px 1px 1px">
+		    <form  id="cam" action="" style="text-align:right">
+		      <label for="cam_rawfps">Raw FPS</label> 
+		      <input type="text"  size="20" maxlength="20" id="cam_rawfps"><br />
+		      <label for="cam_exposure">Exposure [ms]</label> 
+		      <input type="text"  size="20" maxlength="20" id="cam_exposure"><br />
+		      <label for="cam_xoffset">X Offset</label> 
+		      <input type="text"  size="20" maxlength="20" id="cam_xoffset"><br />
+		      <label for="cam_yoffset">Y Offset</label> 
+		      <input type="text"  size="20" maxlength="20" id="cam_yoffset"><br />
+		      <label for="cam_packetsize">Packet size</label> 
+		      <input type="text"  size="20" maxlength="20" id="cam_packetsize"><br />
+		      <label for="cam_width">Width</label> 
+		      <input type="text"  size="20" maxlength="20" id="cam_width"><br />
+		      <label for="cam_height">Height</label> 
+		      <input type="text"  size="20" maxlength="20" id="cam_height"><br />
+		      <label for="cam_ip">IP Address</label> 
+		      <input type="text"  size="20" maxlength="20" id="cam_ip"><br />
+		      <label for="cam_port">Port</label> 
+		      <input type="text"  size="20" maxlength="20" id="cam_port"><br />
+		      <label for="cam_parentfolder">Parent Folder</label>
+		      <input type="text"  size="20" maxlength="50" id="cam_parentfolder"><br />
+		      <input style="float:bottom;" type="submit" value="Apply" />
+		    </form>
+		  </div>
+		</div>
+		<div>
+		  <div style="float:left;width:350px;min-height:200px;display:block;border-width: 1px 1px 1px">
+		    <form  id="ir" action="" style="text-align:right">
+		      <label for="ir_framerate">Framerate</label> 
+		      <input type="text"  size="20" maxlength="20" id="ir_framerate"><br />
+		      <label for="ir_recordtime">Recording time</label> 
+		      <input type="text"  size="20" maxlength="20" id="ir_recordtime"><br />
+		      <hr />
+		      <label for="ir_parentfolder">Parent Folder</label> 
+		      <input type="text"  size="20" maxlength="50" id="ir_parentfolder"><br />
+		      <label for="ir_recordformat">Recording Format</label> 
+		      <input type="text"  size="20" maxlength="10" id="ir_recordformat"><br />
+		      <label for="ir_ip">IP Address</label> 
+		      <input type="text"  size="20" maxlength="20" id="ir_ip"><br />
+		      <label for="ir_port">Port</label> 
+		      <input type="text"  size="20" maxlength="20" id="ir_port"><br />
+		      <input style="float:bottom;" type="submit" value="Apply" />
+		    </form>
+		  </div>
+		  <div style="float:right;width:250px;min-height:200px;display:block;border-width: 1px 1px 1px">
+		    <form  id="irfocus" action="" style="text-align:right">
+		      <input style="float:bottom;" type="submit" value="Focus IR Camera" />
+		    </form>
+			</p>
+			<p>
+			  <form  id="irconnect" action="" style="text-align:right">
+		        <input style="float:bottom;" type="submit" value="Connect IR Camera" />
+		      </form>
+			</p>
+			<p>
+		      <form  id="irdisconnect" action="" style="text-align:right">
+		        <input style="float:bottom;" type="submit" value="Disconnect IR Camera" />
+		      </form>
+			</p>
+			<hr />
+			<p>
+		      <form  id="irimageseries" action="" style="text-align:right">
+		        <input style="float:bottom;" type="submit" value="Take a serie of images" />
+		      </form>
+			</p>
+			<p>
+		      <form  id="irstop" action="" style="text-align:right">
+		        <input style="float:bottom;" type="submit" value="Stop recording" />
+		      </form>
+			</p>
+		  </div>
+		</div>
+	</div>
+
+<div class="css-log-header">Log events</div>
+<div class="css-log" id="css-log"  >
+<p/>
+</div>
+
+
+</body>
+</html>
