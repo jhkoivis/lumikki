@@ -3,6 +3,7 @@ from urllib import urlencode
 from config import conf
 from lumilib import *
 from json import loads
+import sys
 
 
 def labViewCommand(service, command, data=None):
@@ -23,9 +24,12 @@ def labViewCommand(service, command, data=None):
                                     command)
     if data != None:
         url += "?%s" % urlencode(data)
-    connection = urlopen(url, 
-                         timeout=int(c.get('g_timeout')))
-    
+    try:
+        connection = urlopen(url, timeout=int(c.get('g_timeout')))
+    except:
+        sys.stderr.write(url)
+        raise
+     
     # connection must be a string, 
     # urlopen may return a request object if device is not present
     ccn = connection.__class__.__name__
