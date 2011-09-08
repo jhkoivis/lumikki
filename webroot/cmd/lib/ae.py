@@ -19,16 +19,16 @@ def start():
             'startClock'        : '1',
             'startCollection'   : '1'}
 
-    return device.labViewCommand('ae', 'start', data)
+    return device.labViewCommand('ae', 'ae_start', data)
 
 def stop():
     data = {"startClock"        :"0",
             "startCollection"   :"0",
             "stopClock"         :"1",
             "stopCollection"    :"1"}
-    return device.labViewCommand('ae', 'stop', data)
+    return device.labViewCommand('ae', 'ae_stop', data)
 
 def status():
-    return device.labViewCommand('ae', 'status')
+    return device.labViewCommand('ae', 'ae_status')
 
 
