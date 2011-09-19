@@ -45,7 +45,7 @@ ul.css-tabs a {
 	background-color:#efefef;
 	color:#777;
 	margin-right:2px;
-	position:relative;
+	position:bottom;
 	top:1px;	
 	outline:0;
 	-moz-border-radius:4px 4px 0 0;	

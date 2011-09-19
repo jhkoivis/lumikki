@@ -11,7 +11,40 @@
 <script src = 'lumikkiTarget.js' type = 'text/javascript'></script>
 </head>
 <body>
+
 	<ul class="css-tabs">
+
+	<script type="text/javascript">
+	
+	function loadXml(filename)
+	{
+		if (window.XMLHttpRequest)	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  			xmlhttp=new XMLHttpRequest();
+  		}	
+		else {// code for IE6, IE5
+  			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  		}
+		xmlhttp.open("GET",filename,false);
+		xmlhttp.send();
+		xmlDoc=xmlhttp.responseXML;
+		return xmlDoc;
+	}
+	
+	function getTabs(xmlDoc){
+		variables = xmlDoc.getElementsByTagName("var");
+		for (i = 0; i < variables.length; i++ ){
+			var varName = variables[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+			var tabName = varName.split('_');
+			document.write('<li><a href="#">'+ tabName + '</a></li>');
+		}
+	}
+	 
+	xmlDoc = loadXml("variables.xml");
+	getTabs(xmlDoc);
+	 
+	</script>
+
+	
 		<li><a href="#">Main</a></li>
 		<li><a href="#">Tensile</a></li>
 		<li><a href="#">Camera</a></li>

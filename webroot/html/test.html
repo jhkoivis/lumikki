@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Lumikki UI</title>
+<META http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+<script src = 'jquery-1.4.4.js' type = 'text/javascript'></script> 
+<script src = 'jquery.tools.min.js' type = 'text/javascript'></script> 
+<script src = 'underscore.js' type = 'text/javascript'></script>
+</head>
+<body>
+	
+
+	<script type="text/javascript">
+		document.write('test');
+	</script>
+	
+	<script type="text/javascript">
+	
+	function loadXml(filename)
+	{
+		if (window.XMLHttpRequest)	{// code for IE7+, Firefox, Chrome, Opera, Safari
+  			xmlhttp=new XMLHttpRequest();
+  		}	
+		else {// code for IE6, IE5
+  			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  		}
+		xmlhttp.open("GET",filename,false);
+		xmlhttp.send();
+		xmlDoc=xmlhttp.responseXML;
+	
+		return xmlDoc;
+	}
+
+	function printVars(xmlDoc){
+		variables = xmlDoc.getElementsByTagName("var");
+		for (i = 0; i < variables.length; i++ ){
+			var varName = variables[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+			document.write(varName + ' : ');
+			if (variables[i].getElementsByTagName("value")[0].childNodes.length > 0){
+				var value = variables[i].getElementsByTagName("value")[0].childNodes[0].nodeValue;
+				document.write(value);
+			}
+			document.write('<br />');
+		}
+	}
+	
+	xmlDoc = loadXml("variables.xml");
+	printVars(xmlDoc);
+
+
+	
+	</script>
+
+</body>
+</html>
