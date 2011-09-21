@@ -1,6 +1,8 @@
 import memcache
 import os
 import sys
+from xml.sax import make_parser
+from variableXmlContentHandler import variableXmlContentHandler
 
 def loadConfigurationMap():
     """
@@ -9,17 +11,15 @@ def loadConfigurationMap():
     """
     configurationMap = {}
     fn = os.environ['LUMIKKI_PYTHON_UIDEFAULTS']
-    for line in open(fn, 'r'): 
-        line = line.strip() 
-        if len(line) <= 1: continue
-        if line[0] == '#': continue
+    #fn = '../../html/variables.xml'
+    
+    parser = make_parser() 
+    curHandler = variableXmlContentHandler(configurationMap)
+    parser.setContentHandler(curHandler) 
+    parser.parse(open(fn,'r'))
+    #print configDict
 
-        key = eval(line.split('=')[0].strip())
-        #print key
-        value = eval(line.split('=')[1].strip())
-        #print value
-
-        configurationMap[key] = value
+    configurationMap['g_active'] = [False, False, False, False]
 
     return configurationMap
 

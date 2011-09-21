@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <all>
 	<var>
 		<name>g_logdir</name>
@@ -28,7 +28,7 @@
 	<var>
 		<name>cam_parentfolder</name>
 		<title>cam_parentfolder</title>
-		<value>rF:\data</value>
+		<value>F:\data</value>
 	</var>
 	<var>
 		<name>cam_packetsize</name>
@@ -68,7 +68,7 @@
 	<var>
 		<name>cam_port</name>
 		<title>cam_port</title>
-		<value>"6423"</value>
+		<value>6423</value>
 	</var>
 	<var>
 		<name>cam_exposure</name>
@@ -92,7 +92,7 @@
 	</var>
 	<var>
 		<name>ttm_rampamplitude</name>
-		<title>ttm_rampamplitude</title>
+		<title>TTM ramp amplitude [mm]</title>
 		<value>2</value>
 	</var>
 	<var>
@@ -193,7 +193,7 @@
 	<var>
 		<name>ir_parentfolder</name>
 		<title>ir_parentfolder</title>
-		<value>rD:\irimages</value>
+		<value>D:\irimages</value>
 	</var>
 	<var>
 		<name>ir_storecondition</name>
