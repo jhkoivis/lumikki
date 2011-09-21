@@ -5,272 +5,49 @@
 <META http-equiv="Content-Type" content="text/html;charset=utf-8"> 
 <link rel="stylesheet" type="text/css" href="lumikki.css"/>
 
-<script src = 'jquery-1.4.4.js' type = 'text/javascript'></script> 
-<script src = 'jquery.tools.min.js' type = 'text/javascript'></script> 
-<script src = 'underscore.js' type = 'text/javascript'></script>
-<script src = 'lumikkiTarget.js' type = 'text/javascript'></script>
+<script src = 'jquery-1.4.4.js'         type = 'text/javascript'></script> 
+<script src = 'jquery.tools.min.js'     type = 'text/javascript'></script> 
+<script src = 'underscore.js'           type = 'text/javascript'></script>
+<script src = 'lumikkiTarget.js'        type = 'text/javascript'></script>
+<script src = 'uiTabContentCreator.js'  type = 'text/javascript'></script>
+
 </head>
 <body>
 
-	<ul class="css-tabs">
+<script type="text/javascript">
 
-	<script type="text/javascript">
-	
-	function loadXml(filename)
-	{
-		if (window.XMLHttpRequest)	{// code for IE7+, Firefox, Chrome, Opera, Safari
-  			xmlhttp=new XMLHttpRequest();
-  		}	
-		else {// code for IE6, IE5
-  			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  		}
-		xmlhttp.open("GET",filename,false);
-		xmlhttp.send();
-		xmlDoc=xmlhttp.responseXML;
-		return xmlDoc;
-	}
-	
-	function getTabs(xmlDoc){
-		variables = xmlDoc.getElementsByTagName("var");
-		for (i = 0; i < variables.length; i++ ){
-			var varName = variables[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-			var tabName = varName.split('_');
-			<!-- document.write('<li><a href="#">'+ tabName + '</a></li>'); -->
+	// load variables
+	var xmlDoc = loadXml("variables.xml");
+
+	// parse tab names from variables to tabList and create them
+	// this creates the upper (small) part of the tab (heading of the tab?)
+	var tabList = getTabNames(xmlDoc);
+	createTabs(tabList);
+
+	// creates space for the bottom (big) part of the tab (document area of the tab?)
+	document.write('<div class="css-panes" style="opacity:0.9;filter:alpha(opacity=99);">');
+
+	// write content for the tabs
+	for (i in tabList){
+	    writeTabHeader(tabList[i]);
+
+	    // write variables (do not touch global 'g' tab)
+	    // g-tab is handled in writeSpecialTabContent() function
+		if (tabList[i] != 'g') {
+			writeFormWithVariables(tabList[i]);
 		}
+		// write special content (buttons, checkboxes, etc)
+		writeSpecialTabContent(tabList[i]);
+		writeTabFooter();
 	}
-	 
-	xmlDoc = loadXml("variables.xml");
-	getTabs(xmlDoc);
-	 
-	</script>
 
-	
-		<li><a href="#">Main</a></li>
-		<li><a href="#">Tensile</a></li>
-		<li><a href="#">Camera</a></li>
-		<li><a href="#">IR Camera</a></li>
-		<li><a href="#">Acoustic Emission</a></li>
-	</ul>
+	// close space for tabs
+	document.write('</div>');
 
-	<div class="css-panes" style="opacity:0.9;filter:alpha(opacity=99);">
-	
-		<!-- main tab starts here -->
-		<div>
-		  <div style="float:left;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
-		    <form  id="run" action="">
-		      <p>
-			<label for="g_measurementid">Measurement ID (Max. len. 9)</label> 
-			<input type="text"  size="20" maxlength="9" id="g_measurementid">
-		      </p>
-		      <p>
-			<input style="float:bottom;" type="submit" value="Run" />
-		      </p>
-		    </form>
-		    <p>
-		      <form  id="stop" action="">
-			<input style="float:bottom;" type="submit" value="Stop" />
-		      </form>
-		    </p>
-		    <hr />
-		    <p>
-		      <form  id="restore" action="">
-			<input id="rbutton" style="float:bottom;" type="submit" value="Dump state" /><br /><label for="rbutton" class="buttonlabel">Returns server state as log events.</label>
-		      </form>
-		    </p>
-		  </div>
-		  <div style="float:right;width:300px;min-height:200px;display:block;border-width: 1px 1px 1px">
-		    <table id="stable"> 
-		      <tr>
-			<th>Machine</th><th>Status</th><th>Description</th><th>Active</th></tr>
-			<tr><td>TTM</td><td id="stableStatus0" /><td id="stableDescr0" /><td><input id="stableIsActive0"  type="checkbox" /></td></tr>
-
-			<tr><td>AE</td><td id="stableStatus1" /><td id="stableDescr1" /><td><input id="stableIsActive1"  type="checkbox" /></td></tr>
-
-			<tr><td>Camera</td><td id="stableStatus2" /><td id="stableDescr2" /><td><input id="stableIsActive2"  type="checkbox" /></td></tr>
-
-			<tr><td>IR</td><td id="stableStatus3" /><td id="stableDescr3" /><td><input id="stableIsActive3"  type="checkbox" /></td></tr>
-
-		      </tr>
-		    </table>
-		    <form  id="logstatus" action="">
-		      <input style="float:bottom;" type="submit" value="Force status" />
-		    </form>
-		  </div>
-		</div>
-		<!-- main tab ends here -->
-		
-		
-		
-		<!-- ttm tab starts here -->
-		<div>
-		  <div style="float:left;width:600px;min-height:400px;display:block;border-width: 1px 1px 1px">
-		    <form  id="ttm" action="" style="text-align:right">
-		      
-		      <label for="ttm_protocol">Protocol:</label> 
-		      <select id="ttm_protocol">
-				<option value="tensile">Tensile (ramp rate, amplitude)</option>
-				<option value="creep">Creep (load) </option>
-				<option value="aecontrol">AE control (ramp rate AE, ramp rate silent, window, channel)</option>
-				<option value="cyclicsin">cyclic sinusoidal (amplitude, cycle length, channel)</option>
-				<option value="cyclicsaw">cyclic saw or square (amplitude, ramp rate, hold time, channel)</option>
-			  </select><br />
-		      <label for="ttm_ramprate">Ramp Rate</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_ramprate"><br />	      
-		      <label for="ttm_amplitude">Ramp Amplitude</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_rampamplitude"><br />
-		      <label for="ttm_channel">Channel</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_channel"><br />
-		      <label for="ttm_load">Load</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_load"><br />
-		      <label for="ttm_ramprateae">Ramp rate AE</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_ramprateae"><br />
-		      <label for="ttm_rampratesilent">Ramp rate silent</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_rampratesilent"><br />
-		      <label for="ttm_window">Time window (ms)</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_window"><br />
-		      <label for="ttm_cyclelength">Cycle length</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_cyclelength"><br />
-		      <label for="ttm_holdtime">Hold time</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_holdtime"><br />
-		      <hr />
-		      <label for="ttm_ip">Ip</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_ip"><br />
-		      <label for="ttm_port">Port</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_port"><br />
-		      <hr />
-		      <label for="ttm_setpoint">Set Point</label>
-		      <input type="text"  size="20" maxlength="20" id="ttm_setpoint"><br />
-		      <label for="ttm_setpointtime">Set Point Time</label> 
-		      <input type="text"  size="20" maxlength="20" id="ttm_setpointtime"><br />
-		      <hr />
-		      <input style="float:bottom;" type="submit" value="Apply" />
-		    </form>
-		  </div>
-		  <div style="float:right;width:250px;min-height:200px;display:block;border-width: 1px 1px 1px">
-		    <form  id="ttmsetpointrun" action="" style="text-align:right">
-		      <input style="float:bottom;" type="submit" value="Move to Set Point" />
-		    </form>
-		  </div>
-		</div>
-
-
-
-
-
-
-
-
-		<!-- cam pane starts here -->
-		<div style="min-height:320px;display:block;border-width: 1px 1px 1px">
-		  <div style="float:left;width:350px;min-height:200px;display:block;border-width: 1px 1px 1px">
-		    <form  id="cam" action="" style="text-align:right">
-		      <label for="cam_fps">Raw fps [= fps x 1000]</label> 
-		      <input type="text"  size="20" maxlength="20" id="cam_rawfps"><br />
-		      <label for="cam_exposure">Exposure [us]</label> 
-		      <input type="text"  size="20" maxlength="20" id="cam_exposure"><br />
-		      <label for="cam_offsetx">X Offset</label> 
-		      <input type="text"  size="20" maxlength="20" id="cam_xoffset"><br />
-		      <label for="cam_offsety">Y Offset</label> 
-		      <input type="text"  size="20" maxlength="20" id="cam_yoffset"><br />
-		      <label for="cam_packsize">Packet size</label> 
-		      <input type="text"  size="20" maxlength="20" id="cam_packetsize"><br />
-		      <label for="cam_width">Width</label> 
-		      <input type="text"  size="20" maxlength="20" id="cam_width"><br />
-		      <label for="cam_height">Height</label> 
-		      <input type="text"  size="20" maxlength="20" id="cam_height"><br />
-		      <label for="cam_parentfolder">Parent Folder</label>
-		      <input type="text"  size="20" maxlength="50" id="cam_parentfolder"><br />
-		      <label for="cam_index">First image index (0 creates folder structure)</label>
-					<input type="text" 	size="20" maxlength="50" id=cam_index><br />
-					<label for="cam_ip">IP Address</label> 
-		      <input type="text"  size="20" maxlength="20" id="cam_ip"><br />
-		      <label for="cam_port">Port</label> 
-		      <input type="text"  size="20" maxlength="20" id="cam_port"><br />
-		      <input style="float:bottom;" type="submit" value="Apply" />
-		    </form>
-		  </div>
-		</div>
-		
-		<!-- cam pane ends here -->
-		
-		
-	
-		
-		<!-- ir tab starts here -->	
-		<div>
-		  <div style="float:left;width:350px;min-height:200px;display:block;border-width: 1px 1px 1px">
-		    <form  id="ir" action="" style="text-align:right">
-		      <label for="ir_framerate">Framerate</label> 
-		      <input type="text"  size="20" maxlength="20" id="ir_framerate"><br />
-		      <label for="ir_recordtime">Recording time</label> 
-		      <input type="text"  size="20" maxlength="20" id="ir_recordtime"><br />
-		      <hr />
-		      <label for="ir_parentfolder">Parent Folder</label> 
-		      <input type="text"  size="20" maxlength="50" id="ir_parentfolder"><br />
-		      <label for="ir_recordformat">Recording Format</label> 
-		      <input type="text"  size="20" maxlength="10" id="ir_recordformat"><br />
-		      <label for="ir_ip">IP Address</label> 
-		      <input type="text"  size="20" maxlength="20" id="ir_ip"><br />
-		      <label for="ir_port">Port</label> 
-		      <input type="text"  size="20" maxlength="20" id="ir_port"><br />
-		      <input style="float:bottom;" type="submit" value="Apply" />
-		    </form>
-		  </div>
-		  <div style="float:right;width:250px;min-height:200px;display:block;border-width: 1px 1px 1px">
-		    <form  id="irfocus" action="" style="text-align:right">
-		      <input style="float:bottom;" type="submit" value="Focus IR Camera" />
-		    </form>
-			</p>
-			<p>
-			  <form  id="irconnect" action="" style="text-align:right">
-		        <input style="float:bottom;" type="submit" value="Connect IR Camera" />
-		      </form>
-			</p>
-			<p>
-		      <form  id="irdisconnect" action="" style="text-align:right">
-		        <input style="float:bottom;" type="submit" value="Disconnect IR Camera" />
-		      </form>
-			</p>
-			<hr />
-			<p>
-		      <form  id="irimageseries" action="" style="text-align:right">
-		        <input style="float:bottom;" type="submit" value="Take a serie of images" />
-		      </form>
-			</p>
-			<p>
-		      <form  id="irstop" action="" style="text-align:right">
-		        <input style="float:bottom;" type="submit" value="Stop recording" />
-		      </form>
-			</p>
-		  </div>
-		</div>
-		<!-- ir tab end here -->
-		
-		<!-- here starts AE pane -->
-        <div style="min-height:320px;display:block;border-width: 1px 1px 1px">
-          <div style="float:left;width:350px;min-height:200px;display:block;border-width: 1px 1px 1px">
-            <form  id="ae" action="" style="text-align:right">
-              <label for="ae_freq">Clock frequency</label>
-              <input type="text" size="20" maxlength="20" id="ae_freq"> <br />
-              <label for="ae_ip">Ip address</label>
-              <input type="text" size="20" maxlength="20" id="ae_ip"> <br />
-              <label for="ae_port">Port</label>
-              <input type="text" size="20" maxlength="20" id="ae_port"> <br />
-              <input style="float:bottom;" type="submit" value="Apply" />
-            </form>
-          </div>
-        </div>
-        <!-- here ends AE pane -->
-
-		
-		
-		
-	</div>
+</script>
 
 <div class="css-log-header">Log events</div>
-<div class="css-log" id="css-log"  >
-<p/>
-</div>
+<div class="css-log" id="css-log"  ><p/></div>
 
 
 </body>
