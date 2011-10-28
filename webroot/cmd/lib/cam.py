@@ -7,8 +7,8 @@ def start():
     '''
     c = conf()
     
-    data = {'measurementid':    c.get('g_measurementid')}
-    variables =  [  'fps', 'exposure', 'offsetx', 'offsety',
+    data = {'testname':    "%s-%s" % (c.get('g_timestamp'), c.get('g_measurementid'))}
+    variables =  [  'rawfps', 'exposure', 'offsetx', 'offsety',
                     'packetsize', 'width', 'height',
                     'parentfolder', 'index']
     for var in variables:
@@ -16,10 +16,10 @@ def start():
         configKey = 'cam_' + key
         data[key] = c.get(configKey)
 
-    return device.labViewCommand('cam', 'start', data)
+    return device.labViewCommand('cam', 'cam_start', data)
 
 def stop():
-    return device.labViewCommand('cam', 'stop')
+    return device.labViewCommand('cam', 'cam_stop')
 
 def status():
-    return device.labViewCommand('cam', 'status')
+    return device.labViewCommand('cam', 'cam_status')
