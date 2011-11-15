@@ -265,5 +265,30 @@
 		<title>ae_viname</title>
 		<value>gateway</value>
 	</var>
-
+	<var>
+        <name>viewer_ttm_jsondata</name>
+        <title>viewer_ttm_jsondata</title>
+        <value>{u'stress': [2,3,4,5,6], u'analogStrain': [1,2,3,4,6], u'digitalStrain': [3,4,5,6,7]}</value>
+    </var>
+    <var>
+        <name>viewer_expId</name>
+        <title>viewer_expId</title>
+        <value>0</value>
+    </var>
+    <var>
+        <name>viewer_realLifeTime</name>
+        <title>viewer_realLifeTime</title>
+        <value>0</value>
+    </var>
+    <var>
+        <name>viewer_ttmDataPath</name>
+        <title>viewer_ttmDataPath</title>
+        <value>/html/viewer/ttmData.csv</value>
+    </var>
+    <var>
+        <name>viewer_predictionLogFileName</name>
+        <title>viewer_predictionLogFileName</title>
+        <value>/html/viewer/prediction_log.csv</value> 
+    </var>
+    
 </all>
