@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Lumikki Viewer</title>
+        <META   http-equiv="Content-Type" 
+                content="text/html;charset=utf-8" /> 
+         
+        <script src = '../jquery-1.4.4.js'         
+                type = 'text/javascript'></script> 
+                
+        <script type="text/javascript">
+            var t;
+            var c = 0;
+
+            function figureCallBack(data){
+                $('#ttmFigureDiv').html(data);
+            }
+            
+            function loopMe(){
+            	document.getElementById('txt').value=c;
+            	c=c+1;
+                $.post( "/cmd/viewer/viewerMakeFigure.cgi", 
+                          "", 
+                         figureCallBack,
+                          "html");
+                t = setTimeout("loopMe()", 5000);
+            }
+            
+            function clearData(){
+                $.post( "/cmd/viewer/viewerClearData.cgi",
+                        "",
+                        function dummy(response){},
+                        "html");
+            }
+         </script>
+    </head>
+    <body>
+        <h1>TTM data</h1>
+        <input type="text" id="txt" />
+        <input type="button" onclick="clearData()" value="clear data" />
+     
+        <!-- Divider where the ttm data image will be written    -->
+        <div id="ttmFigureDiv"></div>
+     
+        
+
+        <!--    Script that posts empty string to cgi 
+                that makes the figure (viewerMakeFigure).
+                Also contains the callBack function for 
+                post (figureCallBack) 
+        -->
+        <script>
+        loopMe();
+        </script>
+                
+
+            
+
+    </body>
+</html>
