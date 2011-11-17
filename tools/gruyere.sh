@@ -81,10 +81,13 @@ echo ssh -fN -L $local_ae_rdesktop:localhost:$middlePort_ae $username@$firewall
 echo
 
 # echo instructions
-echo echo ttm: rdesktop localhost:$local_ttm_rdesktop -k Fi-fi -f -rdisk:home=/home/$username/
-echo echo cam: rdesktop localhost:$local_cam_rdesktop -k Fi-fi -f -rdisk:home=/home/$username/
-echo echo ir: rdesktop localhost:$local_ir_rdesktop -k Fi-fi -f -rdisk:home=/home/$username/
-echo echo ae: rdesktop localhost:$local_ae_rdesktop -k Fi-fi -f -rdisk:home=/home/$username/
+echo echo ttm: rdesktop localhost:$local_ttm_rdesktop -k fi -f -rdisk:home=/home/$username/ -rdisk:tmp=/tmp/ 
+echo echo cam: rdesktop localhost:$local_cam_rdesktop -k fi -f -rdisk:home=/home/$username/ -rdisk:tmp=/tmp/
+echo echo ir: rdesktop localhost:$local_ir_rdesktop -k fi -f -rdisk:home=/home/$username/ -rdisk:tmp=/tmp/
+echo echo ae: rdesktop localhost:$local_ae_rdesktop -k fi -f -rdisk:home=/home/$username/ -rdisk:tmp=/tmp/i
+
+
+
 
 
 
