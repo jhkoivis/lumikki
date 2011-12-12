@@ -91,10 +91,17 @@
 		<value>0.2</value>
 	</var>
 	<var>
-		<name>ttm_rampamplitude</name>
-		<title>TTM ramp amplitude [mm]</title>
+		<name>ttm_tensile_rampamplitude</name>
+		<title>Tensile ramp amplitude [mm]</title>
 		<value>2</value>
 	</var>
+	<var>
+		<name>ttm_creep_rampamplitude</name>
+		<title>Creep ramp amplitude [N]</title>
+		<value>2</value>
+	</var>
+
+
 	<var>
 		<name>ttm_setpoint</name>
 		<title>ttm_setpoint</title>
@@ -146,8 +153,13 @@
 		<value>50</value>
 	</var>
 	<var>
-		<name>ttm_channel</name>
-		<title>ttm_channel</title>
+		<name>ttm_tensile_channel</name>
+		<title>ttm_tensile_channel</title>
+		<value>1</value>
+	</var>
+	<var>
+		<name>ttm_creep_channel</name>
+		<title>ttm_creep_channel</title>
 		<value>1</value>
 	</var>
 	<var>
@@ -160,6 +172,13 @@
 		<title>ttm_holdtime</title>
 		<value>10</value>
 	</var>
+
+	<var>
+		<name>ttm_aecontrol_initialforce</name>
+		<title>ttm_aecontrol_initialforce [N]</title>
+		<value>10</value>
+	</var>
+
 	<var>
 		<name>ir_framerate</name>
 		<title>ir_framerate</title>
@@ -265,6 +284,7 @@
 		<title>ae_viname</title>
 		<value>gateway</value>
 	</var>
+
 	<var>
         <name>viewer_ttm_jsondata</name>
         <title>viewer_ttm_jsondata</title>
@@ -285,10 +305,18 @@
         <title>viewer_ttmDataPath</title>
         <value>/html/viewer/ttmData.csv</value>
     </var>
+
     <var>
         <name>viewer_predictionLogFileName</name>
         <title>viewer_predictionLogFileName</title>
         <value>/html/viewer/prediction_log.csv</value> 
     </var>
+
+		<var>
+		    <name>testi_protocolla_muuttuja</name>
+				<title>testi_protocol_muuttuja</title>
+				<value>12345</value>
+		</var>
+
     
 </all>
