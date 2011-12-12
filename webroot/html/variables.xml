@@ -103,8 +103,8 @@
 
 
 	<var>
-		<name>ttm_setpoint</name>
-		<title>ttm_setpoint</title>
+		<name>ttm_tensile_setpoint</name>
+		<title>ttm_tensile_setpoint</title>
 		<value>1</value>
 	</var>
 	<var>
