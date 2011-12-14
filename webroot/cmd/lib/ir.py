@@ -16,9 +16,9 @@ def connectAndGetResponse(data):
 
 def createRequest(data):
     c = conf()
-    ip      = c.get('ir_ip')
-    port    = c.get('ir_port')
-    cgipath = c.get('ir_cgipath')
+    ip      = c.get('ir_global_ip')
+    port    = c.get('ir_global_port')
+    cgipath = c.get('ir_global_cgipath')
     url = "http://%s:%s/%s" % (ip,port,cgipath)
     json = dumps(data)
     req = Request(url, json, {'Content-Type':'application/json'})
@@ -38,30 +38,37 @@ def connectAndFocus():
 
 def connectAndStart():
     c = conf()
-    recordmode = int(c.get('ir_triggerexperiment'))
     connectAndSendSettings()
-    response = connectAndGetResponse({"startRecording":recordmode})
+    triggerexperiment = int(c.get('ir_global_triggerexperiment'))
+    response = connectAndGetResponse({"startRecording":triggerexperiment})
     return response
 
 def connectAndSendSettings():
     c = conf()
-    # TODO: path parsing belongs to device side, remove filename and add timestamp to data -dictionary 
-    path = c.get('ir_parentfolder') + '\\' + c.get('g_measurementid') + '-' + c.get('g_timestamp') 
-    data ={
-           "expId":c.get('g_measurementid'),
-           "filename":c.get('g_measurementid') + '-',
-           "path":path,
-           "framerate":float(c.get('ir_framerate')),
-           "recordTime":float(c.get('ir_recordtime')),
-           "storeCondition":int(c.get('ir_storecondition')),
-           "stopCondition":int(c.get('ir_stopcondition')),
-           "startCondition":int(c.get('ir_startcondition')),
-           "startValue":int(c.get('ir_startvalue')),
-           "storeValue":int(c.get('ir_storevalue')),
-           "recordFormat":int(c.get('ir_recordformat')),
-           "trigSource":int(c.get('ir_trigsource')),
-           "autoShutter":int(c.get('ir_autoshutter'))
-           }
+    # TODO: path parsing belongs to device side, add timestamp to data -dictionary 
+    path = c.get('ir_global_parentfolder') + '\\' + c.get('g_measurementid') + '-' + c.get('g_timestamp')
+    data = {"expId":c.get('g_measurementid'),
+            "path":path,
+            "framerate":float(c.get('ir_global_framerate')),
+            "storeCondition":int(c.get('ir_global_storecondition')),
+            "storeValue":int(c.get('ir_global_storevalue')),
+            "recordFormat":int(c.get('ir_global_recordformat')),
+            "autoShutter":int(c.get('ir_global_autoshutter'))
+            }
+    if int(c.get('ir_global_triggerexperiment')) == 1: 
+        trigdata = {"stopCondition":int(c.get('ir_trigger_stopcondition')),
+                    "recordTime":float(c.get('ir_trigger_stopvalue')),
+                    "startCondition":int(c.get('ir_trigger_startcondition')),
+                    "startValue":int(c.get('ir_trigger_startvalue')),
+                    "trigSource":int(c.get('ir_trigger_trigsource'))
+                   }
+        data.update(trigdata)
+    else:
+        streamdata = {"stopCondition":int(c.get('ir_stream_stopcondition')),
+                      "startCondition":int(c.get('ir_stream_startcondition')),
+                      "startValue":int(c.get('ir_stream_startvalue'))
+                     }
+        data.update(streamdata)
     response = connectAndGetResponse(data)
     return response
 
