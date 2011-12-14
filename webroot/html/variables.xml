@@ -180,84 +180,94 @@
 	</var>
 
 	<var>
-		<name>ir_framerate</name>
-		<title>ir_framerate</title>
+		<name>ir_global_framerate</name>
+		<title>Frame rate</title>
 		<value>30</value>
 	</var>
 	<var>
-		<name>ir_recordtime</name>
-		<title>ir_recordtime</title>
-		<value>1.0</value>
-	</var>
-	<var>
-		<name>ir_filename</name>
-		<title>ir_filename</title>
-		<value>irpicture</value>
-	</var>
-	<var>
-		<name>ir_ip</name>
-		<title>ir_ip</title>
+		<name>ir_global_ip</name>
+		<title>Ip</title>
 		<value>10.0.0.30</value>
 	</var>
 	<var>
-		<name>ir_port</name>
-		<title>ir_port</title>
+		<name>ir_global_port</name>
+		<title>Port</title>
 		<value>81</value>
 	</var>
 	<var>
-		<name>ir_cgipath</name>
-		<title>ir_cgipath</title>
+		<name>ir_global_cgipath</name>
+		<title>Cgi path</title>
 		<value>cgi-bin/MessageSenderCon.exe</value>
 	</var>
 	<var>
-		<name>ir_parentfolder</name>
-		<title>ir_parentfolder</title>
+		<name>ir_global_parentfolder</name>
+		<title>Parent folder</title>
 		<value>D:\irimages</value>
 	</var>
 	<var>
-		<name>ir_storecondition</name>
-		<title>ir_storecondition</title>
+		<name>ir_global_recordformat</name>
+		<title>Record format</title>
+		<value>2</value>
+	</var>
+	<var>
+		<name>ir_global_autoshutter</name>
+		<title>Automatic shutter (0=off, 1=on)</title>
+		<value>0</value>
+	</var>
+	<var>
+		<name>ir_global_storecondition</name>
+		<title>Store condition</title>
 		<value>1</value>
 	</var>
 	<var>
-		<name>ir_stopcondition</name>
-		<title>ir_stopcondition</title>
+		<name>ir_global_storevalue</name>
+		<title>Store value</title>
+		<value>0</value>
+	</var>
+	<var>
+		<name>ir_global_triggerexperiment</name>
+		<title>Trigger experiment(0=no, 1=yes)</title>
+		<value>0</value>
+	</var>
+	<var>
+		<name>ir_stream_startcondition</name>
+		<title>Stream start condition</title>
+		<value>0</value>
+	</var>
+	<var>
+		<name>ir_stream_startvalue</name>
+		<title>Stream start value</title>
+		<value>0</value>
+	</var>
+	<var>
+		<name>ir_stream_stopcondition</name>
+		<title>Stream stop condition</title>
+		<value>0</value>
+	</var>
+	<var>
+		<name>ir_trigger_startcondition</name>
+		<title>Trigger start condition</title>
 		<value>2</value>
 	</var>
 	<var>
-		<name>ir_startcondition</name>
-		<title>ir_startcondition</title>
+		<name>ir_trigger_startvalue</name>
+		<title>Trigger start value</title>
+		<value>0</value>
+	</var>
+	<var>
+		<name>ir_trigger_stopcondition</name>
+		<title>Trigger stop condition</title>
 		<value>2</value>
 	</var>
 	<var>
-		<name>ir_startvalue</name>
-		<title>ir_startvalue</title>
-		<value>0</value>
-	</var>
-	<var>
-		<name>ir_storevalue</name>
-		<title>ir_storevalue</title>
-		<value>0</value>
-	</var>
-	<var>
-		<name>ir_recordformat</name>
-		<title>ir_recordformat</title>
-		<value>2</value>
-	</var>
-	<var>
-		<name>ir_trigsource</name>
-		<title>ir_trigsource</title>
-		<value>0</value>
-	</var>
-	<var>
-		<name>ir_autoshutter</name>
-		<title>ir_autoshutter</title>
-		<value>0</value>
-	</var>
-	<var>
-		<name>ir_triggerexperiment</name>
-		<title>ir_triggerexperiment</title>
+		<name>ir_trigger_stopvalue</name>
+		<title>Trigger number of images</title>
 		<value>1</value>
+	</var>
+	<var>
+		<name>ir_trigger_trigsource</name>
+		<title>Trigger source</title>
+		<value>0</value>
 	</var>
 	<var>
 		<name>ae_ip</name>
