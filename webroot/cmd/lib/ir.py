@@ -57,7 +57,7 @@ def connectAndSendSettings():
             }
     if int(c.get('ir_global_triggerexperiment')) == 1: 
         trigdata = {"stopCondition":int(c.get('ir_trigger_stopcondition')),
-                    "recordTime":float(c.get('ir_trigger_stopvalue')),
+                    "stopValue":float(c.get('ir_trigger_stopvalue')),
                     "startCondition":int(c.get('ir_trigger_startcondition')),
                     "startValue":int(c.get('ir_trigger_startvalue')),
                     "trigSource":int(c.get('ir_trigger_trigsource'))
