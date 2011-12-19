@@ -238,7 +238,7 @@
 	</var>
 	<var>
 		<name>ttm_tensilecyclic_channel</name>
-		<title>ttm_tensile_channel</title>
+		<title>Tensile-cyclic channel</title>
 		<value>1</value>
 	</var>
 	<var>
@@ -415,6 +415,16 @@
 				<title>testi_protocol_muuttuja</title>
 				<value>12345</value>
 		</var>
+	<var>
+		<name>ttm_movetosetpoint_rampsetpoint</name>
+		<title>Move to setpoint - ramp setpoint</title>
+		<value>0.0</value>
+	</var>
+	<var>
+		<name>ttm_movetosetpoint_setpointtime</name>
+		<title>Move to setpoint - setpoint time</title>
+		<value>5.0</value>
+	</var>
 
     
 </all>
