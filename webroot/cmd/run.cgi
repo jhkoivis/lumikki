@@ -31,10 +31,11 @@ try:
         
     if active[mg.ttm]:
         log("TTM connect and send")
-        ret = ttm.connectAndInitRamp()
-        ret = ttm.connectAndStartLogging()
-        ret = ttm.connectAndStartRamp()
-        msg = msg + "TTM: " + str(ret)
+        #ret = ttm.connectAndInitRamp()
+        #ret = ttm.connectAndStartLogging()
+        #ret = ttm.connectAndStartRamp()
+	    ret = ttm.connectAndStart()        
+	    msg = msg + "TTM: " + str(ret)
         
     if active[mg.ae]:
         log("AE connect and send")

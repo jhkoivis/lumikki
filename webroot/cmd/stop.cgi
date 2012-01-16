@@ -17,7 +17,6 @@ try:
     
     if active[mg.cam]:  cam.stop()
     if active[mg.ttm]:
-        ttm.connectAndStopLogging()
         ttm.connectAndStop()
     if active[mg.ir]:   ir.connectAndStopRecording()
     if active[mg.ae]:   ae.stop()

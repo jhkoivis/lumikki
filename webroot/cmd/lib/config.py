@@ -58,6 +58,10 @@ class conf:
     def set(self, key, value):
         self.mc.set(key,value)
 
+    def getAllKeys(self):
+        keys = configurationMap.keys()
+        return keys
+
 class staticglobals: 
     ttm = 0
     ae = 1
