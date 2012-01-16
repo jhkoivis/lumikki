@@ -1,4 +1,3 @@
-	
 
 // load xmldoc to DOM object
 function loadXml(filename)
@@ -56,25 +55,62 @@ function writeTabFooter(){
 	document.write('</div>\n');
 }
 
+//function getTtmProtocolName_DEPRECATED(){
+//	var variables = xmlDoc.getElementsByTagName("var");
+//	var i = 0;
+//	var protocol = "";
+//   for (i = 0; i < variables.length; i++ ){
+//	    var varName = variables[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
+//	    if (varName == "ttm_global_protocol"){
+//	    	protocol = variables[i].getElementsByTagName("value")[0].childNodes[0].nodeValue;
+//	    } 
+//   }
+//    return protocol;
+//}
+
+// stateRequest is defined in lumikki.js
+//function getTtmProtocolName(){
+//	var protocol = "";
+//	stateRequest({}, function(response) {
+//		logC(response["ttm_global_protocol"]);
+//       global_protocol = response["ttm_global_protocol"];
+//        return global_protocol;
+//    });
+//	
+//	return global_protocol;
+//}
+
 // write a form with id=$tabName and put all variables that start with $tabName in it
 // see getTabNames function for comments (similar to this)
 function writeFormWithVariables(tabName){
 	document.write('<div style="float:left;width:600px;min-height:400px;display:block;border-width: 1px 1px 1px">\n'); 
 	document.write('<form  id="' + tabName + '" action="" style="text-align:right">\n');
+	
+	var nameList = new Array();
 	var variables = xmlDoc.getElementsByTagName("var");
 	var i = 0;
     for (i = 0; i < variables.length; i++ ){
 	    var varName = variables[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;
-	    var title = variables[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+	    //var title = variables[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
 	    var compTabNames = varName.split('_');
 	    var compTabName = compTabNames[0];
-
+	    
+	    
 	    if (compTabName == tabName){
-	    	// write variable box
-	        document.write('<label for="' + varName + '">' + title + '</label>\n'); 
-	        document.write('<input type="text" size="20" maxlength="20" id="' + varName + '"><br />\n');   
-		}
+	    	nameList.push(varName);
+	    	
+	    }
     }
+    
+    nameList.sort()
+    
+    for (var i in nameList){ 
+    	varName = nameList[i];
+    	// write variable box	
+        document.write('<label style="float:left" for="' + varName + '">' + varName + '</label>\n'); 
+        document.write('<input type="text" size="20" maxlength="20" id="' + varName + '"><br />\n');   
+	}
+    
     // write 
     document.write('<input style="float:bottom;" type="submit" value="Apply" />\n');
     document.write('</form>\n');
@@ -138,6 +174,7 @@ function writeSpecialTabContentForTtm(){
 	document.write('<form  id="ttmsetpointrun" action="" style="text-align:right">');
 	document.write('<input style="float:bottom;" type="submit" value="Move to Set Point" />');
 	document.write('</form>');
+	//document.write('<h1>Current Protocol: '+  getTtmProtocolName() +'</h1>')
 	document.write('</div>');
 }
 

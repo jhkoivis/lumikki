@@ -63,7 +63,7 @@
 	<var>
 		<name>cam_ip</name>
 		<title>cam_ip</title>
-		<value>130.233.203.154</value>
+		<value>10.0.0.20</value>
 	</var>
 	<var>
 		<name>cam_port</name>
@@ -76,8 +76,8 @@
 		<value>300</value>
 	</var>
 	<var>
-		<name>cam_fps</name>
-		<title>cam_fps</title>
+		<name>cam_rawfps</name>
+		<title>cam_rawfps</title>
 		<value>1000</value>
 	</var>
 	<var>
@@ -212,9 +212,15 @@
 		<value>True</value>
 	</var>
 	<var>
+		<name>ttm_global_ip</name>
+		<title>ttm_global_ip</title>
+		<value>10.0.0.10</value>
+	</var>
+
+	<var>
 		<name>ttm_global_protocol</name>
 		<title>Global protocol</title>
-		<value>tensilecyclic</value>
+		<value>tensile</value>
 	</var>
 	<var>
 		<name>ttm_global_expid</name>
@@ -235,6 +241,11 @@
 		<name>ttm_global_comment</name>
 		<title>Global comment</title>
 		<value>Comment</value>
+	</var>
+	<var>
+		<name>ttm_global_port</name>
+		<title>ttm_global_port</title>
+		<value>80</value>
 	</var>
 	<var>
 		<name>ttm_tensilecyclic_channel</name>
@@ -266,7 +277,26 @@
 		<title>ttm_aecontrol_initialforce [N]</title>
 		<value>10</value>
 	</var>
-
+  <var>
+  	<name>ttm_twocreep_load</name>
+  	<title>ttm_twocreep_load</title>
+  	<value>0.01</value>
+  </var>
+  <var>
+  	<name>ttm_twocreep_ramprate</name>
+  	<title>ttm_twocreep_ramprate</title>
+  	<value>0.001</value>
+  </var>
+  <var>
+  	<name>ttm_twocreep_loadtime</name>
+  	<title>ttm_twocreep_loadtime</title>
+  	<value>30</value>
+  </var>
+  <var>
+  	<name>ttm_twocreep_relaxationtime</name>
+  	<title>ttm_twocreep_relaxationtime</title>
+  	<value>30</value>
+  </var>
 	<var>
 		<name>ir_global_framerate</name>
 		<title>Frame rate</title>
