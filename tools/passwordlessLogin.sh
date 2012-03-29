@@ -12,9 +12,11 @@ echo echo "hit enters \(plank passwords\)"
 echo echo exec ssh-agent
 echo echo
 
-echo scp $server:~/.ssh/authorized_keys $tmpFn
+echo echo "" \> $tmpFn
+echo ssh $server mkdir -p .ssh
+echo scp $server:\~/.ssh/authorized_keys $tmpFn
 echo cat ~/.ssh/id_rsa.pub \>\> $tmpFn
-echo scp $tmpFn $server:~/.ssh/authorized_keys
+echo scp $tmpFn $server:\~/.ssh/authorized_keys
 echo rm $tmpFn
 #echo ssh $server cat .ssh/id_rsa.pub \>\> ~/.ssh/authorized_keys
 #echo ssh exec ssh-agent

@@ -22,15 +22,15 @@ $(document).ready(function() {
     return false;
     });
     $('#cam').submit(function() {
-    camTransferAction();
+    general.transferStateOfForm("cam");
     return false;
     });
     $('#ttm').submit(function() {
-    ttmTransferAction();
+    general.transferStateOfForm("ttm");
     return false;
     });
     $('#ir').submit(function() {
-    irTransferAction();
+    ir.irTransferAction();
     return false;
     });
     $('#ae').submit(function(){
@@ -38,27 +38,27 @@ $(document).ready(function() {
     return false;
     });
     $('#irfocus').submit(function() {
-    irFocusAction();
+    ir.irFocusRequest();
     return false;
     });
     $('#irconnect').submit(function() {
-    irConnectAction();
+    ir.irConnectRequest();
     return false;
     });
     $('#irdisconnect').submit(function() {
-    irDisconnectAction();
+    ir.irDisconnectRequest();
     return false;
     });
     $('#irimageseries').submit(function() {
-    irImageSeriesAction();
+    ir.irImageSeriesRequest();
     return false;
     });
     $('#irstop').submit(function() {
-    irStopAction();
+    ir.irStopRequest();
     return false;
     });
     $('#irsimulatetrigger').submit(function() {
-    irSimulateTriggerAction();
+    ir.irSimulateTriggerRequest();
     return false;
     });
     logC("UI created");
@@ -71,7 +71,6 @@ $(function() {
     $(".css-tabs:first").tabs(".css-panes:first > div");
 });
 
-
 R_ECHO = "/cmd/echo.cgi";
 R_STATUS = "/cmd/status.cgi";
 R_RUN = "/cmd/runTarget.cgi";
@@ -79,12 +78,6 @@ R_STATE = "/cmd/state.cgi";
 R_LOCK = "/cmd/lock.cgi";
 R_STOP = "/cmd/stop.cgi";
 R_TTMSETPOINT = "/cmd/ttmsetpoint.cgi";
-R_IRFOCUS = "/cmd/irfocus.cgi";
-R_IRCONNECT = "/cmd/irconnect.cgi";
-R_IRDISCONNECT = "/cmd/irdisconnect.cgi";
-R_IRIMAGESERIES = "/cmd/irimageseries.cgi";
-R_IRSTOP = "/cmd/irstop.cgi";
-R_IRSIMULATETRIGGER = "/cmd/irsimulatetrigger.cgi";
 R_TIMESTAMP = "/cmd/timestamp.cgi";
 
 TTM=0;
@@ -124,25 +117,8 @@ function restoreAction() {
     dumpMemcached();
 }
 
-function camTransferAction() {
-    transferStateOfForm("cam");
-}
-
-function ttmTransferAction() {
-	/*
-	bCreep = $("#ttm_creep_experiment").is(":checked");
-	logR(bCreep);
-	stateAction({"ttm_creep_experiment": bCreep});
-	*/
-    transferStateOfForm("ttm");
-}
-
 function aeTransferAction(){
-	transferStateOfForm("ae");
-}
-
-function irTransferAction() {
-    transferStateOfForm("ir");
+	general.transferStateOfForm("ae");
 }
 
 function timeStampAction() {
@@ -161,30 +137,6 @@ function stopAction() {
 
 function ttmSetPointRunAction() {
     ttmSetPointRunRequest()
-}
-
-function irFocusAction() {
-    irFocusRequest()
-}
-
-function irConnectAction() {
-    irConnectRequest()
-}
-
-function irDisconnectAction() {
-    irDisconnectRequest()
-}
-
-function irImageSeriesAction() {
-    irImageSeriesRequest()
-}
-
-function irStopAction() {
-    irStopRequest()
-}
-
-function irSimulateTriggerAction() {
-    irSimulateTriggerRequest()
 }
 
 function stateAction(inputMap) {
@@ -233,70 +185,6 @@ function timeStampRequest() {
     }, "json");
 }
 
-function irFocusRequest() {
-    var id = reqId();
-    var params = JSON.stringify({"id":id}); 
-    logC(R_IRFOCUS + "::" + params);
-    $.post(R_IRFOCUS, params, function(response) { 
-    logR(R_IRFOCUS + "::" + JSON.stringify(response)); 
-    showError(response);
-    }, "json");
-}
-
-function irConnectRequest() {
-    var id = reqId();
-    var params = JSON.stringify({"id":id}); 
-    logC(R_IRCONNECT + "::" + params);
-    $.post(R_IRCONNECT, params, function(response) { 
-    logR(R_IRCONNECT + "::" + JSON.stringify(response)); 
-    showError(response);
-    }, "json");
-}
-
-function irDisconnectRequest() {
-    var id = reqId();
-    var params = JSON.stringify({"id":id}); 
-    logC(R_IRDISCONNECT + "::" + params);
-    $.post(R_IRDISCONNECT, params, function(response) { 
-    logR(R_IRDISCONNECT + "::" + JSON.stringify(response)); 
-    showError(response);
-    }, "json");
-
-}
-
-function irImageSeriesRequest() {
-    var id = reqId();
-    var params = JSON.stringify({"id":id}); 
-    logC(R_IRIMAGESERIES + "::" + params);
-    $.post(R_IRIMAGESERIES, params, function(response) { 
-    logR(R_IRIMAGESERIES + "::" + JSON.stringify(response)); 
-    showError(response);
-    }, "json");
-
-}
-
-function irStopRequest() {
-    var id = reqId();
-    var params = JSON.stringify({"id":id}); 
-    logC(R_IRSTOP + "::" + params);
-    $.post(R_IRSTOP, params, function(response) { 
-    logR(R_IRSTOP + "::" + JSON.stringify(response)); 
-    showError(response);
-    }, "json");
-
-}
-
-function irSimulateTriggerRequest() {
-    var id = reqId();
-    var params = JSON.stringify({"id":id}); 
-    logC(R_IRSIMULATETRIGGER + "::" + params);
-    $.post(R_IRSIMULATETRIGGER, params, function(response) { 
-    logR(R_IRSIMULATETRIGGER + "::" + JSON.stringify(response)); 
-    showError(response);
-    }, "json");
-
-}
-
 function stateRequest(inputMap, actionFunction) {
     inputMap["id"] = reqId();
     $.post(R_STATE, JSON.stringify(inputMap), function(response) {
@@ -315,36 +203,6 @@ function statusRequest(request, target) {
     showError(data);
     status(data); }, "json");
 }
-
-
-function transferStateOfForm(formName) {
-	/* 
-		Check all variables starting with formName and
-		add them to memcache via stateMap -> stateAction -> config.py
-	*/
-	logC("test");
-    var id = reqId(), stateMap = {"id":id}, i=0;
-    var formChildren = $("#" + formName + " > *");
-    for (i=0; i < formChildren.length; i++) {
-    o = formChildren[i];
-    if (o.id.match("^" + formName + "_") == (formName + "_")) {
-    	/* different types of input require different handling */
-    	if (o.type == "checkbox"){
-    		stateMap[o.id] = $("#" + o.id).is(":checked");
-    	}
-    	else if (o.type == "select-one"){
-    		stateMap[o.id] = $("#" + o.id).val();
-    	}
-    	else {
-    		stateMap[o.id] = $("#" + o.id).val();
-    		
-    	}
-    	logR(o.type + ' : ' + o.id + '=' + stateMap[o.id])  
-    }
-    }
-    stateAction(stateMap); 
-} 
-
 
 function showError(response) {
     if (typeof response.st != 'undefined' && response.st != 0) {

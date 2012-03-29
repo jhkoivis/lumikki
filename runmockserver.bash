@@ -24,4 +24,4 @@ echo quit;
 ) |telnet $LUMIKKI_MEMCACHE_IP $LUMIKKI_MEMCACHE_PORT
 
 
-python webroot/cmd/lib/mockserver.py
+/opt/local/bin/python2.6 webroot/cmd/lib/mockserver.py
