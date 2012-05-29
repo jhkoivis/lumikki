@@ -105,12 +105,6 @@
 		<title>Tensile channel</title>
 		<value>1</value>
 	</var>
-
-	<var>
-		<name>ttm_creep_rampamplitude</name>
-		<title>Creep ramp amplitude [N]</title>
-		<value>2</value>
-	</var>
 	<var>
 		<name>ttm_tensilecyclic_rampsetpoint</name>
 		<title>Tensile-cyclic ramp setpoint [kN]</title>
@@ -245,7 +239,7 @@
 	<var>
 		<name>ttm_global_port</name>
 		<title>ttm_global_port</title>
-		<value>80</value>
+		<value>8080</value>
 	</var>
 	<var>
 		<name>ttm_tensilecyclic_channel</name>
