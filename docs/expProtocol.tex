@@ -50,13 +50,6 @@ the force gauge (rather expensive) in the device.
   \item Reboot instron (clear memory).
 \end{itemize}
 
-\section{Before starting each experiment}
-
-\begin{itemize}
-  \item Be sure that the Instron machine is calibrated. For example, in constant strain compression experiments, the force indicator on Instron Computer (second computer from left) should give 0.000 kN in the start.
-  \item If needed, calibrate the machine (adviced later in Troubleshooting section).
-\end{itemize}
-
 \section{Changing the clamps}
 
 There are more accurate instructions next to the machine, but here is some repetition. 
@@ -76,15 +69,15 @@ There are more accurate instructions next to the machine, but here is some repet
   \item Put the tools into their places as you have changed the clamps!
 \end{itemize}
 
-\subsection{Removing the compression clamps}
+\subsection{Removing the compression plates}
 
 \begin{itemize}
-  \item Remove the three screws of the bottom clamp and remove the clamp.
+  \item Remove the three screws of the bottom plate and remove the plate.
   \item Remove the screw from the bottom of the structure you recently removed and pull the parts apart.
-  \item Use two wrenches to loosen the tighting part (silvery) at the upper clamp.
-  \item Rotate the upper clamp in order to remove it. BE CAREFUL, the clamp is heavy and it drops suddenly as the screw is loose enough!
-  \item Use hex head wrench to remove the special screw from the upper clamp.
-  \item If you are going to change these clamps to the stretching grips, save all the other parts except the compression clamps. Put compression clamps to their box.
+  \item Use two wrenches to loosen the tighting part (silvery) at the upper plate.
+  \item Rotate the upper plate in order to remove it. BE CAREFUL, the plate is some heavy and it drops suddenly as the screw is loose enough!
+  \item Use hex head wrench to remove the special screw from the upper plate.
+  \item If you are going to change these plates to the stretching grips, save all the other parts except the compression plates. Put compression plates to their box.
 \end{itemize}
 
 \subsection{Removing the stretching grips}
@@ -94,22 +87,21 @@ There are more accurate instructions next to the machine, but here is some repet
   \item Remove the three screws of the bottom grip and remove the grip.
   \item Remove the screw from the bottom of the structure you recently removed and pull the parts apart. (They are really tight.)
   \item Use two wrenches to loosen the tighting part (silvery) at the upper grip.
-  \item Rotate the upper grip in order to remove it. BE CAREFUL, the grip is heavy and it drops suddenly as the screw is loose enough!
+  \item Rotate the upper grip in order to remove it. BE CAREFUL, the grip is quite heavy and it drops suddenly as the screw is loose enough!
   \item Use hex head wrench to remove the special screw from the upper grip.
-  \item If you are going to change these grips to the compression clamps, save all the other parts except the stretching grips. Put stretching grips to their box.
+  \item If you are going to change these grips to the compression plates, save all the other parts except the stretching grips. Put stretching grips to their box.
 \end{itemize}
 
-\subsection{Installing the compression clamps}
+\subsection{Installing the compression plates}
 
 \begin{itemize}
-  \item Take a compression clamp and the round bottom part with six screw holes. Put these parts together with a screw.
+  \item Take a compression plate and the round bottom part with six screw holes. Put these parts together with a screw.
   \item Attach the bottom part onto the bottom of the machine by three screws.
-  \item Take the special screw (the black long one that lacks proper head) and another compression clamp. Put the screw into the clamp.
+  \item Take the special screw (the black long one that lacks proper head) and another compression plate. Put the screw into the plate.
   \item Take the tightening part and put it around the screw. Screw the structure onto the upper part of the machine.
   \item Tighten the tightening part by two wrenches.
-  \item Adjust the height of the upper clamp (see earlier). Then, put the machine on \textsf{MODE II} and, by using arrow buttoms, move the clamps very close to each others (not touching).
+  \item Adjust the height of the upper plate (see earlier). Then, put the machine on \textsf{MODE II} and, by using arrow buttons, move the plates very close to each others (not touching).
   \item Use Instron program to calibrate the machine.
-  \item You're done.
 \end{itemize}
 
 \subsection{Installing the stretching grips}
@@ -126,15 +118,48 @@ There is slightly more details in order to put the grips straight.
   \item Lower the upper grip enough to be able to grab the upper part of the metal plate. Close the upper grip. Now, the grips should be straight compared to each others.
   \item Tighten the tightening part by two wrenches.
   \item Open the grips and remove the metal plate.
-  \item You're done.
+\end{itemize}
+
+\section{Before starting each experiment}
+
+\begin{itemize}
+  \item Be sure that the Instron machine is calibrated. For example, in constant strain compression experiments, the force indicator on Instron Computer (second computer from left) should give 0.000 kN in the start.
+  \item If needed, calibrate the machine (adviced later in Troubleshooting section).
 \end{itemize}
 
 \section{Changing variables}
 
 \begin{itemize}
   \item Variables can be chanced in tabs in Lumikki.
-  \item ADD STUFF HERE.
   \item Remember! Every time you have chanced the variables, update them to Lumikki by clicking ''Apply'' at the end of the variable list!
+\end{itemize}
+
+\subsection{Creep test}
+
+\begin{itemize}
+  \item Go to the TTM tab in Lumikki and change the \textit{protocol name} variable to ''creep'' (without quotas).
+  \item The only other parameter to change is \textbf{load}.
+  \item If you are doing a compression tests, give negative values to the load. If you are doing stretching tests, give positive values.
+\end{itemize}
+
+\subsection{Tensile test}
+
+\begin{itemize}
+  \item Go to the TTM tab in Lumikki and change the \textit{protocol name} variable to ''tensile'' (without quotas).
+  \item Tensile tests are supposed to follow ISO 527-1 standard. This means that the \textbf{ramp rates} of the tests should be some of the following:
+  \begin{itemize}
+    \item 0.0333 mm/s (aka 2 mm/min, like it stands officially in the standard)
+    \item 0.0833 mm/s (aka 5 mm/min)
+    \item 0.1667 mm/s (aka 10 mm/min)
+    \item 0.3333 mm/s (aka 20 mm/min)
+    \item 0.8333 mm/s (aka 50 mm/min)
+    \item 1.6667 mm/s (aka 100 mm/min)
+    \item 3.3333 mm/s (aka 200 mm/min)
+    \item 8.3333 mm/s (aka 500 mm/min)
+  \end{itemize}
+  \item In the standard, there is also 1 mm/min, but it is too slow for our machine.
+  \item Make sure that the ramp amplitude is large enough: for example, with the wood samples, it should be bigger than the height of the sample to make sure the machine really compresses it enough.
+  \item If you are doing a compression tests, give negative values to the ramp rate and the ramp amplitude. If you are doing stretching tests, give positive values.
 \end{itemize}
 
 \section{Checking that the camera takes good images}
