@@ -123,6 +123,7 @@ function writeSpecialTabContent(tabName){
 	if (tabName == 'ttm') {writeSpecialTabContentForTtm()};
 	if (tabName == 'cam') {writeSpecialTabContentForCam()};
 	if (tabName == 'ir')  {writeSpecialTabContentForIr()};
+	if (tabName == 'temperature')	{temperature.writeSpecialTabContent()};
 }
 
 
@@ -161,6 +162,7 @@ function writeSpecialTabContentForG(){
         document.write('<tr><td>AE</td><td id="stableStatus1" /><td id="stableDescr1" /><td><input id="stableIsActive1"  type="checkbox" /></td></tr>');
         document.write('<tr><td>Camera</td><td id="stableStatus2" /><td id="stableDescr2" /><td><input id="stableIsActive2"  type="checkbox" /></td></tr>');
         document.write('<tr><td>IR</td><td id="stableStatus3" /><td id="stableDescr3" /><td><input id="stableIsActive3"  type="checkbox" /></td></tr>');
+        document.write('<tr><td>Temperature</td><td id="stableStatus4" /><td id="stableDescr4" /><td><input id="stableIsActive4"  type="checkbox" /></td></tr>');
         document.write('</tr>');
         document.write('</table>');
         document.write('<form  id="logstatus" action="">');

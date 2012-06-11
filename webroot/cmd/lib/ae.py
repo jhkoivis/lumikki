@@ -19,16 +19,29 @@ def start():
             'startClock'        : '1',
             'startCollection'   : '1'}
 
-    return device.labViewCommand('ae', 'ae_start', data)
+    return device.labViewCommandGeneral(c.get('ae_ip'), 
+					c.get('ae_port'), 
+					c.get('ae_service'),
+					'ae_start',
+					data=data)
 
 def stop():
+    c = conf()
     data = {"startClock"        :"0",
             "startCollection"   :"0",
             "stopClock"         :"1",
             "stopCollection"    :"1"}
-    return device.labViewCommand('ae', 'ae_stop', data)
+    return device.labViewCommandGeneral(c.get('ae_ip'), 
+					c.get('ae_port'), 
+					c.get('ae_service'),
+					'ae_stop',
+					data=data)
 
 def status():
-    return device.labViewCommand('ae', 'ae_status')
+    c = conf()
+    return device.labViewCommandGeneral(c.get('ae_ip'), 
+					c.get('ae_port'), 
+					c.get('ae_service'), 
+					'ae_status')
 
 
