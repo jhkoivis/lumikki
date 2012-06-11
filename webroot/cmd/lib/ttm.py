@@ -38,6 +38,8 @@ def connectAndStart():
             data[key] = c.get(key)
         if key.find('ttm_' + protocol + '_') == 0:
             data[key] = c.get(key)
+        if key.find('g_') == 0:
+            data[key] = c.get(key)
     #data = {"ttm_global_protocol":	  c.get('ttm_global_protocol'),
 	#		"ttm_tensile_channel":	  c.get('ttm_tensile_channel'),
 			#"rampRateAE":	  c.get('ttm_ramprateae'),
