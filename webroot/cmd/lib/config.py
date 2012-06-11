@@ -19,7 +19,7 @@ def loadConfigurationMap():
     parser.parse(open(fn,'r'))
     #print configDict
 
-    configurationMap['g_active'] = [False, False, False, False]
+    configurationMap['g_active'] = [False, False, False, False, False]
 
     return configurationMap
 
@@ -67,5 +67,6 @@ class staticglobals:
     ae = 1
     cam = 2
     ir = 3
+    temperature = 4
 
 

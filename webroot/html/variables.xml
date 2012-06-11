@@ -8,7 +8,7 @@
 	<var>
 		<name>g_active</name>
 		<title>g_active</title>
-		<value>[False,False,False,False]</value>
+		<value>[False,False,False,False,False]</value>
 	</var>
 	<var>
 		<name>g_measurementid</name>
@@ -84,11 +84,6 @@
 		<name>cam_servicename</name>
 		<title>cam_servicename</title>
 		<value>cam</value>
-	</var>
-	<var>
-		<name>ttm_ramprate</name>
-		<title>ttm_ramprate</title>
-		<value>0.2</value>
 	</var>
 	<var>
 		<name>ttm_tensile_rampamplitude</name>
@@ -263,16 +258,6 @@
 		<value>0</value>
 	</var>
 	<var>
-		<name>ttm_cyclelength</name>
-		<title>ttm_cyclelength</title>
-		<value>10</value>
-	</var>
-	<var>
-		<name>ttm_holdtime</name>
-		<title>ttm_holdtime</title>
-		<value>10</value>
-	</var>
-	<var>
 		<name>ttm_aecontrol_initialforce</name>
 		<title>ttm_aecontrol_initialforce [N]</title>
 		<value>10</value>
@@ -408,11 +393,6 @@
 		<value>aewebservice</value>
 	</var>
 	<var>
-		<name>ae_viname</name>
-		<title>ae_viname</title>
-		<value>gateway</value>
-	</var>
-	<var>
 		<name>viewer_ttm_jsondata</name>
 		<title>viewer_ttm_jsondata</title>
 		<value>{u'stress': [2,3,4,5,6], u'analogStrain': [1,2,3,4,6], u'digitalStrain': [3,4,5,6,7]}</value>
@@ -438,11 +418,6 @@
 		<value>/html/viewer/prediction_log.csv</value> 
 	</var>
 	<var>
-		<name>testi_protocolla_muuttuja</name>
-		<title>testi_protocol_muuttuja</title>
-		<value>12345</value>
-	</var>
-	<var>
 		<name>ttm_movetosetpoint_rampsetpoint</name>
 		<title>Move to setpoint - ramp setpoint</title>
 		<value>0.0</value>
@@ -452,6 +427,29 @@
 		<title>Move to setpoint - setpoint time</title>
 		<value>5.0</value>
 	</var>
-
-    
+	<var>
+		<name>temperature_global_ip</name>
+		<title>temperature_global_ip</title>
+		<value>10.0.0.40</value>
+	</var>
+	<var>
+		<name>temperature_global_port</name>
+		<title>temperature_global_port</title>
+		<value>80</value>
+	</var>
+	<var>
+		<name>temperature_global_service</name>
+		<title>temperature_global_service</title>
+		<value>temperature</value>
+	</var>
+	<var>
+		<name>temperature_global_protocol</name>
+		<title>temperature_global_protocol</title>
+		<value>50</value>
+	</var>
+	<var>
+		<name>temperature_constant_setpoint</name>
+		<title>temperature_constant_setpoint</title>
+		<value>50</value>
+	</var>
 </all>

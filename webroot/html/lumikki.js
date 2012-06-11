@@ -37,6 +37,10 @@ $(document).ready(function() {
     aeTransferAction();
     return false;
     });
+    $('#temperature').submit(function(){
+    temperature.temperatureTransferAction();
+    return false;
+    });
     $('#irfocus').submit(function() {
     ir.irFocusRequest();
     return false;
@@ -80,12 +84,15 @@ R_STOP = "/cmd/stop.cgi";
 R_TTMSETPOINT = "/cmd/ttmsetpoint.cgi";
 R_TIMESTAMP = "/cmd/timestamp.cgi";
 
+// TODO: add max machine names parameter
 TTM=0;
 AE=1;
 CAM=2;
 IR=3;
+TEMPERATURE=4;
 
-NMAP = ["Tensile", "AE", "Camera", "IR Camera"];
+// TODO: remove NMAP
+NMAP = ["Tensile", "AE", "Camera", "IR Camera", "Temperature"];
 
 errmap = { "000":"Cannot connect to anything"
        , "010":"Server sent unknown status"
@@ -249,8 +256,8 @@ function updateFormValues(response) {
 }
 
 function updateMachineStatus() {
-    var new_active = [false, false, false, false];
-    for (i=0; i <= IR; i++) {
+    var new_active = [false, false, false, false, false];
+    for (i=0; i <= TEMPERATURE; i++) {
     new_active[i] = $("#stableIsActive" + i).is(":checked");
     }
     stateRequest({'g_active':new_active}, function(r) {});
@@ -265,7 +272,7 @@ function activeStateObject(i) {
 
 function showStatus() {
     var i = 0;
-    for (i=0; i<= IR; i++) {
+    for (i=0; i<= TEMPERATURE; i++) {
     $("#stableStatus" + i).text(status.st[i]);
     $("#stableDescr" + i).text(errmap[status.st[i]]);
     var robj = new activeStateObject(i);

@@ -30,7 +30,10 @@ case "$username" in
 	;;	
 	epursiai)
 	id=6;
-	;;	
+	;;
+        makinet3)
+	id=12;
+	;;
 	*)
 	echo
 	echo EMMENTAL - your network is full of \(secure\) holes
@@ -84,7 +87,7 @@ echo
 echo echo ttm: rdesktop localhost:$local_ttm_rdesktop -k fi -f -rdisk:home=/home/$username/ -rdisk:tmp=/tmp/ 
 echo echo cam: rdesktop localhost:$local_cam_rdesktop -k fi -f -rdisk:home=/home/$username/ -rdisk:tmp=/tmp/
 echo echo ir: rdesktop localhost:$local_ir_rdesktop -k fi -f -rdisk:home=/home/$username/ -rdisk:tmp=/tmp/
-echo echo ae: rdesktop localhost:$local_ae_rdesktop -k fi -f -rdisk:home=/home/$username/ -rdisk:tmp=/tmp/i
+echo echo ae: rdesktop localhost:$local_ae_rdesktop -k fi -f -rdisk:home=/home/$username/ -rdisk:tmp=/tmp/
 
 
 
