@@ -123,7 +123,7 @@ function writeSpecialTabContent(tabName){
 	if (tabName == 'ttm') {writeSpecialTabContentForTtm()};
 	if (tabName == 'cam') {writeSpecialTabContentForCam()};
 	if (tabName == 'ir')  {writeSpecialTabContentForIr()};
-	if (tabName == 'temperature')	{temperature.writeSpecialTabContent()};
+	//if (tabName == 'temperature')	{temperature.writeSpecialTabContent()};
 }
 
 

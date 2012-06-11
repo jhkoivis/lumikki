@@ -111,96 +111,6 @@
 		<value>1</value>
 	</var>
 	<var>
-		<name>ttm_tensilecyclic_ramprate</name>
-		<title>Tensile-cyclic ramp rate [kN/s]</title>
-		<value>-0.01</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_cyclicsetpoint</name>
-		<title>Tensile-cyclic cyclic setpoint [kN]</title>
-		<value>-0.1</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_cyclicamplitude</name>
-		<title>Tensile-cyclic cyclic setpoint [kN]</title>
-		<value>0.05</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_cyclicfrequency</name>
-		<title>Tensile-cyclic cyclic frequency [Hz]</title>
-		<value>0.5</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_timepreramp</name>
-		<title>Tensile-cyclic waiting time before ramp [s]</title>
-		<value>5</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_timecycles</name>
-		<title>Tensile-cyclic waiting time during cycles [s]</title>
-		<value>10</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_numberofrounds</name>
-		<title>Tensile-cyclic how many rounds</title>
-		<value>2</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_xdim1</name>
-		<title>Tensile-cyclic width (x) measurement 1 [mm]</title>
-		<value>11.1</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_xdim2</name>
-		<title>Tensile-cyclic width (x) measurement 2 [mm]</title>
-		<value>11.1</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_xdim3</name>
-		<title>Tensile-cyclic width (x) measurement 3 [mm]</title>
-		<value>11.1</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_ydim1</name>
-		<title>Tensile-cyclic depth (y) measurement 1 [mm]</title>
-		<value>11.1</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_ydim2</name>
-		<title>Tensile-cyclic depth (y) measurement 2 [mm]</title>
-		<value>11.1</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_ydim3</name>
-		<title>Tensile-cyclic depth (y) measurement 3 [mm]</title>
-		<value>11.1</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_zdim1</name>
-		<title>Tensile-cyclic height (z) measurement 1 [mm]</title>
-		<value>11.1</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_zdim2</name>
-		<title>Tensile-cyclic height (z) measurement 2 [mm]</title>
-		<value>11.1</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_zdim3</name>
-		<title>Tensile-cyclic height (z) measurement 3 [mm]</title>
-		<value>11.1</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_ramptargetpressure</name>
-		<title>Tensile-cyclic ramp target pressure [kPa]</title>
-		<value>-700</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_separateloggings</name>
-		<title>Tensile-cyclic put into separate files [True/False]</title>
-		<value>True</value>
-	</var>
-	<var>
 		<name>ttm_global_ip</name>
 		<title>ttm_global_ip</title>
 		<value>10.0.0.10</value>
@@ -212,19 +122,9 @@
 		<value>tensile</value>
 	</var>
 	<var>
-		<name>ttm_global_expid</name>
-		<title>Global expid</title>
-		<value>test</value>
-	</var>
-	<var>
 		<name>ttm_global_parentfolder</name>
 		<title>Global parent folder</title>
-		<value>C:\Documents and Settings\sauna\Desktop\MatleenaLabVIEW\Testing\</value>
-	</var>
-	<var>
-		<name>ttm_global_window</name>
-		<title>Global window</title>
-		<value>0</value>
+		<value>C:\data\</value>
 	</var>
 	<var>
 		<name>ttm_global_comment</name>
@@ -235,11 +135,6 @@
 		<name>ttm_global_port</name>
 		<title>ttm_global_port</title>
 		<value>8080</value>
-	</var>
-	<var>
-		<name>ttm_tensilecyclic_channel</name>
-		<title>Tensile-cyclic channel</title>
-		<value>1</value>
 	</var>
 	<var>
 		<name>ttm_creep_channel</name>
