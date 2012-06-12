@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE>NoiseFilter.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="NoiseFilter.vi"></A><H2>NoiseFilter.vi</H2>
+A SubVi that filters incoming data with highpass- or bandpass-filter depending on values of the inputted boolean array.
+<P></P>
+<P><IMG SRC="NoiseFilterc.png" ALT="NoiseFilter.vi"></P>
+<P><IMG SRC="NoiseFilterd.png" ALT="NoiseFilter.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NoiseFilter_vi_Instance_6i.png" ALT="NoiseFilter.vi:Instance:6"></P>
+</TD>
+<TD>
+<B><P>Convert to Dynamic Data2</P>
+</B><P>Convert to Dynamic Data</P>
+<P>Converts numeric, Boolean, waveform and array data types to the dynamic data type for use with Express VIs.</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NoiseFilter_vi_Instance_3i.png" ALT="NoiseFilter.vi:Instance:3"></P>
+</TD>
+<TD>
+<B><P>Convert to Dynamic Data</P>
+</B><P>Convert to Dynamic Data</P>
+<P>Converts numeric, Boolean, waveform and array data types to the dynamic data type for use with Express VIs.</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NoiseFilter_vi_Instance_5i.png" ALT="NoiseFilter.vi:Instance:5"></P>
+</TD>
+<TD>
+<B><P>Select Signals2</P>
+</B><P>Select Signals</P>
+<P>Accepts multiple signals as inputs and returns only the signals you select. You can specify which signals to include in the output and change the order of the input signals.</P>
+<P>--------------------</P>
+<P></P>
+<P>This Express VI is configured as follows:</P>
+<P></P>
+<P>Selected Signals:    </P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NoiseFilter_vi_Instance_7i.png" ALT="NoiseFilter.vi:Instance:7"></P>
+</TD>
+<TD>
+<B><P>10 kHz highpass</P>
+</B><P>Filter</P>
+<P>Processes signals through filters and windows.</P>
+<P>--------------------</P>
+<P></P>
+<P>This Express VI is configured as follows:</P>
+<P></P>
+<P>Filter Type: Highpass</P>
+<P>Cut-Off: 10000</P>
+<P>IIR/FIR: Infinite Impulse Response (IIR) Filter</P>
+<P>Topology: Butterworth</P>
+<P>Order: 3</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NoiseFilter_vi_Instance_0i.png" ALT="NoiseFilter.vi:Instance:0"></P>
+</TD>
+<TD>
+<B><P>Select Signals</P>
+</B><P>Select Signals</P>
+<P>Accepts multiple signals as inputs and returns only the signals you select. You can specify which signals to include in the output and change the order of the input signals.</P>
+<P>--------------------</P>
+<P></P>
+<P>This Express VI is configured as follows:</P>
+<P></P>
+<P>Selected Signals:    </P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="NoiseFilter_vi_Instance_8i.png" ALT="NoiseFilter.vi:Instance:8"></P>
+</TD>
+<TD>
+<B><P>100-200 kHz bandpass</P>
+</B><P>Filter</P>
+<P>Processes signals through filters and windows.</P>
+<P>--------------------</P>
+<P></P>
+<P>This Express VI is configured as follows:</P>
+<P></P>
+<P>Filter Type: Bandpass</P>
+<P>Upper Cut-Off: 200000</P>
+<P>Lower Cut-Off: 100000</P>
+<P>IIR/FIR: Infinite Impulse Response (IIR) Filter</P>
+<P>Topology: Butterworth</P>
+<P>Order: 3</P>
+</TD>
+</TR>
+</Table>
+</BODY>
+</HTML>

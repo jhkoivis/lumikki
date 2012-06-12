@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<title>Lumikki UI</title>
+<META http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+<link rel="stylesheet" type="text/css" href="lumikki.css"/>
+
+<script src = 'jquery-1.4.4.js'         type = 'text/javascript'></script> 
+<script src = 'jquery.tools.min.js'     type = 'text/javascript'></script> 
+<script src = 'underscore.js'           type = 'text/javascript'></script>
+<script src = 'general.js'				type = 'text/javascript'></script>
+<script src = 'temperature.js'			type = 'text/javascript'></script>
+<script src = 'ir.js'					type = 'text/javascript'></script>
+<script src = 'lumikki.js'              type = 'text/javascript'></script>
+<script src = 'uiTabContentCreator.js'  type = 'text/javascript'></script>
+
+</head>
+<body>
+
+<script type="text/javascript">
+
+	// load variables
+	var xmlDoc = loadXml("variables.xml");
+
+	// parse tab names from variables to tabList and create them
+	// this creates the upper (small) part of the tab (heading of the tab?)
+	var tabList = getTabNames(xmlDoc);
+	createTabs(tabList);
+
+	// creates space for the bottom (big) part of the tab (document area of the tab?)
+	document.write('<div class="css-panes" style="opacity:0.9;filter:alpha(opacity=99);">');
+
+	// write content for the tabs
+	for (i in tabList){
+	    writeTabHeader(tabList[i]);
+
+	    // write variables (do not touch global 'g' tab)
+	    // g-tab is handled in writeSpecialTabContent() function
+		if (tabList[i] != 'g') {
+			writeFormWithVariables(tabList[i]);
+		}
+		// write special content (buttons, checkboxes, etc)
+		writeSpecialTabContent(tabList[i]);
+		writeTabFooter();
+	}
+
+	// close space for tabs
+	document.write('</div>');
+
+</script>
+
+<div class="css-log-header">Log events</div>
+<div class="css-log" id="css-log"  ><p/></div>
+
+
+</body>
+</html>

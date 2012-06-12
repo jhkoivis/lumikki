@@ -1,0 +1,13 @@
+
+# this package contains an asyncronous webserver and client.
+# You can use this for testing.
+#
+# Usage: 
+#         python run_service.py
+# or 
+#         python run_client.py
+#
+# IP and port number are configured in run_client.py and run_server.py.
+# "" means localhost (127.0.0.1)
+#
+ 
