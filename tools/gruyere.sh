@@ -31,6 +31,9 @@ case "$username" in
 	epursiai)
 	id=6;
 	;;
+	maurana1)
+	id=11;
+	;;
         makinet3)
 	id=12;
 	;;
