@@ -26,63 +26,73 @@
 		<value>60</value>
 	</var>
 	<var>
-		<name>cam_parentfolder</name>
-		<title>cam_parentfolder</title>
-		<value>F:\data</value>
+		<name>cam_global_parentfolder</name>
+		<title>cam_global_parentfolder</title>
+		<value>\data</value>
 	</var>
 	<var>
-		<name>cam_packetsize</name>
-		<title>cam_packetsize</title>
+		<name>cam_global_drive</name>
+		<title>cam_global_drive</title>
+		<value>D</value>
+	</var>
+	<var>
+		<name>cam_global_packetsize</name>
+		<title>cam_global_packetsize</title>
 		<value>9144</value>
 	</var>
 	<var>
-		<name>cam_offsetx</name>
-		<title>cam_offsetx</title>
+		<name>cam_global_offsetx</name>
+		<title>cam_global_offsetx</title>
 		<value>0</value>
 	</var>
 	<var>
-		<name>cam_offsety</name>
-		<title>cam_offsety</title>
+		<name>cam_global_offsety</name>
+		<title>cam_global_offsety</title>
 		<value>0</value>
 	</var>
 	<var>
-		<name>cam_width</name>
-		<title>cam_width</title>
+		<name>cam_global_width</name>
+		<title>cam_global_width</title>
 		<value>1024</value>
 	</var>
 	<var>
-		<name>cam_height</name>
-		<title>cam_height</title>
+		<name>cam_global_height</name>
+		<title>cam_global_height</title>
 		<value>768</value>
 	</var>
 	<var>
-		<name>cam_index</name>
-		<title>cam_index</title>
+		<name>cam_global_index</name>
+		<title>cam_global_index</title>
 		<value>0</value>
 	</var>
 	<var>
-		<name>cam_ip</name>
-		<title>cam_ip</title>
+		<name>cam_global_ip</name>
+		<title>cam_global_ip</title>
 		<value>10.0.0.20</value>
 	</var>
 	<var>
-		<name>cam_port</name>
-		<title>cam_port</title>
-		<value>6423</value>
+		<name>cam_global_port</name>
+		<title>cam_global_port</title>
+		<value>3363</value>
 	</var>
 	<var>
-		<name>cam_exposure</name>
-		<title>cam_exposure</title>
+		<name>cam_global_exposure</name>
+		<title>cam_global_exposure</title>
 		<value>300</value>
 	</var>
 	<var>
-		<name>cam_rawfps</name>
-		<title>cam_rawfps</title>
+		<name>cam_global_rawfps</name>
+		<title>cam_global_rawfps</title>
 		<value>1000</value>
 	</var>
 	<var>
-		<name>cam_servicename</name>
-		<title>cam_servicename</title>
+		<name>cam_global_protocol</name>
+		<title>cam_global_protocol</title>
+		<value>shoot</value>
+	</var>
+	<var>
+		<name>cam_global_service</name>
+		<title>cam_global_service</title>
 		<value>cam</value>
 	</var>
 	<var>
@@ -134,7 +144,7 @@
 	<var>
 		<name>ttm_global_port</name>
 		<title>ttm_global_port</title>
-		<value>8080</value>
+		<value>3363</value>
 	</var>
 	<var>
 		<name>ttm_creep_channel</name>

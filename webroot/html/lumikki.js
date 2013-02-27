@@ -77,7 +77,7 @@ $(function() {
 
 R_ECHO = "/cmd/echo.cgi";
 R_STATUS = "/cmd/status.cgi";
-R_RUN = "/cmd/runTarget.cgi";
+R_RUN = "/cmd/run.cgi";
 R_STATE = "/cmd/state.cgi";
 R_LOCK = "/cmd/lock.cgi";
 R_STOP = "/cmd/stop.cgi";
