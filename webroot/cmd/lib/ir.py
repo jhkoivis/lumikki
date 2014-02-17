@@ -11,9 +11,9 @@ def connectAndGetResponse(data):
         timeout = int(c.get('g_timeout'))
         connection = urlopen(req,timeout=timeout)
         response_json = loads(connection.read())
-        sys.stderr.write(str(connection) + '\n')
-        sys.stderr.write(str(response_json) + '\n')
-        sys.stderr.flush()
+        #sys.stderr.write(str(connection) + '\n')
+        #sys.stderr.write(str(response_json) + '\n')
+        #sys.stderr.flush()
         return response_json["status"]
     except URLError:
         return "110"
