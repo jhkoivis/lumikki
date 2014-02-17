@@ -78,7 +78,7 @@
 	<var>
 		<name>cam_global_exposure</name>
 		<title>cam_global_exposure</title>
-		<value>300</value>
+		<value>300000</value>
 	</var>
 	<var>
 		<name>cam_global_rawfps</name>
