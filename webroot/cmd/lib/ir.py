@@ -2,6 +2,7 @@ from urllib2 import urlopen, Request, URLError
 from json import dumps, loads
 from config import conf
 from lumilib import *
+import sys
 
 def connectAndGetResponse(data):
     c = conf()
@@ -10,6 +11,9 @@ def connectAndGetResponse(data):
         timeout = int(c.get('g_timeout'))
         connection = urlopen(req,timeout=timeout)
         response_json = loads(connection.read())
+        sys.stderr.write(str(connection) + '\n')
+        sys.stderr.write(str(response_json) + '\n')
+        sys.stderr.flush()
         return response_json["status"]
     except URLError:
         return "110"

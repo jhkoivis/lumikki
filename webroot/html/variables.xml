@@ -88,7 +88,7 @@
 	<var>
 		<name>cam_global_protocol</name>
 		<title>cam_global_protocol</title>
-		<value>shoot</value>
+		<value>protocol_shoot</value>
 	</var>
 	<var>
 		<name>cam_global_service</name>
@@ -284,12 +284,12 @@
 	<var>
 		<name>ae_freq</name>
 		<title>ae_freq</title>
-		<value>2000000</value>
+		<value>100000</value>
 	</var>
 	<var>
 		<name>ae_service</name>
 		<title>ae_service</title>
-		<value>aewebservice</value>
+		<value>ae</value>
 	</var>
 	<var>
 		<name>viewer_ttm_jsondata</name>

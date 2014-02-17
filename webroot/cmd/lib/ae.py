@@ -39,6 +39,18 @@ def stop():
 
 def status():
     c = conf()
+    sys.stderr.write("status from ae.py\n")
+    sys.stderr.write("ae_ip: %s\n" % (c.get('ae_ip')))
+    sys.stderr.write("ae_port: %s\n" % (c.get('ae_port')))
+    sys.stderr.write("ae_service: %s\n" % (c.get('ae_service')))
+#    try:
+#	from urllib2 import urlopen
+#        connection = urlopen('http://10.0.0.40/ae/ae_status', timeout=int(c.get('g_timeout')))
+#        sys.stderr.write('status from ae.py: %s' % (connection))
+#    except:
+#        sys.stderr.write('error')
+#        raise
+
     return device.labViewCommandGeneral(c.get('ae_ip'), 
 					c.get('ae_port'), 
 					c.get('ae_service'), 
