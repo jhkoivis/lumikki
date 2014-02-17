@@ -98,12 +98,12 @@
 	<var>
 		<name>ttm_tensile_rampamplitude</name>
 		<title>Tensile ramp amplitude [mm]</title>
-		<value>2</value>
+		<value>-1</value>
 	</var>
 	<var>
 		<name>ttm_tensile_ramprate</name>
 		<title>Tensile ramp rate [mm/s]</title>
-		<value>2</value>
+		<value>0.02</value>
 	</var>
 	<var>
 		<name>ttm_tensile_channel</name>
