@@ -17,6 +17,7 @@ def start():
     for key in keyList:
         sys.stderr.write(str(key[0:5])+ '\n')
         if (key[0:2] == 'g_') or (key[0:4] == 'cam_'):
+            sys.stderr.write(str(key))
             # lists and objects are not implemented in labview part
             # ',' and ':' are thus forbidden
             value = str(c.get(key))
@@ -24,7 +25,8 @@ def start():
             if ':' in dumps(value): continue
             if value.__class__ == [].__class__: continue
             data[key] = value
-
+    sys.stderr.write(str(data))
+    sys.stderr.flush()
     return device.labViewCommandPostJson(c.get('cam_global_ip'),
                                         c.get('cam_global_port'),
                                         c.get('cam_global_service'),

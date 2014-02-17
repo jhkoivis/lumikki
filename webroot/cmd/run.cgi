@@ -34,12 +34,12 @@ try:
         #ret = ttm.connectAndInitRamp()
         #ret = ttm.connectAndStartLogging()
         #ret = ttm.connectAndStartRamp()
-	    ret = ttm.connectAndStart()        
-	    msg = msg + "TTM: " + str(ret)
+	ret = ttm.connectAndStart()        
+	msg = msg + "TTM: " + str(ret)
         
     if active[mg.ae]:
         log("AE connect and send")
-        ret = ae.connectAndStart()
+        ret = ae.start()
         msg = msg + "AE: " + str(ret)
         
     if active[mg.ir]:
