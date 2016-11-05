@@ -19,7 +19,8 @@ The following steps need to be executed in the order they are presented. You mus
 
 Note! You should use **absolute** paths in `/prefix/directory`. You can get the absolute path of the directory (in which you currently are) with command `pwd`.
 
-**lighthttpd
+**lighthttpd**
+
 ```
 cd ~/src
 wget http://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.28.tar.bz2
@@ -30,7 +31,8 @@ make
 make install
 ```
 
-**libevent-2.0.10
+**libevent-2.0.10**
+
 ```
 cd ~/src
 wget http://monkey.org/~provos/libevent-2.0.10-stable.tar.gz
@@ -39,9 +41,10 @@ cd libevent-2.0.10-stable
 ./configure --prefix=/prefix/directory
 make
 make install
-```**
+```
 
-**memcached
+**memcached**
+
 ```
 cd ~/src
 wget http://memcached.googlecode.com/files/memcached-1.4.5.tar.gz
@@ -50,26 +53,27 @@ cd memcached-1.4.5
 ./configure --prefix=/prefix/directory
 make
 make install
-```**
+```
 
-**setuptools
+**setuptools**
+
 ```
 cd ~/src
 wget http://pypi.python.org/packages/2.6/s/setuptools/setuptools-0.6c11-py2.6.egg#md5=bfa92100bd772d5a213eedd356d64086
 mkdir -p /prefix/directory/lib/python2.6/site-packages
 export PYTHONPATH=$PYTHONPATH:/prefix/directory/lib/python2.6/site-packages
 sh setuptools-0.6c11-py2.6.egg --prefix=/prefix/directory
-```**
+```
 
-**memcached-py
+**memcached-py**
+
 ```
 cd ~/src
 wget ftp://ftp.tummy.com/pub/python-memcached/python-memcached-1.47.tar.gz
 tar xzvf python-memcached-1.47.tar.gz
 cd python-memcached-1.47
 python setup.py install --prefix=/prefix/directory
-```**
-
+```
 
 ## Configuring ##
 
