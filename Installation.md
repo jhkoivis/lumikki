@@ -28,7 +28,7 @@ cd lighttpd-1.4.28
 ./configure --prefix=/prefix/directory
 make
 make install
-```**
+```
 
 **libevent-2.0.10
 ```
