@@ -1,0 +1,113 @@
+<HTML>
+<HEAD>
+<TITLE>AEcollector.vi</TITLE>
+<META NAME="Author" CONTENT="">
+<META NAME="GENERATOR" CONTENT="G Development Environment">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<A NAME="AEcollector.vi"></A><H2>AEcollector.vi</H2>
+Collects, filters and writes the acoustic emission data to a file.
+<P></P>
+<P><IMG SRC="AEcollectorp.png" ALT="AEcollector.vi"></P>
+<P><IMG SRC="AEcollectord.png" ALT="AEcollector.vi"></P>
+<P><IMG SRC="AEcollectord4.png" ALT="AEcollector.vi"></P>
+<P><IMG SRC="AEcollectord6.png" ALT="AEcollector.vi"></P>
+<Table>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="AEcollector_vi_Instance_8i.png" ALT="AEcollector.vi:Instance:8"></P>
+</TD>
+<TD>
+<B><P>Convert from Dynamic Data</P>
+</B><P>Convert from Dynamic Data</P>
+<P>Converts the dynamic data type to numeric, Boolean, waveform, and array data types for use with other VIs and functions.</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="AEcollector_vi_Instance_0i.png" ALT="AEcollector.vi:Instance:0"></P>
+</TD>
+<TD>
+<B><P>Amplitude and Level Measurements</P>
+</B><P>Amplitude and Level Measurements</P>
+<P>Performs voltage measurements on a signal.</P>
+<P>--------------------</P>
+<P></P>
+<P>This Express VI is configured as follows:</P>
+<P></P>
+<P>Measurement: Peak to Peak</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="AEcollector_vi_Instance_5i.png" ALT="AEcollector.vi:Instance:5"></P>
+</TD>
+<TD>
+<B><P>Convert from Dynamic Data3</P>
+</B><P>Convert from Dynamic Data</P>
+<P>Converts the dynamic data type to numeric, Boolean, waveform, and array data types for use with other VIs and functions.</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="AEcollector_vi_Instance_15i.png" ALT="AEcollector.vi:Instance:15"></P>
+</TD>
+<TD>
+<B><P>Convert to Dynamic Data</P>
+</B><P>Convert to Dynamic Data</P>
+<P>Converts numeric, Boolean, waveform and array data types to the dynamic data type for use with Express VIs.</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="AEcollector_vi_Instance_14i.png" ALT="AEcollector.vi:Instance:14"></P>
+</TD>
+<TD>
+<B><P>Select Signals</P>
+</B><P>Select Signals</P>
+<P>Accepts multiple signals as inputs and returns only the signals you select. You can specify which signals to include in the output and change the order of the input signals.</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="AEcollector_vi_Instance_4i.png" ALT="AEcollector.vi:Instance:4"></P>
+</TD>
+<TD>
+<B><P>Statistics2</P>
+</B><P>Statistics</P>
+<P>Returns the selected parameter of the first signal in a waveform.</P>
+<P>--------------------</P>
+<P></P>
+<P>This Express VI is configured as follows:</P>
+<P></P>
+<P>This Express VI produces the following measurements:</P>
+<P>First Time</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="AEcollector_vi_Instance_6i.png" ALT="AEcollector.vi:Instance:6"></P>
+</TD>
+<TD>
+<B><P>Convert from Dynamic Data2</P>
+</B><P>Convert from Dynamic Data</P>
+<P>Converts the dynamic data type to numeric, Boolean, waveform, and array data types for use with other VIs and functions.</P>
+</TD>
+</TR>
+<TR valign=TOP>
+<TD>
+<P><IMG SRC="AEcollector_vi_Instance_1i.png" ALT="AEcollector.vi:Instance:1"></P>
+</TD>
+<TD>
+<B><P>DAQ Assistant</P>
+</B><P>DAQ Assistant</P>
+<P>Creates, edits, and runs tasks using NI-DAQmx. Refer to the NI-DAQmx Readme for a complete listing of devices NI-DAQmx supports.</P>
+<P></P>
+<P>When you place this Express VI on the block diagram, the DAQ Assistant launches to create a new task. After you create a task, you can double-click the DAQ Assistant Express VI to edit that task. For continuous measurement or generation, place a while loop around the DAQ Assistant Express VI.</P>
+<P></P>
+<P>For continuous single-point input or output, the DAQ Assistant Express VI might not provide optimal performance. Refer to the Cont Acq&amp;Graph Voltage-Single Point Optimization VI in examples\DAQmx\Analog In\Measure Voltage.llb for an example of techniques to create higher-performance, single-point I/O applications.</P>
+</TD>
+</TR>
+</Table>
+</BODY>
+</HTML>

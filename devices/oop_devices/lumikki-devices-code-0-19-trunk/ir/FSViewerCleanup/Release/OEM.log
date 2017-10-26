@@ -1,0 +1,381 @@
+[11:45:21:0243]  CRecording::Start
+[11:45:25:0425]  CRecording::Stop 4.182 s.
+[13:13:09:0442]  CRecording::Start
+[13:13:12:0481]  CRecording::Stop 3.038 s.
+[07:03:58:0087]  CRecording::Stop 1.27617e+006 s.
+[07:05:33:0159]  CRecording::Start
+[07:07:43:0743]  CRecording::Stop 130.584 s.
+[07:10:22:0647]  CRecording::Start
+[07:10:55:0519]  CRecording::Stop 32.872 s.
+[07:12:39:0031]  CRecording::Stop 136.383 s.
+[07:14:55:0199]  CRecording::Start
+[07:27:13:0880]  CRecording::Start
+[07:28:15:0871]  CRecording::Stop 61.991 s.
+[07:29:42:0919]  CRecording::Start
+[07:30:45:0736]  CRecording::Stop 62.817 s.
+[07:31:18:0936]  CRecording::Start
+[07:31:22:0000]  CRecording::Stop 3.064 s.
+[07:33:09:0096]  CRecording::Stop 110.159 s.
+[07:40:01:0208]  CRecording::Start
+[07:40:04:0767]  CRecording::Stop 3.559 s.
+[07:40:14:0752]  CRecording::Start
+[07:40:18:0143]  CRecording::Stop 3.391 s.
+[07:40:39:0567]  CRecording::Start
+[07:40:47:0208]  CRecording::Stop 7.641 s.
+[07:41:17:0503]  CRecording::Start
+[07:41:19:0327]  CRecording::Stop 1.824 s.
+[07:41:19:0864]  CRecording::Start
+[07:41:21:0616]  CRecording::Stop 1.753 s.
+[07:42:00:0592]  CRecording::Start
+[07:42:20:0855]  CRecording::Stop 20.263 s.
+[08:03:51:0695]  CRecording::Start
+[08:03:53:0320]  CRecording::Stop 1.623 s.
+[08:05:14:0151]  CRecording::Start
+[08:05:48:0167]  CRecording::Stop 34.015 s.
+[08:08:06:0304]  CRecording::Stop 172.152 s.
+[08:08:07:0727]  CRecording::Stop 173.575 s.
+[08:08:07:0871]  CRecording::Stop 173.719 s.
+[08:27:24:0576]  CRecording::Start
+[08:27:25:0816]  CRecording::Stop 1.24 s.
+[08:27:26:0464]  CRecording::Start
+[08:27:27:0816]  CRecording::Stop 1.352 s.
+[08:28:03:0824]  CRecording::Start
+[08:28:10:0200]  CRecording::Stop 6.376 s.
+[08:28:43:0272]  CRecording::Start
+[08:28:47:0775]  CRecording::Stop 4.503 s.
+[08:28:48:0447]  CRecording::Start
+[08:28:50:0839]  CRecording::Stop 2.392 s.
+[08:40:20:0362]  CRecording::Start
+[08:40:21:0960]  CRecording::Stop 1.598 s.
+[08:40:28:0584]  CRecording::Start
+[08:40:30:0792]  CRecording::Stop 2.208 s.
+[08:40:34:0943]  CRecording::Stop 6.36 s.
+[08:40:35:0431]  CRecording::Start
+[08:40:39:0104]  CRecording::Stop 3.672 s.
+[08:40:40:0040]  CRecording::Start
+[08:40:40:0600]  CRecording::Stop 0.56 s.
+[08:40:56:0480]  CRecording::Start
+[08:41:02:0040]  CRecording::Stop 5.56 s.
+[08:41:03:0072]  CRecording::Start
+[08:41:05:0864]  CRecording::Stop 2.792 s.
+[08:41:13:0096]  CRecording::Start
+[08:41:17:0784]  CRecording::Stop 4.688 s.
+[08:41:36:0152]  CRecording::Start
+[08:41:38:0056]  CRecording::Stop 1.904 s.
+[08:42:16:0784]  CRecording::Start
+[08:42:18:0287]  CRecording::Stop 1.504 s.
+[08:42:40:0176]  CRecording::Start
+[08:42:44:0544]  CRecording::Stop 4.368 s.
+[08:43:13:0935]  CRecording::Start
+[08:43:19:0896]  CRecording::Stop 5.96 s.
+[08:43:37:0288]  CRecording::Start
+[08:43:39:0752]  CRecording::Stop 2.464 s.
+[08:43:48:0327]  CRecording::Start
+[08:44:13:0104]  CRecording::Stop 24.776 s.
+[08:44:13:0576]  CRecording::Start
+[08:44:14:0936]  CRecording::Stop 1.36 s.
+[08:44:22:0519]  CRecording::Start
+[08:44:23:0887]  CRecording::Stop 1.368 s.
+[08:45:03:0224]  CRecording::Start
+[08:45:06:0136]  CRecording::Stop 2.912 s.
+[08:45:12:0791]  CRecording::Start
+[08:45:14:0271]  CRecording::Stop 1.48 s.
+[08:47:33:0328]  CRecording::Start
+[08:47:35:0992]  CRecording::Stop 2.664 s.
+[08:47:50:0056]  CRecording::Start
+[08:47:52:0120]  CRecording::Stop 2.064 s.
+[08:47:59:0807]  CRecording::Start
+[08:48:02:0016]  CRecording::Stop 2.208 s.
+[08:48:21:0856]  CRecording::Start
+[08:48:23:0416]  CRecording::Stop 1.56 s.
+[08:48:45:0840]  CRecording::Start
+[08:48:47:0248]  CRecording::Stop 1.408 s.
+[08:49:25:0375]  CRecording::Start
+[08:49:32:0440]  CRecording::Stop 7.064 s.
+[08:49:33:0568]  CRecording::Start
+[08:49:35:0264]  CRecording::Stop 1.696 s.
+[09:01:29:0080]  CRecording::Stop 1.28322e+006 s.
+[09:01:29:0864]  CRecording::Start
+[09:01:31:0127]  CRecording::Stop 1.263 s.
+[09:20:16:0952]  CRecording::Start
+[09:20:18:0695]  CRecording::Stop 1.743 s.
+[09:21:23:0448]  CRecording::Start
+[09:21:25:0671]  CRecording::Stop 2.223 s.
+[09:22:15:0592]  CRecording::Start
+[09:22:19:0200]  CRecording::Stop 3.608 s.
+[09:23:41:0088]  CRecording::Start
+[09:23:43:0432]  CRecording::Stop 2.343 s.
+[09:23:53:0751]  CRecording::Start
+[09:24:27:0824]  CRecording::Stop 34.072 s.
+[09:25:31:0136]  CRecording::Start
+[09:25:33:0280]  CRecording::Stop 2.143 s.
+[09:26:16:0680]  CRecording::Start
+[09:26:17:0664]  CRecording::Stop 0.983 s.
+[09:26:18:0590]  CRecording::Stop 1.909 s.
+[09:26:19:0214]  CRecording::Stop 2.533 s.
+[09:26:19:0998]  CRecording::Stop 3.317 s.
+[09:26:20:0528]  CRecording::Stop 3.847 s.
+[09:26:21:0550]  CRecording::Stop 4.869 s.
+[09:26:22:0552]  CRecording::Stop 5.871 s.
+[09:26:22:0704]  CRecording::Stop 6.023 s.
+[09:26:22:0832]  CRecording::Stop 6.151 s.
+[09:27:59:0889]  CRecording::Start
+[09:28:07:0952]  CRecording::Stop 8.063 s.
+[09:32:00:0656]  CRecording::Start
+[09:32:06:0064]  CRecording::Stop 5.407 s.
+[09:34:36:0360]  CRecording::Start
+[09:34:40:0592]  CRecording::Stop 4.232 s.
+[09:35:17:0656]  CRecording::Start
+[09:35:21:0184]  CRecording::Stop 3.528 s.
+[09:35:27:0272]  CRecording::Start
+[09:35:28:0992]  CRecording::Stop 1.72 s.
+[09:35:30:0232]  CRecording::Start
+[09:48:17:0848]  CRecording::Start
+[09:48:24:0993]  CRecording::Stop 7.143 s.
+[09:51:15:0432]  CRecording::Start
+[09:51:22:0488]  CRecording::Stop 7.055 s.
+[09:51:23:0192]  CRecording::Stop 7.759 s.
+[10:00:07:0680]  CRecording::Start
+[10:00:17:0352]  CRecording::Stop 9.671 s.
+[10:00:18:0928]  CRecording::Start
+[10:00:26:0168]  CRecording::Stop 7.241 s.
+[10:00:36:0040]  CRecording::Stop 17.112 s.
+[10:00:36:0672]  CRecording::Start
+[10:00:40:0512]  CRecording::Stop 3.841 s.
+[10:00:40:0848]  CRecording::Stop 4.177 s.
+[10:00:41:0008]  CRecording::Stop 4.337 s.
+[10:01:02:0281]  CRecording::Start
+[10:01:05:0488]  CRecording::Stop 3.207 s.
+[10:01:07:0112]  CRecording::Start
+[10:01:10:0432]  CRecording::Stop 3.32 s.
+[10:01:11:0408]  CRecording::Start
+[10:01:15:0440]  CRecording::Stop 4.033 s.
+[10:01:16:0440]  CRecording::Start
+[10:01:19:0569]  CRecording::Stop 3.128 s.
+[10:01:20:0569]  CRecording::Stop 4.128 s.
+[10:01:21:0456]  CRecording::Start
+[10:01:24:0480]  CRecording::Stop 3.023 s.
+[10:01:24:0872]  CRecording::Stop 3.415 s.
+[10:01:48:0688]  CRecording::Start
+[10:05:26:0003]  CRecording::Start
+[10:05:29:0769]  CRecording::Stop 3.765 s.
+[10:05:36:0888]  CRecording::Start
+[10:05:40:0656]  CRecording::Stop 3.768 s.
+[10:05:46:0080]  CRecording::Start
+[10:05:48:0801]  CRecording::Stop 2.72 s.
+[10:06:16:0912]  CRecording::Start
+[10:06:23:0489]  CRecording::Stop 6.576 s.
+[10:06:35:0240]  CRecording::Start
+[10:06:42:0024]  CRecording::Stop 6.783 s.
+[10:06:51:0848]  CRecording::Stop 16.608 s.
+[10:06:52:0736]  CRecording::Start
+[10:06:59:0984]  CRecording::Stop 7.247 s.
+[10:07:24:0336]  CRecording::Start
+[10:07:31:0096]  CRecording::Stop 6.76 s.
+[10:07:31:0481]  CRecording::Stop 7.144 s.
+[10:07:31:0625]  CRecording::Stop 7.288 s.
+[10:08:01:0936]  CRecording::Start
+[10:08:07:0457]  CRecording::Stop 5.52 s.
+[10:08:21:0232]  CRecording::Start
+[10:08:28:0448]  CRecording::Stop 7.215 s.
+[10:51:39:0869]  CRecording::Start
+[10:51:47:0612]  CRecording::Stop 7.743 s.
+[10:51:52:0468]  CRecording::Start
+[10:51:59:0724]  CRecording::Stop 7.256 s.
+[10:55:05:0628]  CRecording::Start
+[10:55:08:0005]  CRecording::Stop 2.376 s.
+[11:02:29:0924]  CRecording::Start
+[11:02:41:0468]  CRecording::Stop 11.542 s.
+[11:40:03:0101]  CRecording::Start
+[11:40:05:0509]  CRecording::Stop 2.409 s.
+[11:40:08:0892]  CRecording::Stop 5.792 s.
+[11:40:09:0180]  CRecording::Stop 6.08 s.
+[11:40:09:0340]  CRecording::Stop 6.24 s.
+[11:45:42:0300]  CRecording::Stop 339.2 s.
+[12:08:25:0589]  CRecording::Start
+[12:08:26:0485]  CRecording::Stop 0.896 s.
+[12:17:28:0293]  CRecording::Start
+[12:17:30:0260]  CRecording::Stop 1.967 s.
+[12:17:31:0388]  CRecording::Start
+[12:17:32:0853]  CRecording::Stop 1.464 s.
+[12:17:48:0388]  CRecording::Start
+[12:17:49:0693]  CRecording::Stop 1.304 s.
+[12:17:50:0461]  CRecording::Start
+[12:17:52:0317]  CRecording::Stop 1.857 s.
+[12:17:53:0045]  CRecording::Start
+[12:17:54:0853]  CRecording::Stop 1.808 s.
+[12:19:00:0045]  CRecording::Start
+[12:19:01:0653]  CRecording::Stop 1.609 s.
+[12:44:15:0781]  CRecording::Start
+[12:44:22:0493]  CRecording::Stop 6.711 s.
+[12:46:05:0357]  CRecording::Start
+[12:46:11:0173]  CRecording::Stop 5.816 s.
+[12:46:11:0389]  CRecording::Stop 6.032 s.
+[12:47:07:0005]  CRecording::Start
+[12:47:08:0173]  CRecording::Stop 1.167 s.
+[12:47:32:0549]  CRecording::Start
+[12:47:37:0605]  CRecording::Stop 5.056 s.
+[12:48:24:0733]  CRecording::Start
+[12:48:26:0885]  CRecording::Stop 2.152 s.
+[12:48:56:0317]  CRecording::Start
+[12:49:03:0429]  CRecording::Stop 7.112 s.
+[12:49:09:0845]  CRecording::Stop 13.528 s.
+[12:49:27:0389]  CRecording::Start
+[13:16:41:0149]  CRecording::Start
+[13:16:48:0493]  CRecording::Stop 7.343 s.
+[13:16:49:0477]  CRecording::Stop 8.327 s.
+[10:34:06:0989]  CRecording::Start
+[10:34:18:0124]  CRecording::Stop 11.135 s.
+[09:55:38:0237]  CRecording::Start
+[09:56:14:0107]  CRecording::Stop 35.87 s.
+[09:56:24:0899]  CRecording::Start
+[09:56:34:0739]  CRecording::Stop 9.841 s.
+[09:56:40:0820]  CRecording::Start
+[09:56:49:0803]  CRecording::Stop 8.983 s.
+[09:56:50:0987]  CRecording::Start
+[09:57:33:0028]  CRecording::Stop 42.039 s.
+[09:57:49:0700]  CRecording::Stop 58.711 s.
+[09:58:37:0771]  CRecording::Start
+[09:58:39:0235]  CRecording::Stop 1.464 s.
+[09:58:40:0203]  CRecording::Start
+[09:58:41:0492]  CRecording::Stop 1.288 s.
+[09:58:47:0539]  CRecording::Start
+[09:58:48:0787]  CRecording::Stop 1.248 s.
+[09:58:49:0491]  CRecording::Start
+[09:58:50:0363]  CRecording::Stop 0.872 s.
+[09:58:51:0835]  CRecording::Start
+[09:58:54:0523]  CRecording::Stop 2.689 s.
+[09:58:55:0875]  CRecording::Start
+[09:58:57:0299]  CRecording::Stop 1.424 s.
+[09:58:58:0524]  CRecording::Start
+[09:58:59:0452]  CRecording::Stop 0.927 s.
+[09:59:02:0011]  CRecording::Start
+[09:59:02:0515]  CRecording::Stop 0.504 s.
+[09:59:02:0891]  CRecording::Start
+[09:59:04:0139]  CRecording::Stop 1.248 s.
+[09:59:05:0035]  CRecording::Start
+[09:59:06:0075]  CRecording::Stop 1.04 s.
+[09:59:06:0691]  CRecording::Start
+[09:59:07:0499]  CRecording::Stop 0.808 s.
+[09:59:08:0171]  CRecording::Start
+[09:59:08:0707]  CRecording::Stop 0.536 s.
+[09:59:13:0267]  CRecording::Start
+[09:59:14:0123]  CRecording::Stop 0.856 s.
+[09:59:14:0843]  CRecording::Start
+[09:59:15:0876]  CRecording::Stop 1.032 s.
+[09:59:16:0532]  CRecording::Start
+[09:59:17:0412]  CRecording::Stop 0.879 s.
+[09:59:18:0364]  CRecording::Start
+[09:59:19:0123]  CRecording::Stop 0.759 s.
+[09:59:19:0883]  CRecording::Start
+[09:59:20:0499]  CRecording::Stop 0.616 s.
+[09:59:21:0051]  CRecording::Start
+[09:59:21:0683]  CRecording::Stop 0.631 s.
+[09:59:22:0331]  CRecording::Start
+[09:59:22:0947]  CRecording::Stop 0.616 s.
+[09:59:23:0627]  CRecording::Start
+[09:59:24:0211]  CRecording::Stop 0.584 s.
+[09:59:24:0803]  CRecording::Start
+[09:59:25:0419]  CRecording::Stop 0.616 s.
+[09:59:26:0043]  CRecording::Start
+[09:59:26:0691]  CRecording::Stop 0.648 s.
+[09:59:27:0563]  CRecording::Start
+[09:59:28:0227]  CRecording::Stop 0.665 s.
+[09:59:29:0075]  CRecording::Start
+[09:59:30:0195]  CRecording::Stop 1.12 s.
+[09:59:36:0140]  CRecording::Start
+[09:59:36:0947]  CRecording::Stop 0.807 s.
+[09:59:37:0963]  CRecording::Start
+[09:59:38:0635]  CRecording::Stop 0.672 s.
+[09:59:39:0347]  CRecording::Start
+[09:59:40:0051]  CRecording::Stop 0.704 s.
+[09:59:41:0139]  CRecording::Start
+[09:59:41:0971]  CRecording::Stop 0.832 s.
+[09:59:44:0515]  CRecording::Start
+[09:59:45:0427]  CRecording::Stop 0.913 s.
+[10:00:38:0547]  CRecording::Stop 54.033 s.
+[10:04:08:0491]  CRecording::Start
+[10:05:19:0067]  CRecording::Stop 70.576 s.
+[10:23:09:0516]  CRecording::Start
+[10:23:15:0339]  CRecording::Stop 5.824 s.
+[10:23:16:0619]  CRecording::Start
+[10:23:17:0699]  CRecording::Stop 1.08 s.
+[10:23:18:0363]  CRecording::Start
+[10:23:19:0395]  CRecording::Stop 1.032 s.
+[10:23:20:0003]  CRecording::Start
+[10:23:21:0035]  CRecording::Stop 1.032 s.
+[10:24:37:0091]  CRecording::Start
+[10:24:43:0123]  CRecording::Stop 6.032 s.
+[10:24:43:0891]  CRecording::Start
+[10:24:44:0859]  CRecording::Stop 0.968 s.
+[10:24:45:0739]  CRecording::Start
+[10:24:46:0771]  CRecording::Stop 1.032 s.
+[10:24:47:0203]  CRecording::Start
+[10:24:48:0075]  CRecording::Stop 0.872 s.
+[10:24:48:0571]  CRecording::Start
+[10:24:49:0548]  CRecording::Stop 0.976 s.
+[10:24:50:0284]  CRecording::Start
+[10:24:51:0524]  CRecording::Stop 1.24 s.
+[10:24:52:0308]  CRecording::Start
+[10:24:53:0540]  CRecording::Stop 1.232 s.
+[10:24:55:0099]  CRecording::Start
+[10:24:57:0339]  CRecording::Stop 2.239 s.
+[10:24:58:0379]  CRecording::Start
+[10:25:04:0323]  CRecording::Stop 5.945 s.
+[10:25:25:0596]  CRecording::Start
+[10:32:59:0636]  CRecording::Stop 454.04 s.
+[10:33:24:0131]  CRecording::Start
+[10:33:29:0595]  CRecording::Stop 5.464 s.
+[10:33:30:0371]  CRecording::Start
+[10:33:34:0540]  CRecording::Stop 4.168 s.
+[10:33:35:0116]  CRecording::Start
+[10:33:39:0028]  CRecording::Stop 3.912 s.
+[10:33:39:0763]  CRecording::Start
+[10:33:43:0603]  CRecording::Stop 3.84 s.
+[10:33:44:0107]  CRecording::Start
+[10:33:47:0867]  CRecording::Stop 3.76 s.
+[10:33:53:0372]  CRecording::Start
+[10:33:55:0972]  CRecording::Stop 2.6 s.
+[10:33:56:0532]  CRecording::Start
+[10:33:59:0115]  CRecording::Stop 2.583 s.
+[10:33:59:0659]  CRecording::Start
+[10:34:02:0435]  CRecording::Stop 2.776 s.
+[10:34:06:0907]  CRecording::Start
+[10:34:10:0388]  CRecording::Stop 3.48 s.
+[10:34:11:0708]  CRecording::Start
+[10:34:14:0676]  CRecording::Stop 2.967 s.
+[10:34:15:0435]  CRecording::Start
+[10:34:17:0523]  CRecording::Stop 2.087 s.
+[10:34:17:0915]  CRecording::Start
+[10:34:20:0475]  CRecording::Stop 2.561 s.
+[10:34:24:0235]  CRecording::Start
+[10:34:31:0875]  CRecording::Stop 7.639 s.
+[10:34:32:0459]  CRecording::Start
+[10:34:40:0115]  CRecording::Stop 7.656 s.
+[10:34:40:0635]  CRecording::Start
+[10:34:51:0323]  CRecording::Stop 10.687 s.
+[10:34:52:0283]  CRecording::Start
+[10:35:00:0876]  CRecording::Stop 8.593 s.
+[10:35:01:0436]  CRecording::Start
+[10:35:08:0843]  CRecording::Stop 7.407 s.
+[10:35:09:0891]  CRecording::Start
+[10:35:17:0219]  CRecording::Stop 7.329 s.
+[10:35:21:0444]  CRecording::Start
+[10:35:24:0723]  CRecording::Stop 3.279 s.
+[10:35:25:0315]  CRecording::Start
+[10:35:28:0115]  CRecording::Stop 2.799 s.
+[10:35:28:0739]  CRecording::Start
+[10:35:31:0155]  CRecording::Stop 2.416 s.
+[10:35:49:0755]  CRecording::Start
+[10:36:13:0084]  CRecording::Stop 23.328 s.
+[10:36:17:0075]  CRecording::Start
+[10:36:56:0115]  CRecording::Stop 39.04 s.
+[10:37:10:0435]  CRecording::Start
+[10:39:54:0027]  CRecording::Stop 163.592 s.
+[10:39:54:0931]  CRecording::Start
+[06:28:42:0969]  CRecording::Start
+[06:28:44:0112]  CRecording::Stop 1.127 s.
+[06:31:04:0248]  CRecording::Start
+[06:31:08:0871]  CRecording::Stop 4.623 s.
+[06:31:11:0648]  CRecording::Stop 7.4 s.
+[06:45:07:0480]  CRecording::Stop 500527 s.

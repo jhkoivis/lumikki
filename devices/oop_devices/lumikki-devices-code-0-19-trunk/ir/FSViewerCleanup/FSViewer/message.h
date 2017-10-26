@@ -1,0 +1,34 @@
+#define CONNECT 100
+#define DISCONNECT 200
+#define ISCONNECTED 300 // Deprecated
+#define AUTOFOCUS 400
+#define GETIMAGE 500
+#define GETIMAGESERIES 600
+#define SETFRAMERATE 700
+#define SETSTOPVALUE 800
+#define SETFILENAME 900
+#define STOPRECORDING 1000
+#define SETPATH 1100
+#define SETSTORECONDITION 1200
+#define SETSTOPCONDITION 1300
+#define SETSTARTCONDITION 1400
+#define SETSTARTVALUE 1500
+#define SETSTOREVALUE 1600
+#define SETRECORDFORMAT 1700
+#define STATUSQUERY 1800
+#define SIMULATETRIGGER 1900
+#define SETTRIGGERSOURCE 2000
+#define SETAUTOSHUTTER 2100
+#define SETIMAGECORRECTION 2200
+#define ENABLERECORDING 2300
+#define PRINTRECORDCONDITIONS 10 // For debugging purposes
+
+#define MAX_LENGTH 1000
+#define PIPENAME _T("\\\\.\\pipe\\StatusQueryPipe")
+
+struct statusQueryStruct
+{
+        short propertyId;
+		int status;
+};
+
