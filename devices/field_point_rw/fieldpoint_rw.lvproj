@@ -13,12 +13,9 @@
 		<Item Name="tests" Type="Folder">
 			<Item Name="messageClient.vi" Type="VI" URL="../tests/messageClient.vi"/>
 			<Item Name="messageServer.vi" Type="VI" URL="../tests/messageServer.vi"/>
-			<Item Name="test_click.vi" Type="VI" URL="../../field_point_rw/tests/test_click.vi"/>
 			<Item Name="test_init_and_run.vi" Type="VI" URL="../tests/test_init_and_run.vi"/>
 		</Item>
-		<Item Name="command_click.lvclass" Type="LVClass" URL="../command_click.lvclass"/>
-		<Item Name="command_generic.lvclass" Type="LVClass" URL="../../command/command_generic.lvclass"/>
-		<Item Name="protocol_canonM3.lvclass" Type="LVClass" URL="../protocol_canonM3.lvclass"/>
+		<Item Name="fieldpoint_rw.lvclass" Type="LVClass" URL="../fieldpoint_rw.lvclass"/>
 		<Item Name="Protocol_Generic.lvclass" Type="LVClass" URL="../../protocol_Generic/Protocol_Generic.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -36,15 +33,16 @@
 				<Item Name="eventvkey.ctl" Type="VI" URL="/&lt;vilib&gt;/event_ctls.llb/eventvkey.ctl"/>
 				<Item Name="Find Tag.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find Tag.vi"/>
 				<Item Name="Format Message String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Format Message String.vi"/>
-				<Item Name="FP Write (Boolean -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Boolean -IO).vi"/>
-				<Item Name="FP Write (Boolean Array -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Boolean Array -IO).vi"/>
-				<Item Name="FP Write (Boolean Array).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Boolean Array).vi"/>
-				<Item Name="FP Write (Boolean).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Boolean).vi"/>
-				<Item Name="FP Write (Float -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Float -IO).vi"/>
-				<Item Name="FP Write (Float Array -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Float Array -IO).vi"/>
-				<Item Name="FP Write (Float Array).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Float Array).vi"/>
-				<Item Name="FP Write (Float).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Float).vi"/>
-				<Item Name="FP Write (Polymorphic).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Polymorphic).vi"/>
+				<Item Name="FP Read (Boolean -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Boolean -IO).vi"/>
+				<Item Name="FP Read (Boolean Array -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Boolean Array -IO).vi"/>
+				<Item Name="FP Read (Boolean Array).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Boolean Array).vi"/>
+				<Item Name="FP Read (Boolean).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Boolean).vi"/>
+				<Item Name="FP Read (Float -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Float -IO).vi"/>
+				<Item Name="FP Read (Float Array -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Float Array -IO).vi"/>
+				<Item Name="FP Read (Float Array).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Float Array).vi"/>
+				<Item Name="FP Read (Float).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Float).vi"/>
+				<Item Name="FP Read (Polymorphic).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Polymorphic).vi"/>
+				<Item Name="FPLVMgr.dll" Type="Document" URL="/&lt;vilib&gt;/FieldPoint/SubVIs/FPLVMgr.dll"/>
 				<Item Name="General Error Handler Core CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler Core CORE.vi"/>
 				<Item Name="General Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler.vi"/>
 				<Item Name="Get LV Class Path.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Path.vi"/>
